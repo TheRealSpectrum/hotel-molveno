@@ -4,7 +4,7 @@
 
 ```js
 // Replace sail with ./vendor/bin/sail if you do not have an alias set up.
-sail composer install
+composer install
 sail up -d
 sail npm install
 ```
@@ -13,7 +13,7 @@ sail npm install
 
 ```js
 copy/paste .env.example and rename it to .env
-set DB_HOST=mysql
+set DB_HOST=mysql in .env
 `localhost:8080` and make a new database hotel_molveno
 sail artisan key:generate
 sail artisan migrate:fresh --seed
