@@ -14,3 +14,13 @@ set DB_HOST=mysql in .env
 sail artisan key:generate
 sail artisan migrate:fresh --seed
 ```
+
+## Linter
+
+This project makes use of <em>Prettier & ESLint</em> to check for problems and keeping code style consistent. There is also a pre-commit hook set up, this makes sure the code is checked for problems and code style before committing.
+
+**For this to work correctly we need to set the correct path for the pre-commit hook.**
+
+```bash
+git config core.hooksPath .githooks
+```
