@@ -27,6 +27,12 @@ git config core.hooksPath .githooks
 
 ## GitHub
 
+#### Resources
+
+[Commit message good practices](https://github.com/RomuloOliveira/commit-messages-guide#good-practices)
+[Creating pull requests](https://scotch.io/tutorials/creating-your-first-pull-request-in-github#toc-creating-the-pull-request)
+[Closing issues with commit messages](https://github.com/gitbucket/gitbucket/wiki/How-to-Close-Reference-issues-and-pull-request)
+
 _New feature example workflow:_
 
 ```bash
