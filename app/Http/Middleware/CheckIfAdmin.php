@@ -42,9 +42,15 @@ class CheckIfAdmin
     private function respondToUnauthorizedRequest($request)
     {
         if ($request->ajax() || $request->wantsJson()) {
+<<<<<<< HEAD
             return response(trans('backpack::base.unauthorized'), 401);
         } else {
             return redirect()->guest(backpack_url('login'));
+=======
+            return response(trans("backpack::base.unauthorized"), 401);
+        } else {
+            return redirect()->guest(backpack_url("login"));
+>>>>>>> main
         }
     }
 
@@ -62,7 +68,11 @@ class CheckIfAdmin
             return $this->respondToUnauthorizedRequest($request);
         }
 
+<<<<<<< HEAD
         if (! $this->checkIfUserIsAdmin(backpack_user())) {
+=======
+        if (!$this->checkIfUserIsAdmin(backpack_user())) {
+>>>>>>> main
             return $this->respondToUnauthorizedRequest($request);
         }
 
