@@ -65,6 +65,10 @@ class RoomCrudController extends CrudController
         CRUD::field("is_clean");
         CRUD::field("max_guests");
         CRUD::field("roomtype_id");
+        CRUD::field("Address input preview")->type("address_algolia");
+        CRUD::field("Editor input preview")->type("ckeditor");
+        CRUD::field("Date range input preview")->type("date_range");
+        CRUD::field("Image input preview")->type("image");
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
