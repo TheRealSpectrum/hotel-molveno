@@ -26,8 +26,10 @@ class RoomRequest extends FormRequest
     public function rules()
     {
         return [
-                // 'name' => 'required|min:5|max:255'
-            ];
+            "room_number" => "required",
+            "is_clean" => "nullable",
+            "max_guests" => "required",
+        ];
     }
 
     /**
