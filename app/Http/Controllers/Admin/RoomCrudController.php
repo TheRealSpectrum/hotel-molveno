@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\RoomRequest;
+use App\Http\Requests\CreateRoomRequest;
+use App\Http\Requests\UpdateRoomRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -59,7 +60,7 @@ class RoomCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(RoomRequest::class);
+        CRUD::setValidation(CreateRoomRequest::class);
 
         CRUD::field("room_number");
         CRUD::field("is_clean");
@@ -86,5 +87,6 @@ class RoomCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+        CRUD::setValidation(UpdateRoomRequest::class);
     }
 }
