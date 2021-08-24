@@ -13,13 +13,13 @@ class CreateGuestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('guests', function (Blueprint $table) {
+        Schema::create("guests", function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email');
-            $table->string('address');
-            $table->string('phone');
+            $table->string("first_name");
+            $table->string("last_name");
+            $table->string("email");
+            $table->string("address");
+            $table->string("phone");
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateGuestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guests');
+        Schema::dropIfExists("guests");
     }
 }

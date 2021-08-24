@@ -21,40 +21,40 @@ class GuestCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
     {
         CRUD::setModel(\App\Models\Guest::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/guest');
-        CRUD::setEntityNameStrings('guest', 'guests');
+        CRUD::setRoute(config("backpack.base.route_prefix") . "/guest");
+        CRUD::setEntityNameStrings("guest", "guests");
     }
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
-        CRUD::column('first_name');
-        CRUD::column('last_name');
-        CRUD::column('email');
-        CRUD::column('address');
-        CRUD::column('phone');
+        CRUD::column("first_name");
+        CRUD::column("last_name");
+        CRUD::column("email");
+        CRUD::column("address");
+        CRUD::column("phone");
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
          */
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -62,22 +62,22 @@ class GuestCrudController extends CrudController
     {
         CRUD::setValidation(GuestRequest::class);
 
-        CRUD::field('first_name');
-        CRUD::field('last_name');
-        CRUD::field('email');
-        CRUD::field('address');
-        CRUD::field('phone');
+        CRUD::field("first_name");
+        CRUD::field("last_name");
+        CRUD::field("email");
+        CRUD::field("address");
+        CRUD::field("phone");
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
+         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
          */
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */

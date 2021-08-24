@@ -16,11 +16,11 @@ class Guest extends Model
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'email',
-        'address',
-        'phone',
+        "first_name",
+        "last_name",
+        "email",
+        "address",
+        "phone",
     ];
 
     /**
@@ -29,6 +29,6 @@ class Guest extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        "id" => "integer",
     ];
 }
