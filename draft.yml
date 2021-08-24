@@ -1,15 +1,9 @@
 models:
-  Models/Room:
-    room_number: integer
-    is_clean: boolean
-    max_guests: integer
-    roomtype_id: id foreign
+  Models/Guest:
+    first_name: string
+    last_name: string
+    email: string
+    address: string
+    phone: string
 
-  Models/Roomtype:
-    name: string
-    price: integer
-    room_surface: integer
-    relationships:
-      hasMany: Room
-
-seeders: Room, Roomtype
+seeders: Guest
