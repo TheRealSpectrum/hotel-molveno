@@ -4,17 +4,16 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Room;
 use App\Models\Roomtype;
 
-class RoomFactory extends Factory
+class RoomtypeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Room::class;
+    protected $model = Roomtype::class;
 
     /**
      * Define the model's default state.
@@ -24,10 +23,9 @@ class RoomFactory extends Factory
     public function definition()
     {
         return [
-            "room_number" => $this->faker->numberBetween(-10000, 10000),
-            "is_clean" => $this->faker->boolean,
-            "max_guests" => $this->faker->numberBetween(-10000, 10000),
-            "roomtype_id" => Roomtype::factory(),
+            "name" => $this->faker->name,
+            "price" => $this->faker->numberBetween(40, 120),
+            "room_surface" => $this->faker->numberBetween(20, 60),
         ];
     }
 }
