@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class RoomRequest extends FormRequest
+class GuestRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,10 +26,8 @@ class RoomRequest extends FormRequest
     public function rules()
     {
         return [
-            "room_number" => "required",
-            "is_clean" => "nullable",
-            "max_guests" => "required",
-        ];
+                // 'name' => 'required|min:5|max:255'
+            ];
     }
 
     /**

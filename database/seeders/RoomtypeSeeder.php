@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Roomtype;
+use App\Models\Roomtype;
 use Illuminate\Database\Seeder;
 
 class RoomtypeSeeder extends Seeder
@@ -14,8 +14,6 @@ class RoomtypeSeeder extends Seeder
      */
     public function run()
     {
-        Roomtype::factory()
-            ->count(5)
-            ->create();
+        Roomtype::factory();
     }
 }

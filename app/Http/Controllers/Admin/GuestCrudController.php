@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CreateRoomRequest;
-use App\Http\Requests\UpdateRoomRequest;
+use App\Http\Requests\GuestRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class RoomCrudController
+ * Class GuestCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class RoomCrudController extends CrudController
+class GuestCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -27,9 +26,9 @@ class RoomCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Room::class);
-        CRUD::setRoute(config("backpack.base.route_prefix") . "/room");
-        CRUD::setEntityNameStrings("room", "rooms");
+        CRUD::setModel(\App\Models\Guest::class);
+        CRUD::setRoute(config("backpack.base.route_prefix") . "/guest");
+        CRUD::setEntityNameStrings("guest", "guests");
     }
 
     /**
@@ -40,10 +39,11 @@ class RoomCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column("room_number");
-        CRUD::column("is_clean");
-        CRUD::column("max_guests");
-        CRUD::column("roomtype_id");
+        CRUD::column("first_name");
+        CRUD::column("last_name");
+        CRUD::column("email");
+        CRUD::column("address");
+        CRUD::column("phone");
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -60,16 +60,13 @@ class RoomCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(CreateRoomRequest::class);
+        CRUD::setValidation(GuestRequest::class);
 
-        CRUD::field("room_number");
-        CRUD::field("is_clean");
-        CRUD::field("max_guests");
-        CRUD::field("roomtype_id");
-        CRUD::field("Address input preview")->type("address_algolia");
-        CRUD::field("Editor input preview")->type("ckeditor");
-        CRUD::field("Date range input preview")->type("date_range");
-        CRUD::field("Image input preview")->type("image");
+        CRUD::field("first_name");
+        CRUD::field("last_name");
+        CRUD::field("email");
+        CRUD::field("address");
+        CRUD::field("phone");
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -87,6 +84,5 @@ class RoomCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-        CRUD::setValidation(UpdateRoomRequest::class);
     }
 }

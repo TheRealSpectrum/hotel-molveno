@@ -24,8 +24,8 @@ class RoomtypeFactory extends Factory
     {
         return [
             "name" => $this->faker->name,
-            "price" => $this->faker->numberBetween(-10000, 10000),
-            "room_surface" => $this->faker->numberBetween(-10000, 10000),
+            "price" => $this->faker->numberBetween(40, 120),
+            "room_surface" => $this->faker->numberBetween(20, 60),
         ];
     }
 }
