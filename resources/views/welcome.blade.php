@@ -15,11 +15,11 @@
 
 </head>
 
-<body>
+<body class="max-w-full">
   <header>
-      <div>
+      <div class="flex flex-row justify-between p-6">
       <img src="/images/logo.jpg">
-        <ul>
+        <ul class="flex flex-row text-indigo-800 justify-between">
             <li>Kamers</li>
             <li>Faciliteiten</li>
             <li>Galerij</li>
@@ -27,8 +27,10 @@
             <li>Locatie</li>
             <li>Contact</li>
         </ul>
-        <button>Log in</button>
-        <button>Registreer </button>
+        <div>
+            <button>Log in</button>
+            <button>Registreer </button>
+        </div>
     </div>
   </header>
 
