@@ -6,6 +6,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Guest;
+use App\Models\Room;
 
 class Reservation extends Model
 {
@@ -35,6 +36,6 @@ class Reservation extends Model
 
     public function room()
     {
-        return $this->belongsToMany(Room::class);
+        return $this->belongsTo(Room::class);
     }
 }
