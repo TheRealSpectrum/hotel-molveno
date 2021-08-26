@@ -7,36 +7,47 @@
 
   <title>Molveno resort</title>
 
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 
-<body class="max-w-full">
+<body>
   <header>
-      <div class="flex flex-row justify-between p-6">
-      <img src="/images/logo.jpg" class="h-7 sm:h-8">
-        <ul class="flex flex-row space-x-4 text-indigo-800">
-            <li>Kamers</li>
-            <li>Faciliteiten</li>
-            <li>Galerij</li>
-            <li>Restaurant </li>
-            <li>Locatie</li>
-            <li>Contact</li>
-        </ul>
+    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <svg class="fill-current h-8 w-8 mr-2"></svg>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+            Kamers
+        </a>
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+            Faciliteiten
+        </a>
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+            Galerij
+        </a>
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+            Restraurant
+        </a>
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+            Locatie
+        </a>
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600">
+            Contact
+        </a>
+        </div>
         <div>
-            <button>Log in</button>
-            <button>Registreer </button>
+        <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-blue border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Log in</a>
+        <a href="#" class="inline-block text-sm px-4 py-2 bg-blue-500 leading-none border rounded text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Registreer</a>
         </div>
     </div>
-  </header>
+    </nav>
 
   <main>
       <div class="main1">
-          <img src="/images/mountains.jpg" class="h-400px">
+      <div class="bg-cover bg-center" style="background-image: url(images/mountains.jpg)"></div>
           <div class="grid grid-cols-3">
               <div>
                 <h1>Molveno resort</h1>
@@ -170,6 +181,5 @@
           </div>
       </div>
   </footer>
-  <script src="js/scripts.js"></script>
 </body>
 </html>
