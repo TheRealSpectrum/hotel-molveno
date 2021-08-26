@@ -11,3 +11,5 @@ package-lock.json
 config/
 routes/backpack/
 app/Http/Middleware/CheckIfAdmin.php
+webpack.mix.js
+tailwind.config.js
