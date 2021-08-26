@@ -61,10 +61,15 @@ class ReservationCrudController extends CrudController
     {
         CRUD::setValidation(ReservationRequest::class);
 
-        CRUD::column("check_in");
-        CRUD::column("check_out");
-        CRUD::column("guest_id");
-        CRUD::column("room_id");
+        CRUD::field("guest_id");
+
+        $this->crud->addField([
+            "name" => ["check_in", "check_out"],
+            "label" => "Check-in and Check-out",
+            "type" => "date_range",
+        ]);
+
+        CRUD::field("room_id");
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
