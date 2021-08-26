@@ -18,8 +18,8 @@
 <body class="max-w-full">
   <header>
       <div class="flex flex-row justify-between p-6">
-      <img src="/images/logo.jpg">
-        <ul class="flex flex-row text-indigo-800 justify-between">
+      <img src="/images/logo.jpg" class="h-7 sm:h-8">
+        <ul class="flex flex-row space-x-4 text-indigo-800">
             <li>Kamers</li>
             <li>Faciliteiten</li>
             <li>Galerij</li>
@@ -36,8 +36,8 @@
 
   <main>
       <div class="main1">
-          <svg></svg>
-          <div>
+          <img src="/images/mountains.jpg" class="h-400px">
+          <div class="grid grid-cols-3">
               <div>
                 <h1>Molveno resort</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
