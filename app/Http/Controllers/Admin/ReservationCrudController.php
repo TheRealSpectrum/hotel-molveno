@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CreateRoomRequest;
-use App\Http\Requests\UpdateRoomRequest;
+use App\Http\Requests\ReservationRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class RoomCrudController
+ * Class ReservationCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class RoomCrudController extends CrudController
+class ReservationCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -27,9 +26,9 @@ class RoomCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Room::class);
-        CRUD::setRoute(config("backpack.base.route_prefix") . "/room");
-        CRUD::setEntityNameStrings("room", "rooms");
+        CRUD::setModel(\App\Models\Reservation::class);
+        CRUD::setRoute(config("backpack.base.route_prefix") . "/reservation");
+        CRUD::setEntityNameStrings("reservation", "reservations");
     }
 
     /**
@@ -40,10 +39,10 @@ class RoomCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column("room_number");
-        CRUD::column("is_clean");
-        CRUD::column("max_guests");
-        CRUD::column("roomtype_id");
+        CRUD::column("check_in");
+        CRUD::column("check_out");
+        CRUD::column("guest_id");
+        CRUD::column("room_id");
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -60,12 +59,17 @@ class RoomCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(CreateRoomRequest::class);
+        CRUD::setValidation(ReservationRequest::class);
 
-        CRUD::field("room_number");
-        CRUD::field("is_clean");
-        CRUD::field("max_guests");
-        CRUD::field("roomtype_id");
+        CRUD::field("guest_id");
+
+        $this->crud->addField([
+            "name" => ["check_in", "check_out"],
+            "label" => "Check-in and Check-out",
+            "type" => "date_range",
+        ]);
+
+        CRUD::field("room_id");
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -83,6 +87,5 @@ class RoomCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-        CRUD::setValidation(UpdateRoomRequest::class);
     }
 }
