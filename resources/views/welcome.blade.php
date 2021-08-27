@@ -15,12 +15,11 @@
   <header>
     <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <img src="images/Logo Molveno Resort Black.svg" alt="Molveno Resort Logo" class="fill-current h-20 w-20 mr-10 ml-10">
-        <!-- <svg class="fill-current h-8 w-8 mr-2"></svg>-->
+        <img src="images/Logo Molveno Resort Black.svg" alt="Molveno Resort Logo" class="fill-current h-12 w-12 mr-10 ml-10">
     </div>
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
-        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+        <a href="#rooms" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
             Kamers
         </a>
         <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
@@ -67,7 +66,7 @@
               </div>
           </div>
       </div>
-      <div class="main2">
+      <div class="main2" id="rooms">
           <div class="flex justify-center">
             <div class="h-2/4 w-2/4">
                 <h1 class="text-center m-10 font-medium capitalize text-4xl">Onze kamers</h1>
@@ -82,31 +81,33 @@
           </div>
       </div>
       <div class="main3">
-        <div class="relative">
-            <img src="https://www.imperial-hotel-copenhagen.com/-/media/imperial/7-lounge-og-pejsestue/imperial-hotel-pejsestue-1.jpg?cw=3540&ch=2076&cx=0.5&cy=0.5">
-                <div class="absolute">
-                <h1>Hotel faciliteiten</h1>
-                    <div>
-                        <ul>
-                            <li>Wifi</li>
-                            <li>Parkeren bij het hotel</li>
-                            <li>Airconditioning</li>
-                            <li>Zwembad</li>
-                            <li>Sauna(VIP)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>Wifi</li>
-                            <li>Parkeren bij het hotel</li>
-                            <li>Airconditioning</li>
-                            <li>Zwembad</li>
-                            <li>Sauna(VIP)</li>
-                        </ul>
-                    </div>
+        <div class="relative h-96 overflow-hidden">
+            <img class="absolute w-full -top-60" src="https://www.imperial-hotel-copenhagen.com/-/media/imperial/7-lounge-og-pejsestue/imperial-hotel-pejsestue-1.jpg?cw=3540&ch=2076&cx=0.5&cy=0.5">
+            <div class="absolute flex justify-center">
+                <h1 class="text-white">Hotel faciliteiten</h1>
+            </div>
+            <div class="absolute flex flex-row">
+                <div>
+                    <ul>
+                        <li class="text-white">Wifi</li>
+                        <li class="text-white">Parkeren bij het hotel</li>
+                        <li class="text-white">Airconditioning</li>
+                        <li class="text-white">Zwembad</li>
+                        <li class="text-white">Sauna(VIP)</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li class="text-white">Wifi</li>
+                        <li class="text-white">Parkeren bij het hotel</li>
+                        <li class="text-white">Airconditioning</li>
+                        <li class="text-white">Zwembad</li>
+                        <li class="text-white">Sauna(VIP)</li>
+                    </ul>
                 </div>
             </div>
         </div>
+      </div>
       <div class="main4">
           <h1>De omgeving</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
