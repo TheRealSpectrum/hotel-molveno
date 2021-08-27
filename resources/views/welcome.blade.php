@@ -7,87 +7,106 @@
 
   <title>Molveno resort</title>
 
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 
-<body class="max-w-full">
+<body>
   <header>
-      <div class="flex flex-row justify-between p-6">
-      <img src="/images/logo.jpg" class="h-7 sm:h-8">
-        <ul class="flex flex-row space-x-4 text-indigo-800">
-            <li>Kamers</li>
-            <li>Faciliteiten</li>
-            <li>Galerij</li>
-            <li>Restaurant </li>
-            <li>Locatie</li>
-            <li>Contact</li>
-        </ul>
+    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <img src="images/Logo Molveno Resort Black.svg" alt="Molveno Resort Logo" class="fill-current h-20 w-20 mr-10 ml-10">
+        <!-- <svg class="fill-current h-8 w-8 mr-2"></svg>-->
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+            Kamers
+        </a>
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+            Faciliteiten
+        </a>
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+            Galerij
+        </a>
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+            Restraurant
+        </a>
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+            Locatie
+        </a>
+        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600">
+            Contact
+        </a>
+        </div>
         <div>
-            <button>Log in</button>
-            <button>Registreer </button>
+        <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-blue border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Log in</a>
+        <a href="#" class="inline-block text-sm px-4 py-2 bg-blue-500 leading-none border rounded text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Registreer</a>
         </div>
     </div>
-  </header>
+    </nav>
 
   <main>
       <div class="main1">
-          <img src="/images/mountains.jpg" class="h-400px">
-          <div class="grid grid-cols-3">
-              <div>
-                <h1>Molveno resort</h1>
+      <div class="h-96 w-full overflow-hidden relative">
+          <img src="images/mountains.jpg" alt="mountain side" class="absolute -top-60">
+      </div>
+          <div class="grid grid-cols-3 bg-gray-100">
+              <div class="m-10">
+                <h1 class="mb-10 font-medium capitalize text-4xl">Molveno resort</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
               </div>
-              <div>
-                <h1>Omgeving</h1>
+              <div class="m-10">
+                <h1 class="mb-10 font-medium capitalize text-4xl">Omgeving</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
               </div>
-              <div>
-                <h1>Activiteiten</h1>
+              <div class="m-10">
+                <h1 class="mb-10 font-medium capitalize text-4xl">Activiteiten</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
+                <a href="#" class="inline-block text-sm px-4 py-2 bg-blue-500 leading-none border rounded text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-10">Boek nu</a>
               </div>
           </div>
       </div>
       <div class="main2">
-          <div>
-              <h1>Onze kamers</h1>
-              <h3>Kamer optie 1</h3>
-              <svg></svg>
+          <div class="flex justify-center">
+            <div class="h-2/4 w-2/4">
+                <h1 class="text-center m-10 font-medium capitalize text-4xl">Onze kamers</h1>
+                <h3 class="text-center font-medium">Kamer optie 1</h3>
+                <img src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
+            </div>
           </div>
-          <div>
-              <svg></svg>
-              <svg></svg>
-              <svg></svg>
+          <div class="grid grid-cols-3 mr-16 ml-16 mb-16">
+              <img class="p-5" src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
+              <img class="p-5" src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
+              <img class="p-5" src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
           </div>
       </div>
       <div class="main3">
-        <svg></svg>
-        <h1>Hotel faciliteiten</h1>
-        <div>
-            <div>
-                <ul>
-                    <li>Wifi</li>
-                    <li>Parkeren bij het hotel</li>
-                    <li>Airconditioning</li>
-                    <li>Zwembad</li>
-                    <li>Sauna(VIP)</li>
-                </ul>
-            </div>
-            <div>
-                <ul>
-                    <li>Wifi</li>
-                    <li>Parkeren bij het hotel</li>
-                    <li>Airconditioning</li>
-                    <li>Zwembad</li>
-                    <li>Sauna(VIP)</li>
-                </ul>
+        <div class="relative">
+            <img src="https://www.imperial-hotel-copenhagen.com/-/media/imperial/7-lounge-og-pejsestue/imperial-hotel-pejsestue-1.jpg?cw=3540&ch=2076&cx=0.5&cy=0.5">
+                <div class="absolute">
+                <h1>Hotel faciliteiten</h1>
+                    <div>
+                        <ul>
+                            <li>Wifi</li>
+                            <li>Parkeren bij het hotel</li>
+                            <li>Airconditioning</li>
+                            <li>Zwembad</li>
+                            <li>Sauna(VIP)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Wifi</li>
+                            <li>Parkeren bij het hotel</li>
+                            <li>Airconditioning</li>
+                            <li>Zwembad</li>
+                            <li>Sauna(VIP)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
       <div class="main4">
           <h1>De omgeving</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
@@ -170,6 +189,5 @@
           </div>
       </div>
   </footer>
-  <script src="js/scripts.js"></script>
 </body>
 </html>
