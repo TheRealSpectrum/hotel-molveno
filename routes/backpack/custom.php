@@ -18,4 +18,6 @@ Route::group([
     Route::crud('roomtype', 'RoomtypeCrudController');
     Route::crud('guest', 'GuestCrudController');
     Route::crud('reservation', 'ReservationCrudController');
+    Route::get("api/room", "Api\FindRoomController@index");
+    Route::get("api/room/{id}", "Api\FindRoomController@show");
 }); // this should be the absolute last line of this file

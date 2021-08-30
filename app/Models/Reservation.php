@@ -18,7 +18,7 @@ class Reservation extends Model
      *
      * @var array
      */
-    protected $fillable = ["check_in", "check_out", "guest_id", "room_id"];
+    protected $fillable = ["guest_id", "room_id", "check_in", "check_out"];
 
     /**
      * The attributes that should be cast to native types.
@@ -27,6 +27,10 @@ class Reservation extends Model
      */
     protected $casts = [
         "id" => "integer",
+        "guest_id" => "integer",
+        "room_id" => "integer",
+        "check_in" => "date",
+        "check_out" => "date",
     ];
 
     public function guest()
