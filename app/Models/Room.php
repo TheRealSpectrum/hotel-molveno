@@ -37,4 +37,9 @@ class Room extends Model
     {
         return $this->belongsTo(\App\Models\Roomtype::class);
     }
+
+    public function reservations()
+    {
+        return $this->belongsToMany(\App\Models\Reservation::class);
+    }
 }

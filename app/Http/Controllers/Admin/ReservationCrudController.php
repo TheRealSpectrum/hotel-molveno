@@ -42,6 +42,7 @@ class ReservationCrudController extends CrudController
         CRUD::column("check_in");
         CRUD::column("check_out");
         CRUD::column("guest_id");
+        CRUD::column("amount");
         CRUD::column("room_id");
 
         /**
@@ -63,13 +64,23 @@ class ReservationCrudController extends CrudController
 
         CRUD::field("guest_id");
 
+        CRUD::field("amount");
+
+        $this->crud->addField([
+            "type" => "select2_multiple",
+            "name" => "rooms", // the relationship name in your Model
+            "entity" => "rooms", // the relationship name in your Model
+            "attribute" => "room_number", // attribute on Article that is shown to admin
+            "pivot" => true, // on create&update, do you need to add/delete pivot table entries?
+        ]);
+
         $this->crud->addField([
             "name" => ["check_in", "check_out"],
             "label" => "Check-in and Check-out",
             "type" => "date_range",
         ]);
 
-        CRUD::field("room_id");
+        // dd(request());
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
