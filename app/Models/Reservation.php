@@ -18,11 +18,13 @@ class Reservation extends Model
      *
      * @var array
      */
-<<<<<<< HEAD
-    protected $fillable = ["check_in", "check_out", "guest_id", "amount"];
-=======
-    protected $fillable = ["guest_id", "room_id", "check_in", "check_out"];
->>>>>>> 23a3fc87dca09a0f4edfa1642e3f4422438ee3ec
+    protected $fillable = [
+        "guest_id",
+        "room_id",
+        "check_in",
+        "check_out",
+        "amount",
+    ];
 
     /**
      * The attributes that should be cast to native types.
