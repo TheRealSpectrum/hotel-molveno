@@ -46,6 +46,9 @@ class Reservation extends Model
 
     public function rooms()
     {
-        return $this->belongsToMany(Room::class, "reservation_room");
+        return $this->belongsToMany(
+            \App\Models\Room::class,
+            "reservation_room"
+        );
     }
 }
