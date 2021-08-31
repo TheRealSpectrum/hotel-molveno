@@ -47,6 +47,28 @@ class ReservationCrudController extends CrudController
             ->type("relationship")
             ->name("rooms");
 
+        $this->crud->addColumn([
+            // Select
+            "label" => "Guest",
+            "type" => "select",
+            "name" => "guest_id", // the db column for the foreign key
+            "entity" => "guest", // the method that defines the relationship in your Model
+            "attribute" => "first_name", // foreign key attribute that is shown to user
+            "model" => "App\Models\Guest",
+            "orderable" => true,
+            "orderLogic" => function ($query, $column, $columnDirection) {
+                return $query
+                    ->leftJoin(
+                        "guests",
+                        "guests.id",
+                        "=",
+                        "reservations.guest_id"
+                    )
+                    ->orderBy("guests.first_name", $columnDirection)
+                    ->select("reservations.*");
+            },
+        ]);
+
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
