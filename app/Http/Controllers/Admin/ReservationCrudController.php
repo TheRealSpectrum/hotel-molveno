@@ -63,19 +63,27 @@ class ReservationCrudController extends CrudController
 
         CRUD::field("guest_id");
 
+        CRUD::field("check_in")
+            ->type("date_picker")
+            ->date_picker_options(["todayBtn" => "linked"])
+            ->wrapper(["class" => "form-group col-md-6"]);
+        CRUD::field("check_out")
+            ->type("date_picker")
+            ->date_picker_options(["todayBtn" => "linked"])
+            ->wrapper(["class" => "form-group col-md-6"]);
+
         $this->crud->addField([
-            "name" => ["check_in", "check_out"],
-            "label" => "Check-in and Check-out",
-            "type" => "date_range",
+            "label" => "Room number", // Table column heading
+            "type" => "select2_from_ajax",
+            "name" => "room_id", // the column that contains the ID of that connected entity;
+            "entity" => "room", // the method that defines the relationship in your Model
+            "attribute" => "room_number", // foreign key attribute that is shown to user
+            "data_source" => url("/admin/api/room"), // url to controller search function (with /{id} should return model)
+            "placeholder" => "Select Room(s)", // placeholder for the select
+            "include_all_form_fields" => true, //sends the other form fields along with the request so it can be filtered.
+            "minimum_input_length" => 0, // minimum characters to type before querying results
+            "dependencies" => ["check_in", "check_out"], // when a dependency changes, this select2 is reset to null
         ]);
-
-        CRUD::field("room_id");
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
-         */
     }
 
     /**
