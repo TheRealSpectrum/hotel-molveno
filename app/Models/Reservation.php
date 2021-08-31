@@ -18,7 +18,13 @@ class Reservation extends Model
      *
      * @var array
      */
-    protected $fillable = ["guest_id", "room_id", "check_in", "check_out"];
+    protected $fillable = [
+        "guest_id",
+        "room_id",
+        "check_in",
+        "check_out",
+        "amount",
+    ];
 
     /**
      * The attributes that should be cast to native types.
@@ -38,8 +44,11 @@ class Reservation extends Model
         return $this->belongsTo(Guest::class);
     }
 
-    public function room()
+    public function rooms()
     {
-        return $this->belongsTo(Room::class);
+        return $this->belongsToMany(
+            \App\Models\Room::class,
+            "reservation_room"
+        );
     }
 }
