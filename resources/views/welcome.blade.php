@@ -41,8 +41,8 @@
         </a>
         </div>
         <div>
-        <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-blue border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Log in</a>
-        <a href="#" class="inline-block text-sm px-4 py-2 bg-blue-500 leading-none border rounded text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Registreer</a>
+        <a href="#" class="inline-block text-sm px-8 py-3 leading-none border rounded-lg text-blue border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Log in</a>
+        <a href="#" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Registreer</a>
         </div>
     </div>
     </nav>
@@ -53,17 +53,19 @@
         <div style="background-image: url('images/Hero1.jpg')" class="h-96 w-full bg-cover bg-no-repeat bg-center"></div>
         <div class="grid grid-cols-3 bg-gray-100">
             <div class="m-10">
-            <h1 class="mb-10 font-medium capitalize text-4xl">Molveno resort</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
+                <h1 class="mb-10 font-medium capitalize text-4xl">Molveno resort</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
             </div>
             <div class="m-10">
-            <h1 class="mb-10 font-medium capitalize text-4xl">Omgeving</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
+                <h1 class="mb-10 font-medium capitalize text-4xl">Omgeving</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
             </div>
             <div class="m-10">
-            <h1 class="mb-10 font-medium capitalize text-4xl">Activiteiten</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
-            <a href="#" class="inline-block text-sm px-4 py-2 bg-blue-500 leading-none border rounded text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-10">Boek nu</a>
+                <h1 class="mb-10 font-medium capitalize text-4xl">Activiteiten</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
+                <div class="text-right">
+                    <a href="#" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-10">Boek nu</a>
+                </div>
             </div>
         </div>
       </div>
@@ -146,7 +148,7 @@
               </div>
               <div style="background-image: url('images/Menukaart.jpg')" class="w-full bg-no-repeat bg-cover ml-6">
                 <div class="grid place-items-center h-full">
-                    <a href="#" class="inline-block text-sm px-4 py-2 bg-blue-500 leading-none border rounded text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Menukaart</a>
+                    <a href="#" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Menukaart</a>
                 </div>
               </div>
           </div>
@@ -169,8 +171,8 @@
                 <h1 class="text-4xl pb-4">Molveno resort</h1>
             </div>
             <div>
-                <a href="#" class="inline-block text-sm px-4 py-2 bg-blue-500 leading-none border rounded text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Boek een kamer</a>
-                <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-blue border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Neem contact op</a>
+                <a href="#" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Boek een kamer</a>
+                <a href="#" class="inline-block text-sm px-8 py-3 leading-none border rounded-lg text-blue border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Neem contact op</a>
             </div>
           </div>
       </div>
