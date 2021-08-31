@@ -100,25 +100,17 @@ class ReservationCrudController extends CrudController
             ->wrapper(["class" => "form-group col-md-6"]);
 
         $this->crud->addField([
-            "type" => "select2_multiple",
+            "type" => "select2_from_ajax_multiple",
             "name" => "rooms", // the relationship name in your Model
             "entity" => "rooms", // the relationship name in your Model
             "attribute" => "room_number", // attribute on Article that is shown to admin
+            "data_source" => url("/admin/api/room"), // url to controller search function (with /{id} should return model)
+            "placeholder" => "Select Room(s)", // placeholder for the select
+            "include_all_form_fields" => true, //sends the other form fields along with the request so it can be filtered.
+            "minimum_input_length" => 0, // minimum characters to type before querying results
+            "dependencies" => ["check_in", "check_out"], // when a dependency changes, this select2 is reset to null
             "pivot" => true, // on create&update, do you need to add/delete pivot table entries?
         ]);
-
-        // $this->crud->addField([
-        //     "label" => "Room number", // Table column heading
-        //     "type" => "select2_from_ajax",
-        //     "name" => "room_id", // the column that contains the ID of that connected entity;
-        //     "entity" => "rooms", // the method that defines the relationship in your Model
-        //     "attribute" => "room_number", // foreign key attribute that is shown to user
-        //     "data_source" => url("/admin/api/room"), // url to controller search function (with /{id} should return model)
-        //     "placeholder" => "Select Room(s)", // placeholder for the select
-        //     "include_all_form_fields" => true, //sends the other form fields along with the request so it can be filtered.
-        //     "minimum_input_length" => 0, // minimum characters to type before querying results
-        //     "dependencies" => ["check_in", "check_out"], // when a dependency changes, this select2 is reset to null
-        // ]);
     }
 
     /**
