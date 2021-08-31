@@ -15,7 +15,9 @@
   <header>
     <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <img src="images/Logo Molveno Resort Black.svg" alt="Molveno Resort Logo" class="fill-current h-12 w-12 mr-10 ml-10">
+        <a href="/">
+            <img src="images/Logo Molveno Resort Black.svg" alt="Molveno Resort Logo" class="fill-current h-12 w-12 mr-10 ml-10">
+        </a>
     </div>
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
@@ -83,11 +85,11 @@
       <div class="main3">
         <div class="relative h-96 overflow-hidden">
             <img class="absolute w-full -top-60" src="https://www.imperial-hotel-copenhagen.com/-/media/imperial/7-lounge-og-pejsestue/imperial-hotel-pejsestue-1.jpg?cw=3540&ch=2076&cx=0.5&cy=0.5">
-            <div class="absolute flex justify-center">
-                <h1 class="text-white">Hotel faciliteiten</h1>
+            <div class="absolute flex">
+                <h1 class="text-white text-center">Hotel faciliteiten</h1>
             </div>
-            <div class="absolute flex flex-row">
-                <div>
+            <div class="absolute flex flex-row m-auto">
+                <div class="p-12">
                     <ul>
                         <li class="text-white">Wifi</li>
                         <li class="text-white">Parkeren bij het hotel</li>
@@ -96,7 +98,7 @@
                         <li class="text-white">Sauna(VIP)</li>
                     </ul>
                 </div>
-                <div>
+                <div class="p-12">
                     <ul>
                         <li class="text-white">Wifi</li>
                         <li class="text-white">Parkeren bij het hotel</li>
