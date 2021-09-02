@@ -28,7 +28,7 @@ class RoomtypeCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Roomtype::class);
         CRUD::setRoute(config("backpack.base.route_prefix") . "/roomtype");
-        CRUD::setEntityNameStrings("roomtype", "roomtypes");
+        CRUD::setEntityNameStrings("room type", "room types");
     }
 
     /**
