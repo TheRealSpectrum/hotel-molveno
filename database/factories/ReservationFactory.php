@@ -24,8 +24,9 @@ class ReservationFactory extends Factory
     {
         return [
             "guest_id" => Guest::factory(),
-            // "rooms" => Room::factory(),
-            "amount" => $this->faker->numberBetween(2, 4),
+            // "room_id" => Room::factory(),
+            "adults" => $this->faker->numberBetween(2, 4),
+            "children" => $this->faker->numberBetween(0, 2),
             "check_in" => $this->faker->date(),
             "check_out" => $this->faker->date(),
         ];
