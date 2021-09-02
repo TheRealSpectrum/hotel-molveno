@@ -21,6 +21,7 @@ class Guest extends Model
         "email",
         "address",
         "phone",
+        "fullname",
     ];
 
     /**
@@ -31,4 +32,14 @@ class Guest extends Model
     protected $casts = [
         "id" => "integer",
     ];
+
+    public function getFullnameAttribute()
+    {
+        return $this->first_name . " " . $this->last_name;
+    }
+
+    public function setFullnameAttribute($value)
+    {
+        $this->attributes["fullname"] = $value;
+    }
 }
