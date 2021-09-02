@@ -26,8 +26,13 @@ class ReservationRequest extends FormRequest
     public function rules()
     {
         return [
-                // 'name' => 'required|min:5|max:255'
-            ];
+            // 'name' => 'required|min:5|max:255'
+            "check_in" => "required|date|after:yesterday",
+            "check_out" => "required|date|after:check_in",
+            "adults" => "required|integer|gte:1",
+            "children" => "required|integer|gte:0",
+            "rooms" => "required",
+        ];
     }
 
     /**

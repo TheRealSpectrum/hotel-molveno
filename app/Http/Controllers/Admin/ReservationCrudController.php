@@ -88,8 +88,12 @@ class ReservationCrudController extends CrudController
 
         CRUD::field("guest_id")->attribute("fullname");
 
-        CRUD::field("adults")->wrapper(["class" => "form-group col-md-6"]);
-        CRUD::field("children")->wrapper(["class" => "form-group col-md-6"]);
+        CRUD::field("adults")
+            ->wrapper(["class" => "form-group col-md-6"])
+            ->default(1);
+        CRUD::field("children")
+            ->wrapper(["class" => "form-group col-md-6"])
+            ->default(0);
 
         CRUD::field("check_in")
             ->type("date_picker")
