@@ -25,8 +25,8 @@ class FindRoomController extends Controller
             $check_in = $form["check_in"];
             $check_out = $form["check_out"];
 
-            $availableRooms = Room::with("reservation")
-                ->whereHas("reservation", function ($q) use (
+            $availableRooms = Room::with("reservations")
+                ->whereHas("reservations", function ($q) use (
                     $check_in,
                     $check_out
                 ) {
@@ -35,7 +35,7 @@ class FindRoomController extends Controller
                         ->where("is_clean", true)
                         ->orderBy("room_number", "asc");
                 })
-                ->orWhereDoesntHave("reservation")
+                ->orWhereDoesntHave("reservations")
                 ->where("is_clean", true)
                 ->orderBy("room_number", "asc");
         }
