@@ -33,7 +33,7 @@ class FindRoomController extends Controller
                     $roomType
                 ) {
                     $q->whereNotBetween("check_in", [$check_in, $check_out])
-                        ->WhereNotBetween("check_out", [$check_out, $check_in])
+                        ->WhereNotBetween("check_out", [$check_in, $check_out])
                         ->where("is_clean", true)
                         ->where("roomtype_id", $roomType)
                         ->orderBy("room_number", "asc");
