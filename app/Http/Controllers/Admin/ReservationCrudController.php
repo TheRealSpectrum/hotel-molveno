@@ -41,19 +41,13 @@ class ReservationCrudController extends CrudController
     {
         CRUD::column("check_in");
         CRUD::column("check_out");
-        CRUD::column("guest_id");
-        CRUD::column("amount");
-        CRUD::column("rooms")
-            ->type("relationship")
-            ->name("rooms");
-
         $this->crud->addColumn([
             // Select
             "label" => "Guest",
             "type" => "select",
             "name" => "guest_id", // the db column for the foreign key
             "entity" => "guest", // the method that defines the relationship in your Model
-            "attribute" => "first_name", // foreign key attribute that is shown to user
+            "attribute" => "fullname", // foreign key attribute that is shown to user
             "model" => "App\Models\Guest",
             "orderable" => true,
             "orderLogic" => function ($query, $column, $columnDirection) {
@@ -68,6 +62,10 @@ class ReservationCrudController extends CrudController
                     ->select("reservations.*");
             },
         ]);
+        CRUD::column("amount");
+        CRUD::column("rooms")
+            ->type("relationship")
+            ->name("rooms");
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -86,7 +84,7 @@ class ReservationCrudController extends CrudController
     {
         CRUD::setValidation(ReservationRequest::class);
 
-        CRUD::field("guest_id");
+        CRUD::field("guest_id")->attribute("fullname");
 
         CRUD::field("amount");
 
