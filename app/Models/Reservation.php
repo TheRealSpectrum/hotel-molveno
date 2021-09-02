@@ -21,6 +21,7 @@ class Reservation extends Model
     protected $fillable = [
         "guest_id",
         "room_id",
+        "roomtype_id",
         "check_in",
         "check_out",
         "adults",
@@ -36,6 +37,7 @@ class Reservation extends Model
         "id" => "integer",
         "guest_id" => "integer",
         "room_id" => "integer",
+        "roomtype_id" => "integer",
         "check_in" => "date",
         "check_out" => "date",
     ];

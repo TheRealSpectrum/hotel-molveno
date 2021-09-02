@@ -24,7 +24,7 @@ class FindRoomController extends Controller
         if ($form["check_in"] && $form["check_out"]) {
             $check_in = $form["check_in"];
             $check_out = $form["check_out"];
-            $roomType = $form["room_type"];
+            $roomType = $form["roomtype_id"];
 
             $availableRooms = Room::with("reservations")
                 ->whereHas("reservations", function ($q) use (

@@ -105,7 +105,7 @@ class ReservationCrudController extends CrudController
             ->date_picker_options(["todayBtn" => "linked"])
             ->wrapper(["class" => "form-group col-md-6"]);
 
-        CRUD::field("room_type")
+        CRUD::field("roomtype_id")
             ->type("select2")
             ->entity("roomtype")
             ->model("App\Models\Roomtype")
