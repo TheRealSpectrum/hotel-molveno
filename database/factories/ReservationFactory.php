@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\Guest;
 use App\Models\Reservation;
 use App\Models\Room;
+use App\Models\Roomtype;
 
 class ReservationFactory extends Factory
 {
@@ -24,8 +25,10 @@ class ReservationFactory extends Factory
     {
         return [
             "guest_id" => Guest::factory(),
-            // "rooms" => Room::factory(),
-            "amount" => $this->faker->numberBetween(2, 4),
+            // "room_id" => Room::factory(),
+            "roomtype_id" => Roomtype::factory(),
+            "adults" => $this->faker->numberBetween(2, 4),
+            "children" => $this->faker->numberBetween(0, 2),
             "check_in" => $this->faker->date(),
             "check_out" => $this->faker->date(),
         ];

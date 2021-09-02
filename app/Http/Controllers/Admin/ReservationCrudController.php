@@ -41,6 +41,7 @@ class ReservationCrudController extends CrudController
     {
         CRUD::column("check_in");
         CRUD::column("check_out");
+
         $this->crud->addColumn([
             // Select
             "label" => "Guest",
@@ -62,7 +63,8 @@ class ReservationCrudController extends CrudController
                     ->select("reservations.*");
             },
         ]);
-        CRUD::column("amount");
+        CRUD::column("adults");
+        CRUD::column("children");
         CRUD::column("rooms")
             ->type("relationship")
             ->name("rooms");
@@ -86,7 +88,8 @@ class ReservationCrudController extends CrudController
 
         CRUD::field("guest_id")->attribute("fullname");
 
-        CRUD::field("amount");
+        CRUD::field("adults")->wrapper(["class" => "form-group col-md-6"]);
+        CRUD::field("children")->wrapper(["class" => "form-group col-md-6"]);
 
         CRUD::field("check_in")
             ->type("date_picker")
@@ -97,6 +100,12 @@ class ReservationCrudController extends CrudController
             ->date_picker_options(["todayBtn" => "linked"])
             ->wrapper(["class" => "form-group col-md-6"]);
 
+        CRUD::field("roomtype_id")
+            ->type("select2")
+            ->entity("roomtype")
+            ->model("App\Models\Roomtype")
+            ->attribute("name");
+
         $this->crud->addField([
             "type" => "select2_from_ajax_multiple",
             "name" => "rooms", // the relationship name in your Model
@@ -106,7 +115,7 @@ class ReservationCrudController extends CrudController
             "placeholder" => "Select Room(s)", // placeholder for the select
             "include_all_form_fields" => true, //sends the other form fields along with the request so it can be filtered.
             "minimum_input_length" => 0, // minimum characters to type before querying results
-            "dependencies" => ["check_in", "check_out"], // when a dependency changes, this select2 is reset to null
+            "dependencies" => ["check_in", "check_out", "room_type"], // when a dependency changes, this select2 is reset to null
             "pivot" => true, // on create&update, do you need to add/delete pivot table entries?
         ]);
     }

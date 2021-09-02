@@ -21,9 +21,11 @@ class Reservation extends Model
     protected $fillable = [
         "guest_id",
         "room_id",
+        "roomtype_id",
         "check_in",
         "check_out",
-        "amount",
+        "adults",
+        "children",
     ];
 
     /**
@@ -35,6 +37,7 @@ class Reservation extends Model
         "id" => "integer",
         "guest_id" => "integer",
         "room_id" => "integer",
+        "roomtype_id" => "integer",
         "check_in" => "date",
         "check_out" => "date",
     ];
@@ -50,5 +53,10 @@ class Reservation extends Model
             \App\Models\Room::class,
             "reservation_room"
         );
+    }
+
+    public function roomtype()
+    {
+        return $this->belongsTo(Roomtype::class);
     }
 }
