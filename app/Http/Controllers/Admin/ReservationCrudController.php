@@ -42,7 +42,8 @@ class ReservationCrudController extends CrudController
         CRUD::column("check_in");
         CRUD::column("check_out");
         CRUD::column("guest_id");
-        CRUD::column("amount");
+        CRUD::column("adults");
+        CRUD::column("children");
         CRUD::column("rooms")
             ->type("relationship")
             ->name("rooms");
@@ -88,7 +89,8 @@ class ReservationCrudController extends CrudController
 
         CRUD::field("guest_id");
 
-        CRUD::field("amount");
+        CRUD::field("adults")->wrapper(["class" => "form-group col-md-6"]);
+        CRUD::field("children")->wrapper(["class" => "form-group col-md-6"]);
 
         CRUD::field("check_in")
             ->type("date_picker")

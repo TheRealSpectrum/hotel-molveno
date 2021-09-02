@@ -23,7 +23,8 @@ class Reservation extends Model
         "room_id",
         "check_in",
         "check_out",
-        "amount",
+        "adults",
+        "children",
     ];
 
     /**
