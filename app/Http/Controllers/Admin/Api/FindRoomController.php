@@ -24,18 +24,22 @@ class FindRoomController extends Controller
         if ($form["check_in"] && $form["check_out"]) {
             $check_in = $form["check_in"];
             $check_out = $form["check_out"];
+            $roomType = $form["room_type"];
 
             $availableRooms = Room::with("reservations")
                 ->whereHas("reservations", function ($q) use (
                     $check_in,
-                    $check_out
+                    $check_out,
+                    $roomType
                 ) {
                     $q->whereNotBetween("check_in", [$check_in, $check_out])
                         ->WhereNotBetween("check_out", [$check_out, $check_in])
                         ->where("is_clean", true)
+                        ->where("roomtype_id", $roomType)
                         ->orderBy("room_number", "asc");
                 })
                 ->orWhereDoesntHave("reservations")
+                ->where("roomtype_id", $roomType)
                 ->where("is_clean", true)
                 ->orderBy("room_number", "asc");
         }

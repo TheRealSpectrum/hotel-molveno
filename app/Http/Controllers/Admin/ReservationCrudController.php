@@ -105,6 +105,12 @@ class ReservationCrudController extends CrudController
             ->date_picker_options(["todayBtn" => "linked"])
             ->wrapper(["class" => "form-group col-md-6"]);
 
+        CRUD::field("room_type")
+            ->type("select2")
+            ->entity("roomtype")
+            ->model("App\Models\Roomtype")
+            ->attribute("name");
+
         $this->crud->addField([
             "type" => "select2_from_ajax_multiple",
             "name" => "rooms", // the relationship name in your Model
@@ -114,7 +120,7 @@ class ReservationCrudController extends CrudController
             "placeholder" => "Select Room(s)", // placeholder for the select
             "include_all_form_fields" => true, //sends the other form fields along with the request so it can be filtered.
             "minimum_input_length" => 0, // minimum characters to type before querying results
-            "dependencies" => ["check_in", "check_out"], // when a dependency changes, this select2 is reset to null
+            "dependencies" => ["check_in", "check_out", "room_type"], // when a dependency changes, this select2 is reset to null
             "pivot" => true, // on create&update, do you need to add/delete pivot table entries?
         ]);
     }

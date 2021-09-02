@@ -52,4 +52,9 @@ class Reservation extends Model
             "reservation_room"
         );
     }
+
+    public function roomtype()
+    {
+        return $this->belongsTo(Roomtype::class);
+    }
 }

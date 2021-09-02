@@ -23,9 +23,9 @@ class RoomtypeFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->name,
-            "price" => $this->faker->numberBetween(40, 120),
-            "room_surface" => $this->faker->numberBetween(20, 60),
+            "name" => "Luxe",
+            "price" => 120,
+            "room_surface" => 30,
         ];
     }
 }
