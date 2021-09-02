@@ -27,7 +27,7 @@ class RoomFactory extends Factory
             "room_number" => $this->faker->unique()->numberBetween(1, 10),
             "is_clean" => $this->faker->boolean,
             "max_guests" => $this->faker->numberBetween(2, 4),
-            "roomtype_id" => Roomtype::factory(),
+            // "roomtype_id" => Roomtype::factory(),
         ];
     }
 }

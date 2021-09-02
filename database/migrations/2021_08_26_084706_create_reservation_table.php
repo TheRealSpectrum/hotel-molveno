@@ -20,6 +20,7 @@ class CreateReservationTable extends Migration
             $table->integer("adults");
             $table->integer("children");
             $table->foreignId("guest_id")->constrained();
+            $table->foreignId("roomtype_id")->constrained();
             //$table->foreignId("room_id")->constrained();
             $table->timestamps();
         });
