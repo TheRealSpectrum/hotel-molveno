@@ -27,7 +27,9 @@ class CreateRoomRequest extends FormRequest
         return [
             "room_number" => "required|unique:rooms,room_number",
             "is_clean" => "nullable",
-            "max_guests" => "required|min:1|max:10",
+            "maximum_adults" => "required|min:1|max:10",
+            "maximum_children" => "required|min:0|max:4",
+            "roomtype_id" => "required",
         ];
     }
 
