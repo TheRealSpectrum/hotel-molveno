@@ -18,7 +18,8 @@ class Room extends Model
     protected $fillable = [
         "room_number",
         "is_clean",
-        "max_guests",
+        "maximum_adults",
+        "maximum_children",
         "roomtype_id",
     ];
 
@@ -30,6 +31,8 @@ class Room extends Model
     protected $casts = [
         "id" => "integer",
         "is_clean" => "boolean",
+        "maximum_adults" => "integer",
+        "maximum_children" => "integer",
         "roomtype_id" => "integer",
     ];
 

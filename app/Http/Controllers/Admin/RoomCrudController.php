@@ -42,7 +42,8 @@ class RoomCrudController extends CrudController
     {
         CRUD::column("room_number");
         CRUD::column("is_clean");
-        CRUD::column("max_guests");
+        CRUD::column("maximum_adults");
+        CRUD::column("maximum_children");
         CRUD::column("roomtype_id");
 
         /**
@@ -64,7 +65,8 @@ class RoomCrudController extends CrudController
 
         CRUD::field("room_number");
         CRUD::field("is_clean");
-        CRUD::field("max_guests");
+        CRUD::field("maximum_adults");
+        CRUD::field("maximum_children");
         CRUD::field("roomtype_id");
 
         /**

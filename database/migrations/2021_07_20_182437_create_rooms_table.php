@@ -19,7 +19,8 @@ class CreateRoomsTable extends Migration
             $table->id();
             $table->integer("room_number");
             $table->boolean("is_clean");
-            $table->integer("max_guests");
+            $table->integer("maximum_adults");
+            $table->integer("maximum_children");
             $table->foreignId("roomtype_id")->constrained();
             $table->timestamps();
         });
