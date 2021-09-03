@@ -26,6 +26,7 @@ class RoomFactory extends Factory
         return [
             "room_number" => $this->faker->unique()->numberBetween(1, 10),
             "is_clean" => $this->faker->boolean,
+            "available" => $this->faker->boolean,
             "maximum_adults" => $this->faker->numberBetween(2, 4),
             "maximum_children" => $this->faker->numberBetween(0, 2),
             // "roomtype_id" => Roomtype::factory(),

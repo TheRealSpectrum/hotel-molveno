@@ -18,6 +18,7 @@ class Room extends Model
     protected $fillable = [
         "room_number",
         "is_clean",
+        "available",
         "maximum_adults",
         "maximum_children",
         "roomtype_id",

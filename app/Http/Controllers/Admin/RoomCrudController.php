@@ -41,6 +41,7 @@ class RoomCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column("room_number");
+        CRUD::column("available");
         CRUD::column("is_clean");
         CRUD::column("maximum_adults");
         CRUD::column("maximum_children");
@@ -64,6 +65,7 @@ class RoomCrudController extends CrudController
         CRUD::setValidation(CreateRoomRequest::class);
 
         CRUD::field("room_number");
+        CRUD::field("available");
         CRUD::field("is_clean");
         CRUD::field("maximum_adults");
         CRUD::field("maximum_children");
