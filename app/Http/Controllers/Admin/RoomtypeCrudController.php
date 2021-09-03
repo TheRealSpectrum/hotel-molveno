@@ -40,8 +40,8 @@ class RoomtypeCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column("name");
-        CRUD::column("price");
-        CRUD::column("room_surface");
+        CRUD::column("price")->prefix("€");
+        CRUD::column("room_surface")->suffix("m²");
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
