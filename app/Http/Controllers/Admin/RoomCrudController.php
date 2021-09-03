@@ -71,6 +71,7 @@ class RoomCrudController extends CrudController
         CRUD::setValidation(CreateRoomRequest::class);
 
         CRUD::field("room_number");
+        CRUD::field("available");
         CRUD::field("is_clean");
         CRUD::field("maximum_adults");
         CRUD::field("maximum_children");
