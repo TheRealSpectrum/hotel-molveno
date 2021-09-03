@@ -45,11 +45,18 @@ class RoomCrudController extends CrudController
             "name" => "is_clean",
             "type" => "boolean",
             "options" => [
-                0 => '<span style="color: Green"><i class="fas fa-check"></i></span>',
-                1 => '<span style="color: Red"><i class="fas fa-times"></i></span>',
+                0 => '<span style="color: Red"><i class="fas fa-times"></i></span>',
+                1 => '<span style="color: Green"><i class="fas fa-check"></i></span>',
             ],
         ]);
-        CRUD::column("available");
+        CRUD::addColumn([
+            "name" => "available",
+            "type" => "boolean",
+            "options" => [
+                0 => '<span style="color: Red"><i class="fas fa-times"></i></span>',
+                1 => '<span style="color: Green"><i class="fas fa-check"></i></span>',
+            ],
+        ]);
         CRUD::column("maximum_adults");
         CRUD::column("maximum_children");
         CRUD::column("roomtype_id");
