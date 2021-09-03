@@ -49,6 +49,7 @@ class RoomCrudController extends CrudController
                 1 => '<span style="color: Red"><i class="fas fa-times"></i></span>',
             ],
         ]);
+        CRUD::column("available");
         CRUD::column("maximum_adults");
         CRUD::column("maximum_children");
         CRUD::column("roomtype_id");
