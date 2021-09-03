@@ -39,9 +39,6 @@ class ReservationCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column("check_in");
-        CRUD::column("check_out");
-
         $this->crud->addColumn([
             // Select
             "label" => "Guest",
@@ -63,17 +60,13 @@ class ReservationCrudController extends CrudController
                     ->select("reservations.*");
             },
         ]);
-        CRUD::column("adults");
-        CRUD::column("children");
         CRUD::column("rooms")
             ->type("relationship")
             ->name("rooms");
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        CRUD::column("adults");
+        CRUD::column("children");
+        CRUD::column("check_in");
+        CRUD::column("check_out");
     }
 
     /**
