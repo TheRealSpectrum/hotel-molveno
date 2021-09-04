@@ -8,6 +8,7 @@
   <title>Molveno resort</title>
 
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/146730865b.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -144,11 +145,11 @@
               <div class="mr-6">
                 <h1 class="text-4xl pb-4">Restaurant</h1>
                 <p class="pb-20">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.</p>
-                <h1 class="text-4xl">0039 – 934 4444 32</h1>
+                <h1 class="text-4xl"><i class="fas fa-phone-alt pr-1"></i>0039 – 934 4444 32</h1>
               </div>
               <div style="background-image: url('images/Menukaart.jpg')" class="w-full bg-no-repeat bg-cover ml-6">
                 <div class="grid place-items-center h-full">
-                    <a href="#" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Menukaart</a>
+                    <a href="{{ url("images/Menukaart.jpg") }}" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Menu</a>
                 </div>
               </div>
           </div>
