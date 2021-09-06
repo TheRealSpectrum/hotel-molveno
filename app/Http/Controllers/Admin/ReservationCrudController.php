@@ -67,6 +67,7 @@ class ReservationCrudController extends CrudController
         CRUD::column("children");
         CRUD::column("check_in");
         CRUD::column("check_out");
+        CRUD::column("total_price")->prefix("€");
     }
 
     /**
@@ -99,9 +100,9 @@ class ReservationCrudController extends CrudController
 
         CRUD::field("roomtype_id")
             ->type("select2")
-            ->entity("roomtype")
             ->model("App\Models\Roomtype")
-            ->attribute("name");
+            ->attribute("name_price")
+            ->wrapper(["id" => "roomtype_select2"]);
 
         $this->crud->addField([
             "type" => "select2_from_ajax_multiple",
@@ -115,12 +116,22 @@ class ReservationCrudController extends CrudController
             "dependencies" => [
                 "check_in",
                 "check_out",
-                "room_type",
+                "roomtype_id",
                 "adults",
                 "children",
             ], // when a dependency changes, this select2 is reset to null
             "pivot" => true, // on create&update, do you need to add/delete pivot table entries?
+            "wrapper" => ["id" => "room_select2"],
         ]);
+
+        CRUD::field("total_price")
+            ->type("TotalPrice")
+            ->prefix("€")
+            ->attributes(["readonly" => "readonly"])
+            ->wrapper([
+                "class" => "form-group col-md-3",
+                "id" => "total_price_field",
+            ]);
     }
 
     /**

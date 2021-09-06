@@ -15,7 +15,7 @@ class Roomtype extends Model
      *
      * @var array
      */
-    protected $fillable = ["name", "price", "room_surface"];
+    protected $fillable = ["name", "price", "room_surface", "name_price"];
 
     /**
      * The attributes that should be cast to native types.
@@ -29,5 +29,15 @@ class Roomtype extends Model
     public function rooms()
     {
         return $this->hasMany(\App\Models\Room::class);
+    }
+
+    public function getNamePriceAttribute()
+    {
+        return $this->name . " €" . $this->price . " per night";
+    }
+
+    public function setNamePriceAttribute($value)
+    {
+        $this->attributes["name_price"] = $value;
     }
 }

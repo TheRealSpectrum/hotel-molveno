@@ -40,8 +40,8 @@ class FindRoomController extends Controller
                         ->WhereNotBetween("check_out", [$check_in, $check_out])
                         ->where("is_clean", true)
                         ->where("available", true)
-                        ->where("maximum_adults", "<=", $adults)
-                        ->where("maximum_children", "<=", $children)
+                        ->where("maximum_adults", ">=", $adults)
+                        ->where("maximum_children", ">=", $children)
                         ->where("roomtype_id", $roomType)
                         ->orderBy("room_number", "asc");
                 })

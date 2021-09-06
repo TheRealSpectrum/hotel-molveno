@@ -32,6 +32,7 @@ class ReservationRequest extends FormRequest
             "adults" => "required|integer|gte:1",
             "children" => "required|integer|gte:0",
             "rooms" => "required",
+            "roomtype_id" => "required",
         ];
     }
 

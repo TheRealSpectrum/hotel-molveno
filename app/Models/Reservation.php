@@ -6,7 +6,6 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Guest;
-use App\Models\Room;
 
 class Reservation extends Model
 {
@@ -26,6 +25,7 @@ class Reservation extends Model
         "check_out",
         "adults",
         "children",
+        "total_price",
     ];
 
     /**
