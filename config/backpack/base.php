@@ -70,7 +70,7 @@ return [
     // ------
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<img src="/images/Logo Molveno Resort Black.svg" alt="Molveno Resort logo" width="65" height="65">',
+    'project_logo'   => '<img src="/images/Logo Molveno Resort Black.svg" alt="Molveno Resort logo" width="65" height="65"><h5 class="pt-3 pl-1">Molveno Resort</h5>',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
