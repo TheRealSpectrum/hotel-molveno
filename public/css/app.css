@@ -31855,6 +31855,30 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+#kamers {
+  scroll-margin-top: 5em;
+}
+
+#faciliteiten {
+  scroll-margin-top: 5em;
+}
+
+#restaurant {
+  scroll-margin-top: 5em;
+}
+
+#galerij {
+  scroll-margin-top: 5em;
+}
+
+#omgeving {
+  scroll-margin-top: 5em;
+}
+
+#contact {
+  scroll-margin-top: 5em;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

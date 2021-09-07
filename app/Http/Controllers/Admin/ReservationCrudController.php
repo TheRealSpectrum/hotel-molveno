@@ -65,8 +65,12 @@ class ReservationCrudController extends CrudController
             ->name("rooms");
         CRUD::column("adults");
         CRUD::column("children");
-        CRUD::column("check_in");
-        CRUD::column("check_out");
+        CRUD::column("check_in")
+            ->type("date")
+            ->format("ddd D MMM YYYY");
+        CRUD::column("check_out")
+            ->type("date")
+            ->format("ddd D MMM YYYY");
         CRUD::column("total_price")->prefix("€");
     }
 

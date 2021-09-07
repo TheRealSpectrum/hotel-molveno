@@ -65,7 +65,7 @@ class GuestCrudController extends CrudController
         CRUD::field("first_name");
         CRUD::field("last_name");
         CRUD::field("email");
-        CRUD::field("address");
+        CRUD::field("address")->type("address_algolia");
         CRUD::field("phone");
 
         /**

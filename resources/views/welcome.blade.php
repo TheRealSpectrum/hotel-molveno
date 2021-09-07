@@ -111,7 +111,7 @@
             </div>
         </div>
       </div>
-      <div class="main4">
+      <div class="main4" id="locatie">
           <div class="p-12 pt-20 h-96 md:w-1/2">
             <h1 class="text-black font-bold text-4xl pb-4">The environment</h1>
             <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga deleniti hic quae labore facilis perspiciatis voluptas ab? Dicta delectus quas sed expedita quibusdam. Voluptatibus unde quidem nulla labore laboriosam aperiam fugiat dicta ab saepe ea impedit iure pariatur facere alias ratione praesentium dolorem qui harum, aliquid sit accusantium repellendus. Nulla ratione error, architecto doloribus qui, reprehenderit impedit neque perspiciatis corporis id voluptatum corrupti voluptatibus natus similique consectetur dolorum sunt illum vero dignissimos atque suscipit. Quaerat aliquam id, earum molestias assumenda, veritatis reiciendis.</p>
@@ -179,7 +179,7 @@
       </div>
   </main>
 
-  <footer>
+  <footer id="contact">
       <div class="border-b-2 grid grid-cols-2 p-12">
           <div></div>
           <div class="flex flex-row">
@@ -229,7 +229,6 @@
               <p class="pr-4">Follow us:</p>
               <div style="background-image: url('images/facebook.png')" class="w-10 h-10 pr-4 bg-no-repeat bg-cover"></div>
               <div style="background-image: url('images/twitter.png')" class="w-10 h-10 pr-4 bg-no-repeat bg-cover"></div>
-              <div style="background-image: url('images/facebook.png')" class="w-10 h-10 pr-4 bg-no-repeat bg-cover"></div>
           </div>
       </div>
   </footer>
