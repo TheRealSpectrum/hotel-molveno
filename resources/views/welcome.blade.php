@@ -229,7 +229,6 @@
               <p class="pr-4">Follow us:</p>
               <div style="background-image: url('images/facebook.png')" class="w-10 h-10 pr-4 bg-no-repeat bg-cover"></div>
               <div style="background-image: url('images/twitter.png')" class="w-10 h-10 pr-4 bg-no-repeat bg-cover"></div>
-              <div style="background-image: url('images/facebook.png')" class="w-10 h-10 pr-4 bg-no-repeat bg-cover"></div>
           </div>
       </div>
   </footer>
