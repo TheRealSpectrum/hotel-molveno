@@ -49,8 +49,8 @@ class FindRoomController extends Controller
                 ->where("roomtype_id", $roomType)
                 ->where("is_clean", true)
                 ->where("available", true)
-                ->where("maximum_adults", ">=", $adults)
-                ->where("maximum_children", ">=", $children)
+                ->where("maximum_adults", "<=", $adults)
+                ->where("maximum_children", "<=", $children)
                 ->orderBy("room_number", "asc");
         }
 
