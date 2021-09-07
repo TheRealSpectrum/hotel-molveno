@@ -37,7 +37,9 @@ class FindRoomController extends Controller
                     $children
                 ) {
                     $q->whereNotBetween("check_in", [$check_in, $check_out])
+                        ->orWhere("check_in", "=", $check_out)
                         ->WhereNotBetween("check_out", [$check_in, $check_out])
+                        ->orWhere("check_out", "=", $check_in)
                         ->where("is_clean", true)
                         ->where("available", true)
                         ->where("maximum_adults", "<=", $adults)
