@@ -32124,11 +32124,11 @@ select {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#kamers {
+#rooms {
   scroll-margin-top: 5em;
 }
 
-#faciliteiten {
+#facilities {
   scroll-margin-top: 5em;
 }
 
@@ -32136,11 +32136,11 @@ select {
   scroll-margin-top: 5em;
 }
 
-#galerij {
+#gallery {
   scroll-margin-top: 5em;
 }
 
-#omgeving {
+#location {
   scroll-margin-top: 5em;
 }
 
