@@ -166,7 +166,7 @@
               <img class="p-5" src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
           </div>
       </div>
-      <div class="main7">
+      <div class="main7" id="contact">
           <div class="grid grid-flow-row grid-cols-2 bg-gray-100 h-96 place-items-center">
             <div>
                 <h1 class="text-4xl pb-4">Molveno resort</h1>
@@ -179,7 +179,7 @@
       </div>
   </main>
 
-  <footer id="contact">
+  <footer>
       <div class="border-b-2 grid grid-cols-2 p-12">
           <div></div>
           <div class="flex flex-row">
