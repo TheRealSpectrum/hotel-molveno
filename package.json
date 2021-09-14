@@ -15,17 +15,20 @@
     },
     "devDependencies": {
         "@prettier/plugin-php": "^0.16.3",
+        "@tailwindcss/forms": "^0.2.1",
         "@typescript-eslint/eslint-plugin": "^4.29.3",
         "@typescript-eslint/parser": "^4.29.3",
-        "autoprefixer": "^10.3.2",
+        "alpinejs": "^2.7.3",
+        "autoprefixer": "^10.1.0",
         "axios": "^0.21",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "laravel-mix": "^6.0.28",
         "lodash": "^4.17.19",
-        "postcss": "^8.3.6",
+        "postcss": "^8.2.1",
+        "postcss-import": "^12.0.1",
         "prettier": "^2.3.0",
-        "tailwindcss": "^2.2.7",
+        "tailwindcss": "^2.0.2",
         "typescript": "^4.3.5"
     }
 }
