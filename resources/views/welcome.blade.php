@@ -15,12 +15,12 @@
                 <h1 class="mb-10 font-medium capitalize text-4xl">Activities</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
                 <div class="text-right">
-                    <a href="#" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-10">Book now</a>
+                    <a href="#" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg font-bold text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 mr-8 lg:mt-0">Book now</a>
                 </div>
             </div>
         </div>
       </div>
-      <div class="main2" id="kamers">
+      <div class="main2" id="rooms">
           <div class="flex justify-center">
             <div class="h-2/4 w-2/4">
                 <h1 class="text-center m-10 font-medium capitalize text-4xl">Our rooms</h1>
@@ -34,7 +34,7 @@
               <img class="p-5" src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
           </div>
       </div>
-      <div class="main3" id="faciliteiten">
+      <div class="main3" id="facilities">
         <div style="background-image: url('images/Hero2-xl.webp')" class="relative w-full h-96 bg-cover bg-no-repeat bg-center">
             <div class="absolute text-center w-full mt-10">
                 <h1 class="text-white text-center font-bold text-4xl">Facilities</h1>
@@ -61,7 +61,7 @@
             </div>
         </div>
       </div>
-      <div class="main4" id="locatie">
+      <div class="main4" id="location">
           <div class="p-12 pt-20 h-96 md:w-1/2">
             <h1 class="text-black font-bold text-4xl pb-4">The environment</h1>
             <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga deleniti hic quae labore facilis perspiciatis voluptas ab? Dicta delectus quas sed expedita quibusdam. Voluptatibus unde quidem nulla labore laboriosam aperiam fugiat dicta ab saepe ea impedit iure pariatur facere alias ratione praesentium dolorem qui harum, aliquid sit accusantium repellendus. Nulla ratione error, architecto doloribus qui, reprehenderit impedit neque perspiciatis corporis id voluptatum corrupti voluptatibus natus similique consectetur dolorum sunt illum vero dignissimos atque suscipit. Quaerat aliquam id, earum molestias assumenda, veritatis reiciendis.</p>
@@ -104,7 +104,7 @@
               </div>
           </div>
       </div>
-      <div class="main6" id="galerij">
+      <div class="main6" id="gallery">
           <div class="flex justify-center">
             <div class="h-2/4 w-2/4 p-12">
                 <img src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
