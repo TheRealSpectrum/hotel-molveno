@@ -84,15 +84,6 @@ class ReservationCrudController extends CrudController
     {
         CRUD::setValidation(ReservationRequest::class);
 
-        CRUD::field("guest_id")->attribute("fullname");
-
-        CRUD::field("adults")
-            ->wrapper(["class" => "form-group col-md-6"])
-            ->default(1);
-        CRUD::field("children")
-            ->wrapper(["class" => "form-group col-md-6"])
-            ->default(0);
-
         CRUD::field("check_in")
             ->type("date_picker")
             ->date_picker_options(["todayBtn" => "linked"])
@@ -101,6 +92,15 @@ class ReservationCrudController extends CrudController
             ->type("date_picker")
             ->date_picker_options(["todayBtn" => "linked"])
             ->wrapper(["class" => "form-group col-md-6"]);
+
+        CRUD::field("adults")
+            ->wrapper(["class" => "form-group col-md-6"])
+            ->default(1);
+        CRUD::field("children")
+            ->wrapper(["class" => "form-group col-md-6"])
+            ->default(0);
+
+        CRUD::field("guest_id")->attribute("fullname");
 
         CRUD::field("roomtype_id")
             ->type("select2")
