@@ -22,6 +22,7 @@ class Guest extends Model
         "address",
         "phone",
         "fullname",
+        "user_id",
     ];
 
     /**
@@ -41,5 +42,10 @@ class Guest extends Model
     public function setFullnameAttribute($value)
     {
         $this->attributes["fullname"] = $value;
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
