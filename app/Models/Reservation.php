@@ -38,8 +38,8 @@ class Reservation extends Model
         "guest_id" => "integer",
         "room_id" => "integer",
         "roomtype_id" => "integer",
-        "check_in" => "date",
-        "check_out" => "date",
+        "check_in" => "datetime",
+        "check_out" => "datetime",
         "adults" => "integer",
         "children" => "integer",
     ];
