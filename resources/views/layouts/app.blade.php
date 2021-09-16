@@ -21,27 +21,27 @@
             </div>
             <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                 <div class="text-sm lg:flex-grow">
-                    <a href="#rooms" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('/#rooms') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Rooms
                     </a>
-                    <a href="#facilities" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('/#facilities') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Facilities
                     </a>
-                    <a href="#gallery" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('/#gallery') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Gallery
                     </a>
-                    <a href="#restaurant" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('/#restaurant') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Restaurant
                     </a>
-                    <a href="#location" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('/#location') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Location
                     </a>
-                    <a href="#contact" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600">
+                    <a href="{{ url('/#contact') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600">
                         Contact
                     </a>
                 </div>
                 <div>
-                    <a href="#" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg font-bold text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 mr-8 lg:mt-0">Book now</a>
+                    <a href="/book" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg font-bold text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 mr-8 lg:mt-0">Book now</a>
                     @if (auth()->user())
                     <a href="{{ route("account.index") }}" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Account</a>
                     <a href="{{ route("logout") }}" class="inline-block text-sm px-8 py-3 leading-none border rounded-lg text-blue border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Sign out</a>
