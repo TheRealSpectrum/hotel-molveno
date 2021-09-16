@@ -1,4 +1,6 @@
-@include('partials.header')
+@extends('layouts.app')
+@section('title', 'Make a reservation - Molveno Resort')
+@section('content')
 <h1 class="text-2xl font-medium flex justify-center pt-4">Please fill in the form to make a reservation:</h1> 
 <div class="flex justify-center p-4 border-b-2"> 
     <form>
@@ -15,4 +17,4 @@
         <input type="submit" value="Make reservation" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 w-full lg:mt-0"> 
     </form>
 </div>
-@include('partials.footer')
+@endsection
