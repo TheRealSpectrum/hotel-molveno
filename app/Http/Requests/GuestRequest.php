@@ -31,7 +31,7 @@ class GuestRequest extends FormRequest
             "last_name" => "required",
             "email" => "required|email:rfc",
             "address" => "required",
-            "phone" => "required",
+            "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10",
         ];
     }
 

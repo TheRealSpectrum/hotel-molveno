@@ -1,12 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-#kamers {
+#rooms {
     scroll-margin-top: 5em;
 }
 
-#faciliteiten {
+#facilities {
     scroll-margin-top: 5em;
 }
 
@@ -14,11 +14,11 @@
     scroll-margin-top: 5em;
 }
 
-#galerij {
+#gallery {
     scroll-margin-top: 5em;
 }
 
-#omgeving {
+#location {
     scroll-margin-top: 5em;
 }
 

@@ -20,6 +20,7 @@ class CreateGuestsTable extends Migration
             $table->string("email");
             $table->string("address");
             $table->string("phone");
+            $table->foreignId("user_id")->nullable();
             $table->timestamps();
         });
     }
