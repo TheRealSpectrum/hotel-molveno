@@ -1,5 +1,7 @@
-@include('partials.header')
-    <main>
+@extends('layouts.app')
+@section('title', 'Molveno resort')
+@section('content')
+  <main>
       <div class="main1">
         <div style="background-image: url('images/Hero1.jpg')" class="h-96 w-full bg-cover bg-no-repeat bg-center"></div>
         <div class="grid grid-cols-3 bg-gray-100">
@@ -128,4 +130,4 @@
           </div>
       </div>
   </main>
-  @include('partials.footer')
+@endsection
