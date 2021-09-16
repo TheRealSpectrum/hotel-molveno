@@ -28,8 +28,11 @@ class CheckIfAdmin
      */
     private function checkIfUserIsAdmin($user)
     {
-        return true;
-        // return $user->hasRole("Admin");
+        if($user->hasRole("Admin")) {
+            return $user->hasRole("Admin");
+        } else {
+            session()->flush();
+        }  
     }
 
     /**
