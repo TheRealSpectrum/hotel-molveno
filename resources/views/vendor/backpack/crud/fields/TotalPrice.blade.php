@@ -41,7 +41,7 @@
                         let checkOut = new Date($('input[name=check_out]').val());
 
                         let diffInTime = checkOut.getTime() - checkIn.getTime();
-                        let diffInDays = diffInTime / (1000 * 3600 * 24);
+                        let diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24));
 
                         let roomTypeInput = $("#roomtype_select2").find(":selected")[0].text;
                         let roomTypePrice = roomTypeInput.match(/\d+/)[0];
