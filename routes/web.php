@@ -28,5 +28,6 @@ Route::get("/dashboard", function () {
     ->name("dashboard");
 
 Route::resource("account", GuestController::class)->middleware("auth");
+Route::resource("bookings", BookingController::class);
 
 require __DIR__ . "/auth.php";
