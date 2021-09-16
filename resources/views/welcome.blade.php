@@ -17,7 +17,7 @@
                 <h1 class="mb-10 font-medium capitalize text-4xl">Activities</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna. Proin libero nunc consequat interdum. Lectus quam id leo in vitae turpis massa. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Interdum varius sit amet mattis. In eu mi bibendum neque egestas. Tincidunt eget nullam non nisi est sit. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Fames ac turpis egestas sed tempus. Volutpat lacus laoreet non curabitur gravida. Orci sagittis eu </p>
                 <div class="text-right">
-                    <a href="#" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg font-bold text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 mr-8 lg:mt-0">Book now</a>
+                    <a href="#" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg font-bold text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 mr-8 lg:mt-8">Book now</a>
                 </div>
             </div>
         </div>
