@@ -1,9 +1,13 @@
-@include("partials.header")
+@extends("layouts.app")
+@section("title", "Molveno Resort - My Account")
+
+@section("content")
 
 <main>
-    <form action="{{ route("account.store") }}" method="post">
+    @if (auth()->user()->guest)
+    <form action="{{ route("account.update") }}" method="post">
+        @method("patch")
         @csrf
-        @if (auth()->user()->guest)
         <label for="first_name">first name</label>
         <input type="text" name="first_name" id="" value="{{ auth()->user()->guest->first_name }}">
 
@@ -18,7 +22,11 @@
 
         <label for="phone">phone number</label>
         <input type="text" name="phone" id="" value="{{ auth()->user()->guest->phone }}">
+        <input type="submit" value="Update profile">
+    </form>
         @else
+    <form action="{{ route("account.create") }}" method="post">
+        @csrf
         <label for="first_name">first name</label>
         <input type="text" name="first_name" id="" >
 
@@ -33,10 +41,9 @@
 
         <label for="phone">phone number</label>
         <input type="text" name="phone" id="">
-        @endif
-     <input type="submit" value="Update profile">
+
+        <input type="submit" value="Update profile">
     </form>
+        @endif
 </main>
-
-
-@include("partials.footer")
+@endsection

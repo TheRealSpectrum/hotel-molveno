@@ -21,12 +21,19 @@ Route::get("/", function () {
 Route::get("/book", function () {
     return view("book");
 });
-Route::get("/dashboard", function () {
-    return view("dashboard");
-})
-    ->middleware(["auth"])
-    ->name("dashboard");
 
-Route::resource("account", GuestController::class)->middleware("auth");
+Route::middleware("auth")->group(function () {
+    Route::get("account", [GuestController::class, "index"])->name(
+        "account.index"
+    );
+    Route::post("account", [GuestController::class, "create"])->name(
+        "account.create"
+    );
+    Route::patch("account", [GuestController::class, "update"])->name(
+        "account.update"
+    );
+});
+
+Route::resource("bookings", BookingController::class);
 
 require __DIR__ . "/auth.php";
