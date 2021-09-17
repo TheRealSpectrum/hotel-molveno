@@ -24,7 +24,9 @@ class GuestController extends Controller
             "user_id" => auth()->user()->id,
         ]);
 
-        return view("account.index");
+        return redirect()
+            ->route("account.index")
+            ->with("success", "Updated Profile");
     }
 
     public function update(Request $request)
@@ -40,6 +42,8 @@ class GuestController extends Controller
             "user_id" => auth()->user()->id,
         ]);
 
-        return redirect()->route("account.index");
+        return redirect()
+            ->route("account.index")
+            ->with("success", "Updated Profile");
     }
 }

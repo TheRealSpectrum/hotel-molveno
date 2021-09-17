@@ -3,6 +3,17 @@
 
 @section("content")
 <main class="flex md:w-full h-full justify-center p-12">
+    @if(Session::has('success'))
+    <div class="bg-green-200 border-green-600 text-green-600 border-l-4 p-4" role="alert">
+        <p class="font-bold">
+            Success
+        </p>
+        <p>
+            {{ Session::get("success") }}
+        </p>
+    </div>
+    @endif
+
     @if (auth()->user()->guest)
 <div id="account-create-container">
     <form class="" id="update-acc-form" action="{{ route("account.update") }}" method="post">
