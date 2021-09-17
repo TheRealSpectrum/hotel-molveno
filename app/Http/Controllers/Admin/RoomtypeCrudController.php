@@ -42,6 +42,10 @@ class RoomtypeCrudController extends CrudController
         CRUD::column("name");
         CRUD::column("price")->prefix("€");
         CRUD::column("room_surface")->suffix("m²");
+        CRUD::column("image")
+            ->type("image")
+            ->width("60px")
+            ->height("60px");
     }
 
     /**
