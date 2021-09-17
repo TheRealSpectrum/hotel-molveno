@@ -52,9 +52,15 @@
                         let totalPrice = roomsTotalPrice * diffInDays;
 
                         $(priceInput).val(totalPrice);
+
+                        $(document).on("dp.change", function () {
+                            $('.select2-selection__choice').empty();
+                            $("input[name=total_price]").val(null);
+                        })
                     })
+                    
             });
-            
+           
         </script>
     @endpush
 
