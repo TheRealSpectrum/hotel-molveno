@@ -86,18 +86,19 @@ class ReservationCrudController extends CrudController
 
         CRUD::field("check_in")
             ->type("datetime_picker")
-            // ->date_picker_options([
-            //     "todayBtn" => "linked",
-            //     // "minDate" => date("Y-m-d"),
-            // ])
-            ->wrapper(["class" => "form-group col-md-6"]);
+            ->wrapper([
+                "class" => "form-group col-md-6 input",
+                "id" => "date_check_in",
+            ]);
         CRUD::field("check_out")
             ->type("datetime_picker")
-            // ->date_picker_options(["todayBtn" => "linked"])
-            ->wrapper(["class" => "form-group col-md-6"]);
+            ->wrapper([
+                "class" => "form-group col-md-6 input",
+                "id" => "date_check_out",
+            ]);
 
         CRUD::field("adults")
-            ->wrapper(["class" => "form-group col-md-6"])
+            ->wrapper(["class" => "form-group col-md-6 in"])
             ->default(1);
         CRUD::field("children")
             ->wrapper(["class" => "form-group col-md-6"])
