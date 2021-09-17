@@ -59,6 +59,11 @@ class ReservationCrudController extends CrudController
                     ->orderBy("guests.first_name", $columnDirection)
                     ->select("reservations.*");
             },
+            "wrapper" => [
+                "href" => function ($crud, $column, $entry, $related_key) {
+                    return backpack_url("guest/" . $related_key . "/show");
+                },
+            ],
         ]);
         CRUD::column("rooms")
             ->type("relationship")
