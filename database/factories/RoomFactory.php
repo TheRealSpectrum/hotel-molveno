@@ -29,7 +29,7 @@ class RoomFactory extends Factory
             "available" => $this->faker->boolean,
             "maximum_adults" => $this->faker->numberBetween(2, 4),
             "maximum_children" => $this->faker->numberBetween(0, 2),
-            // "roomtype_id" => Roomtype::factory(),
+            "roomtype_id" => $this->faker->numberBetween(1, 2),
         ];
     }
 }
