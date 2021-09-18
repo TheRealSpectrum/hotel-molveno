@@ -14,6 +14,21 @@ class RoomtypeSeeder extends Seeder
      */
     public function run()
     {
-        Roomtype::factory();
+        $roomTypes = [
+            [
+                "name" => "Basic",
+                "price" => 80,
+                "room_surface" => 30,
+            ],
+            [
+                "name" => "Luxery",
+                "price" => 120,
+                "room_surface" => 40,
+            ],
+        ];
+
+        foreach ($roomTypes as $roomType) {
+            Roomtype::create($roomType);
+        }
     }
 }
