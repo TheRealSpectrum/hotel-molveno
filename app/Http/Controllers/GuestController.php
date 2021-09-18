@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateGuestAccountRequest;
 use App\Models\Guest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
@@ -13,7 +13,7 @@ class GuestController extends Controller
         return view("account.index");
     }
 
-    public function create(Request $request)
+    public function create(UpdateGuestAccountRequest $request)
     {
         Guest::firstOrcreate([
             "first_name" => $request->first_name,
@@ -29,7 +29,7 @@ class GuestController extends Controller
             ->with("success", "Updated Profile");
     }
 
-    public function update(Request $request)
+    public function update(UpdateGuestAccountRequest $request)
     {
         $guest = guest::find(Auth::user()->guest->id);
 
