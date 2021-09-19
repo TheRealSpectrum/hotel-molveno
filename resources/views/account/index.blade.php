@@ -106,5 +106,34 @@
     </form>
 </div>
         @endif
+<div class="w-2/6">
+    <h1 class="text-center font-bold text-4xl mb-6">Your Reservations</h1>
+    @foreach ($reservations as $reservation)
+    <div class="flex flex-wrap">
+        <div class="w-1/2">
+            <h2 class="text-center font-bold text-1xl mb-2">Check in</h2>
+            <p class="text-center mb-3">{{ $reservation->check_in->format("d-m-Y H:m")}}</p> 
+        </div>
+        <div class="w-1/2">
+            <h2 class="text-center font-bold text-1xl mb-2">Check out</h2>
+            <p class="text-center mb-3">{{ $reservation->check_out->format("d-m-Y H:m")}}</p> 
+        </div>
+        <div class="w-1/2">
+            <h2 class="text-center font-bold text-1xl mb-2">Adults</h2>
+            <p class="text-center mb-3">{{ $reservation->adults}}</p> 
+        </div>
+        <div class="w-1/2">
+            <h2 class="text-center font-bold text-1xl mb-2">Children</h2>
+            <p class="text-center mb-3">{{ $reservation->children}}</p> 
+        </div>
+    </div>
+    
+   
+    
+    @endforeach
+
+</div>
+
+       
 </main>
 @endsection
