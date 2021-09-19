@@ -4,13 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateGuestAccountRequest;
 use App\Models\Guest;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
 {
     public function index()
     {
-        return view("account.index");
+        $reservations = Reservation::where(
+            "guest_id",
+            auth()->user()->guest->id
+        )->get();
+
+        return view("account.index", compact("reservations"));
     }
 
     public function create(UpdateGuestAccountRequest $request)
