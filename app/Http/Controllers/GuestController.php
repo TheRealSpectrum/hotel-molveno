@@ -13,7 +13,7 @@ class GuestController extends Controller
     {
         $reservations = Reservation::where(
             "guest_id",
-            auth()->user()->guest->id
+            auth()->user()->guest->id ?? null
         )->get();
 
         return view("account.index", compact("reservations"));
