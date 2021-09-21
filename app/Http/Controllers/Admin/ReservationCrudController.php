@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\ReservationRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Faker\Provider\ar_JO\Text;
 
 /**
  * Class ReservationCrudController
@@ -58,6 +59,14 @@ class ReservationCrudController extends CrudController
                     )
                     ->orderBy("guests.first_name", $columnDirection)
                     ->select("reservations.*");
+            },
+            "searchLogic" => function ($query, $column, $searchTerm) {
+                $query->orWhereHas("guest", function ($q) use (
+                    $column,
+                    $searchTerm
+                ) {
+                    $q->where("last_name", "like", "%" . $searchTerm . "%");
+                });
             },
             "wrapper" => [
                 "href" => function ($crud, $column, $entry, $related_key) {
