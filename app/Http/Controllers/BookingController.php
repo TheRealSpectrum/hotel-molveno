@@ -34,9 +34,10 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function step3()
+    public function step3(Request $request)
     {
-        return view("reservationstep3");
+        //oomType = Roomtype::find($roomId);
+        return view("reservationstep3", compact("roomType"));
     }
 
     /**

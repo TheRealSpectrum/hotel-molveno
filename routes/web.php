@@ -32,8 +32,8 @@ Route::middleware("auth")->group(function () {
 });
 
 Route::resource("bookings", BookingController::class);
-Route::get("bookings/create/step3", [BookingController::class, "step3"])->name(
-    "account.step3"
+Route::get("bookings/create/step3/", [BookingController::class, "step3"])->name(
+    "booking.step3"
 );
 
 require __DIR__ . "/auth.php";
