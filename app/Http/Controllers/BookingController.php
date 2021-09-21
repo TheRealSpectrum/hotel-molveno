@@ -2,30 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Models\Roomtype;
 
 class BookingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view("book");
+        return view("booking.step1");
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function step2()
     {
+        $data = [
+            "check_in" => request()->get("check_in"),
+            "check_out" => request()->get("check_out"),
+            "adults" => request()->get("adults"),
+            "children" => request()->get("children"),
+            "room_amount" => request()->get("room_amount"),
+        ];
         $roomTypes = Roomtype::all();
-        return view("roomtype", compact("roomTypes"));
+        return view("booking.step2", compact("roomTypes", "data"));
     }
 
     /**
@@ -36,7 +34,39 @@ class BookingController extends Controller
      */
     public function step3()
     {
-        return view("reservationstep3");
+        dd(typeof(request()->get("room_type1")));
+        $data = [
+            "check_in" => request()->get("check_in"),
+            "check_out" => request()->get("check_out"),
+            "adults" => request()->get("adults"),
+            "children" => request()->get("children"),
+            "room_amount" => request()->get("room_amount"),
+            "room_type" => [""],
+        ];
+
+        $rooms = Room::with("reservations")
+            ->whereHas("reservations", function ($q) use ($data) {
+                $q->whereNotBetween("check_in", [
+                    $data["check_in"],
+                    $data["check_out"],
+                ])
+                    ->WhereNotBetween("check_out", [
+                        $data["check_in"],
+                        $data["check_out"],
+                    ])
+                    ->where("available", true)
+                    // ->where("maximum_adults", ">=", $adults)
+                    // ->where("maximum_children", ">=", $children)
+                    ->where("roomtype_id", $roomType)
+                    ->orderBy("room_number", "asc");
+            })
+            ->orWhereDoesntHave("reservations")
+            ->where("roomtype_id", $roomType)
+            ->where("available", true)
+            // ->where("maximum_adults", ">=", $adults)
+            // ->where("maximum_children", ">=", $children)
+            ->orderBy("room_number", "asc");
+        return view("booking.step3", compact("data"));
     }
 
     /**
