@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", function () {
     return view("welcome");
-});
-
-Route::get("/book", function () {
-    return view("book");
 });
 
 Route::middleware("auth")->group(function () {
