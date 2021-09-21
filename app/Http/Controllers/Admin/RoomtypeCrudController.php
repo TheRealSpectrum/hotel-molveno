@@ -42,12 +42,10 @@ class RoomtypeCrudController extends CrudController
         CRUD::column("name");
         CRUD::column("price")->prefix("€");
         CRUD::column("room_surface")->suffix("m²");
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        CRUD::column("image")
+            ->type("image")
+            ->width("60px")
+            ->height("60px");
     }
 
     /**
@@ -63,12 +61,9 @@ class RoomtypeCrudController extends CrudController
         CRUD::field("name");
         CRUD::field("price");
         CRUD::field("room_surface");
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
-         */
+        CRUD::field("image")
+            ->type("image")
+            ->aspect_ratio("1");
     }
 
     /**

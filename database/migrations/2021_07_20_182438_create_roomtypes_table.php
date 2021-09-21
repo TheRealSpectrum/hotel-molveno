@@ -20,6 +20,7 @@ class CreateRoomtypesTable extends Migration
             $table->string("name");
             $table->integer("price");
             $table->integer("room_surface");
+            $table->string("image")->nullable();
             $table->timestamps();
         });
 
