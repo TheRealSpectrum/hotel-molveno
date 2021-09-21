@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Roomtype;
 
 class BookingController extends Controller
 {
@@ -13,7 +14,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        return view("/book");
+        return view("book");
     }
 
     /**
@@ -23,7 +24,8 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+        $roomTypes = Roomtype::all();
+        return view("roomtype", compact("roomTypes"));
     }
 
     /**
@@ -32,9 +34,9 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function step3()
     {
-        //
+        return view("reservationstep3");
     }
 
     /**
