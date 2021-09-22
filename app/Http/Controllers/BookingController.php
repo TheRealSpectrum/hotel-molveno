@@ -22,8 +22,19 @@ class BookingController extends Controller
             "children" => request()->get("children"),
             "room_amount" => request()->get("room_amount"),
         ];
+        $rooms = Room::getAvailableRooms($data);
         $roomTypes = Roomtype::all();
-        return view("booking.step2", compact("roomTypes", "data"));
+
+        if ($data["room_amount"] > $rooms->count()) {
+            return redirect()
+                ->back()
+                ->with(
+                    "error",
+                    "There are not enough rooms available on this date."
+                );
+        } else {
+            return view("booking.step2", compact("rooms", "roomTypes", "data"));
+        }
     }
 
     /**
@@ -52,28 +63,7 @@ class BookingController extends Controller
         }
         $roomTypesKeyValue = array_combine($roomTypeKeys, $roomTypesArr);
 
-        $rooms = Room::with("reservations")
-            ->whereHas("reservations", function ($q) use ($data) {
-                $q->whereNotBetween("check_in", [
-                    $data["check_in"],
-                    $data["check_out"],
-                ])
-                    ->WhereNotBetween("check_out", [
-                        $data["check_in"],
-                        $data["check_out"],
-                    ])
-                    ->where("available", true);
-                // ->where("maximum_adults", ">=", $adults)
-                // ->where("maximum_children", ">=", $children)
-                // ->where("roomtype_id", 1)
-                // ->orderBy("room_number", "asc");
-            })
-            ->orWhereDoesntHave("reservations")
-            // ->where("roomtype_id", 1)
-            ->where("available", true);
-        // ->where("maximum_adults", ">=", $adults)
-        // ->where("maximum_children", ">=", $children)
-        // ->orderBy("room_number", "asc");
+        $rooms = Room::getAvailableRooms($data);
 
         $rooms1 = collect($rooms->get());
         $rooms2 = collect();
@@ -86,19 +76,16 @@ class BookingController extends Controller
             }
         }
 
-        // $newArray = array_merge($rooms2->toArray()[0], $rooms2->toArray()[1]);
         $roomIDsToBook = [];
         foreach ($rooms2 as $room2) {
             foreach ($room2 as $room) {
                 array_push($roomIDsToBook, $room->id);
             }
-
-            // array_push($roomIDsToBook, $room2->id);
         }
 
-        $roomsToBook = Room::whereIn("id", $roomIDsToBook)->get();
+        $roomsToBook = Room::whereIn("id", $roomIDsToBook);
 
-        dd($roomsToBook);
+        dd($roomsToBook->get());
 
         return view("booking.step3", compact("data"));
     }
