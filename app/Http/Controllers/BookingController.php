@@ -85,11 +85,15 @@ class BookingController extends Controller
                 ->back()
                 ->with(
                     "error",
-                    "You need to select " .
+                    "Please select " .
                         $data["room_amount"] -
                         $amountRooms .
                         " more room(s)."
                 );
+        } elseif ($amountRooms > $data["room_amount"]) {
+            return redirect()
+                ->back()
+                ->with("error", "You have selected too much rooms.");
         } else {
             return view("booking.step3", compact("data", "roomsToBook"));
         }
