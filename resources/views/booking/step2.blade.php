@@ -2,7 +2,18 @@
 @section('title', 'Choose your room type - Molveno Resort')
 @section('content')
 
-    Please choose your preferred type of rooms to finish your reservation:
+<main>
+	@if (\Session::has("error"))
+    <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4" role="alert">
+        <p class="font-bold">
+            Error!
+            </p>
+            <p>
+                {{ Session::get("error") }}
+            </p>
+    </div>
+@endif
+	<p>Please choose your preferred type of rooms to finish your reservation:</p>
     <form action="{{ route("booking.step3") }}" method="get">
 		<input type="hidden" name="check_in" value="{{ $data["check_in"] }}">
 		<input type="hidden" name="check_out" value="{{ $data["check_out"] }}">
@@ -29,5 +40,7 @@
 		@endforeach
 		<input type="submit" value="Reservation">
     </form>
+</main>
+    
 
 @endsection

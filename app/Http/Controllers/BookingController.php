@@ -37,12 +37,6 @@ class BookingController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function step3(Request $request)
     {
         $data = [
@@ -64,11 +58,12 @@ class BookingController extends Controller
         $roomTypesKeyValue = array_combine($roomTypeKeys, $roomTypesArr);
 
         $rooms = Room::getAvailableRooms($data);
-
         $rooms1 = collect($rooms->get());
         $rooms2 = collect();
+        $amountRooms = 0;
 
         foreach ($roomTypesKeyValue as $key => $value) {
+            $amountRooms += $value;
             if ($value > 0) {
                 $rooms2->push(
                     $rooms1->where("roomtype_id", $key)->take($value)
@@ -85,9 +80,19 @@ class BookingController extends Controller
 
         $roomsToBook = Room::whereIn("id", $roomIDsToBook);
 
-        dd($roomsToBook->get());
-
-        return view("booking.step3", compact("data"));
+        if ($amountRooms < $data["room_amount"]) {
+            return redirect()
+                ->back()
+                ->with(
+                    "error",
+                    "You need to select " .
+                        $data["room_amount"] -
+                        $amountRooms .
+                        " more room(s)."
+                );
+        } else {
+            return view("booking.step3", compact("data", "roomsToBook"));
+        }
     }
 
     /**
