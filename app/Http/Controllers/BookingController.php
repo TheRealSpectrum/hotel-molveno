@@ -32,7 +32,7 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function step3()
+    public function step3(Request $request)
     {
         $data = [
             "check_in" => request()->get("check_in"),

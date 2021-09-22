@@ -31,8 +31,6 @@ Route::middleware("auth")->group(function () {
     );
 });
 
-// Route::resource("bookings", BookingController::class);
-
 Route::get("bookings", [BookingController::class, "index"])->name(
     "booking.index"
 );
