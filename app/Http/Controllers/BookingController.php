@@ -34,15 +34,23 @@ class BookingController extends Controller
      */
     public function step3()
     {
-        dd(typeof(request()->get("room_type1")));
         $data = [
             "check_in" => request()->get("check_in"),
             "check_out" => request()->get("check_out"),
             "adults" => request()->get("adults"),
             "children" => request()->get("children"),
             "room_amount" => request()->get("room_amount"),
-            "room_type" => [""],
         ];
+
+        $roomTypes = Roomtype::all();
+        $i = 1;
+        $roomTypesArr = [];
+        $roomTypeKeys = [];
+        foreach ($roomTypes as $roomTypeAmount) {
+            array_push($roomTypeKeys, $i);
+            array_push($roomTypesArr, request()->get("room_type" . $i++));
+        }
+        $roomTypesKeyValue = array_combine($roomTypeKeys, $roomTypesArr);
 
         $rooms = Room::with("reservations")
             ->whereHas("reservations", function ($q) use ($data) {
@@ -54,18 +62,44 @@ class BookingController extends Controller
                         $data["check_in"],
                         $data["check_out"],
                     ])
-                    ->where("available", true)
-                    // ->where("maximum_adults", ">=", $adults)
-                    // ->where("maximum_children", ">=", $children)
-                    ->where("roomtype_id", $roomType)
-                    ->orderBy("room_number", "asc");
+                    ->where("available", true);
+                // ->where("maximum_adults", ">=", $adults)
+                // ->where("maximum_children", ">=", $children)
+                // ->where("roomtype_id", 1)
+                // ->orderBy("room_number", "asc");
             })
             ->orWhereDoesntHave("reservations")
-            ->where("roomtype_id", $roomType)
-            ->where("available", true)
-            // ->where("maximum_adults", ">=", $adults)
-            // ->where("maximum_children", ">=", $children)
-            ->orderBy("room_number", "asc");
+            // ->where("roomtype_id", 1)
+            ->where("available", true);
+        // ->where("maximum_adults", ">=", $adults)
+        // ->where("maximum_children", ">=", $children)
+        // ->orderBy("room_number", "asc");
+
+        $rooms1 = collect($rooms->get());
+        $rooms2 = collect();
+
+        foreach ($roomTypesKeyValue as $key => $value) {
+            if ($value > 0) {
+                $rooms2->push(
+                    $rooms1->where("roomtype_id", $key)->take($value)
+                );
+            }
+        }
+
+        // $newArray = array_merge($rooms2->toArray()[0], $rooms2->toArray()[1]);
+        $roomIDsToBook = [];
+        foreach ($rooms2 as $room2) {
+            foreach ($room2 as $room) {
+                array_push($roomIDsToBook, $room->id);
+            }
+
+            // array_push($roomIDsToBook, $room2->id);
+        }
+
+        $roomsToBook = Room::whereIn("id", $roomIDsToBook)->get();
+
+        dd($roomsToBook);
+
         return view("booking.step3", compact("data"));
     }
 

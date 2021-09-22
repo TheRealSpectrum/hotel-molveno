@@ -18,7 +18,14 @@
 			@if ($roomType->image)	
 			<img src="{{ url($roomType->image) }}">	
 			@endif			
-			<input type="number" name="room_type{{ $roomType->id }}" min="0">
+
+			<select name="room_type{{ $roomType->id }}" id="">
+				<option value="0">0</option>
+				@for ($i=1; $i <= $data['room_amount']; $i++)
+				<option value="{{ $i }}">{{ $i }}</option>
+				@endfor
+			</select>
+			
 		@endforeach
 		<input type="submit" value="Reservation">
     </form>
