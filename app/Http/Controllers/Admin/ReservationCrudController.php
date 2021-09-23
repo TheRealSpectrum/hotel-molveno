@@ -126,8 +126,6 @@ class ReservationCrudController extends CrudController
             "wrapper" => ["id" => "date_check_in, date_check_out"],
             "date_range_options" => [
                 "drops" => "down", // can be one of [down/up/auto]
-                "timePicker" => true,
-                "locale" => ["format" => "DD/MM/YYYY HH:mm"],
             ],
         ]);
 
