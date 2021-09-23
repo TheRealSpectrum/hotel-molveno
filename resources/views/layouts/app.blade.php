@@ -17,7 +17,7 @@
         <nav class="flex items-center justify-between flex-wrap bg-gray-100 pr-6 pl-6">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
                 <a href="/">
-                    <img src="images/Logo Molveno Resort Black.svg" alt="Molveno Resort Logo" class="fill-current h-20 w-20 mr-12 ml-4">
+                    <img src="{{ asset("images/Logo Molveno Resort Black.svg") }}" alt="Molveno Resort Logo" class="fill-current h-20 w-20 mr-12 ml-4">
                 </a>
             </div>
             <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
