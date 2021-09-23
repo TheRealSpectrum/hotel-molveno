@@ -20,10 +20,20 @@
             right: 10px;
             top: 12px;
         }
+
+        .img-container {
+            display: flex;
+            justify-content: center
+        }
     </style>
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-4">
-            <h3 class="text-center mb-4">{{ trans('backpack::base.login') }}</h3>
+            <div class="img-container">
+                <a href="/">
+                    <img src="{{ url("images/Logo Molveno Resort Black.svg") }}" alt="Molveno Resort Logo" height="150" width="150">
+                </a>
+            </div>
+            <h3 class="text-center mb-4">Admin {{ trans('backpack::base.login') }}</h3>
             <div class="card">
                 <div class="card-body">
                     <form class="col-md-12 p-t-10" role="form" method="POST" action="{{ route('backpack.auth.login') }}">

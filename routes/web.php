@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +19,6 @@ Route::get("/", function () {
     return view("welcome");
 });
 
-Route::get("/book", function () {
-    return view("book");
-});
-
 Route::middleware("auth")->group(function () {
     Route::get("account", [GuestController::class, "index"])->name(
         "account.index"
@@ -35,5 +32,8 @@ Route::middleware("auth")->group(function () {
 });
 
 Route::resource("bookings", BookingController::class);
+Route::get("bookings/create/step3/", [BookingController::class, "step3"])->name(
+    "booking.step3"
+);
 
 require __DIR__ . "/auth.php";

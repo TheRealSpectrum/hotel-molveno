@@ -21,9 +21,9 @@ class RoomtypeSeeder extends Seeder
                 "room_surface" => 30,
             ],
             [
-                "name" => "Luxery",
-                "price" => 120,
-                "room_surface" => 40,
+                "name" => "Luxury",
+                "price" => 160,
+                "room_surface" => 60,
             ],
         ];
 
