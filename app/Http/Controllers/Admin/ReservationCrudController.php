@@ -98,18 +98,31 @@ class ReservationCrudController extends CrudController
     {
         CRUD::setValidation(ReservationRequest::class);
 
-        CRUD::field("check_in")
-            ->type("datetime_picker")
-            ->wrapper([
-                "class" => "form-group col-md-6 input",
-                "id" => "date_check_in",
-            ]);
-        CRUD::field("check_out")
-            ->type("datetime_picker")
-            ->wrapper([
-                "class" => "form-group col-md-6 input",
-                "id" => "date_check_out",
-            ]);
+        //CRUD::field("check_in")
+        //    ->type("datetime_picker")
+        //   ->wrapper([
+        //       "class" => "form-group col-md-6 input",
+        //        "id" => "date_check_in",
+        //    ]);
+        //CRUD::field("check_out")
+        //    ->type("datetime_picker")
+        //    ->wrapper([
+        //        "class" => "form-group col-md-6 input",
+        //        "id" => "date_check_out",
+        //    ]);
+
+        $this->crud->addField([
+            "type" => "date_range",
+            "name" => ["check_in", "check_out"],
+            "label" => "Event Date Range",
+            "class" => "form-group col-md-6 input",
+            "wrapper" => ["id" => "date_check_in, date_check_out"],
+            "date_range_options" => [
+                "drops" => "down", // can be one of [down/up/auto]
+                "timePicker" => true,
+                "locale" => ["format" => "DD/MM/YYYY HH:mm"],
+            ],
+        ]);
 
         CRUD::field("adults")
             ->wrapper(["class" => "form-group col-md-6 in"])
