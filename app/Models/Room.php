@@ -46,4 +46,22 @@ class Room extends Model
     {
         return $this->belongsToMany(\App\Models\Reservation::class);
     }
+
+    protected static function getAvailableRooms($data)
+    {
+        return Room::with("reservations")
+            ->whereHas("reservations", function ($q) use ($data) {
+                $q->whereNotBetween("check_in", [
+                    $data["check_in"],
+                    $data["check_out"],
+                ])
+                    ->WhereNotBetween("check_out", [
+                        $data["check_in"],
+                        $data["check_out"],
+                    ])
+                    ->where("available", true);
+            })
+            ->orWhereDoesntHave("reservations")
+            ->where("available", true);
+    }
 }
