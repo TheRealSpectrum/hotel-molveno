@@ -31,8 +31,15 @@ Route::middleware("auth")->group(function () {
     );
 });
 
-Route::resource("bookings", BookingController::class);
-Route::get("bookings/create/step3/", [BookingController::class, "step3"])->name(
+Route::get("bookings", [BookingController::class, "index"])->name(
+    "booking.index"
+);
+
+Route::get("bookings/create", [BookingController::class, "step2"])->name(
+    "booking.step2"
+);
+
+Route::get("bookings/create/step3", [BookingController::class, "step3"])->name(
     "booking.step3"
 );
 

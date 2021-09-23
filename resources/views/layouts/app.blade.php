@@ -42,7 +42,7 @@
                     </a>
                 </div>
                 <div>
-                    <a href="{{ route("bookings.index") }}" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg font-bold text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 mr-8 lg:mt-0">Book now</a>
+                    <a href="{{ route("booking.index") }}" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg font-bold text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 mr-8 lg:mt-0">Book now</a>
                     @if (auth()->user())
                     <a href="{{ route("account.index") }}" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Account</a>
                     <a href="{{ route("logout") }}" class="inline-block text-sm px-8 py-3 leading-none border rounded-lg text-blue border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Sign out</a>
