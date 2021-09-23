@@ -8,6 +8,7 @@
   <title>@yield('title')</title>
 
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <script src="https://kit.fontawesome.com/146730865b.js" crossorigin="anonymous"></script>
 </head>
 
@@ -108,8 +109,55 @@
               <div style="background-image: url('images/twitter.png')" class="w-10 h-10 pr-4 bg-no-repeat bg-cover"></div>
           </div>
       </div>
+      <button onclick="topFunction()" id="myBtn" title="Go to top"><i id="scroll-top-icon" class="las la-chevron-circle-up"></i></button>
     </footer>
-    
+    <style>
+        #myBtn {
+            background-color: black;
+            display: none; 
+            position: fixed; 
+            bottom: 20px; 
+            right: 10px; 
+            z-index: 99; 
+            border: none; 
+            outline: none; 
+            color: white; 
+            cursor: pointer; 
+            width: 50px;
+            height: 50px; 
+            border-radius: 10px; 
+            font-size: 18px; 
+            opacity: 0.5;
+        }
+
+        #myBtn:hover {
+        background-color: #555; 
+        }
+
+        #scroll-top-icon {
+            font-size: 50px;
+        }
+    </style>
+    <script>
+
+        mybutton = document.getElementById("myBtn");
+
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+            }
+        }
+
+
+        function topFunction() {
+            document.body.scrollTop = 0; 
+            document.documentElement.scrollTop = 0; 
+        }
+    </script>
 </body>
 </html>
 
