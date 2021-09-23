@@ -2,8 +2,18 @@
 @section('title', 'Make a reservation - Molveno Resort')
 @section('content')
 <h1 class="text-2xl font-medium flex justify-center pt-4">Please fill in the form to make a reservation:</h1> 
+@if (\Session::has("error"))
+    <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4" role="alert">
+        <p class="font-bold">
+            Error!
+            </p>
+            <p>
+                {{ Session::get("error") }}
+            </p>
+    </div>
+@endif
 <div class="flex justify-center p-4 border-b-2"> 
-    <form action="{{ route("bookings.create") }}" method="get">
+    <form action="{{ route("booking.step2") }}" method="get">
         @csrf
         <label class="font-medium" for="check_in">Check-in:</label><br>
         <input class="bg-gray-100 w-full border-2 rounded" type="date" name="check_in"><br>
