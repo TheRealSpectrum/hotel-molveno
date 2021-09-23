@@ -6,6 +6,7 @@ use App\Http\Requests\ReservationRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Faker\Provider\ar_JO\Text;
+use App\Models\Reservation;
 
 /**
  * Class ReservationCrudController
@@ -132,6 +133,9 @@ class ReservationCrudController extends CrudController
             ->attribute("name_price")
             ->wrapper(["id" => "roomtype_select2"]);
 
+        CRUD::field("check_in_status");
+        CRUD::field("check_out_status");
+
         $this->crud->addField([
             "type" => "select2_from_ajax_multiple",
             "name" => "rooms", // the relationship name in your Model
@@ -151,6 +155,12 @@ class ReservationCrudController extends CrudController
             "pivot" => true, // on create&update, do you need to add/delete pivot table entries?
             "wrapper" => ["id" => "room_select2"],
         ]);
+        $this->crud->addButtonFromView(
+            "line",
+            "test",
+            "check_in_out",
+            "beginning"
+        );
 
         CRUD::field("total_price")
             ->type("TotalPrice")
@@ -173,11 +183,22 @@ class ReservationCrudController extends CrudController
         $this->setupCreateOperation();
     }
     // Check In Check Out functie
-    public function checkinout($id)
-    {
-        //ophalen entry uit db
-        //veranderen van of checkin of checkout status
-        //save
-        dd($id);
-    }
+    // public function checkinout($id)
+    // {
+    //     //ophalen entry uit db
+    //     //veranderen van of checkin of checkout status
+    //     //save
+    //     // dd($id);
+    //     $reservation = Reservation::find($id);
+    //     if ("check_in_status" == 0) {
+    //         $reservation->update(["check_in_status" => 1]);
+    //         $reservation->save();
+    //         dd($reservation);
+    //         return redirect()->back();
+    //     } elseif ("check_out_status" == 0) {
+    //         $reservation->update(["check_out_status" => 1]);
+    //         $reservation->save();
+    //         return redirect()->back();
+    //     }
+    // }
 }

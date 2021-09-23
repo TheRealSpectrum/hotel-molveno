@@ -26,7 +26,7 @@ Route::group(
         Route::get("api/room/{id}", "Api\FindRoomController@show");
         Route::get(
             "/reservation/checkinout/{id}",
-            "ReservationCrudController@checkinout"
+            "CheckInOutController@index"
         );
     }
 ); // this should be the absolute last line of this file
