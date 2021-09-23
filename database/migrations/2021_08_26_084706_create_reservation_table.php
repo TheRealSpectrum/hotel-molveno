@@ -17,6 +17,8 @@ class CreateReservationTable extends Migration
             $table->id();
             $table->dateTime("check_in");
             $table->dateTime("check_out");
+            $table->boolean("check_in_status")->default(0);
+            $table->boolean("check_out_status")->default(0);
             $table->integer("adults");
             $table->integer("children");
             $table->foreignId("guest_id")->constrained();

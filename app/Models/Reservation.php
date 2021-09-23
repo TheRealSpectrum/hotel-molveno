@@ -26,6 +26,8 @@ class Reservation extends Model
         "adults",
         "children",
         "total_price",
+        "check_in_status",
+        "check_out_status",
     ];
 
     /**
@@ -42,6 +44,8 @@ class Reservation extends Model
         "check_out" => "datetime",
         "adults" => "integer",
         "children" => "integer",
+        "check_in_status" => "boolean",
+        "check_out_status" => "boolean",
     ];
 
     public function guest()

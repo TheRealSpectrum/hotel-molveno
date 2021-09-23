@@ -65,6 +65,12 @@ class ReservationCrudController extends CrudController
                 },
             ],
         ]);
+        $this->crud->addButtonFromView(
+            "line",
+            "test",
+            "check_in_out",
+            "beginning"
+        );
         CRUD::column("rooms")
             ->type("relationship")
             ->name("rooms");
@@ -156,5 +162,13 @@ class ReservationCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+    // Check In Check Out functie
+    public function checkinout($id)
+    {
+        //ophalen entry uit db
+        //veranderen van of checkin of checkout status
+        //save
+        dd($id);
     }
 }
