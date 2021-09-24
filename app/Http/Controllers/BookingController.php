@@ -86,17 +86,6 @@ class BookingController extends Controller
         $roomsToBook = Room::whereIn("id", $roomIDsToBook);
         $totalGuests = $data["adults"] + $data["children"];
 
-        if (array_sum($roomsCapacity) < $totalGuests) {
-            return redirect()
-                ->back()
-                ->with(
-                    "error",
-                    "There is not enough capacity in " .
-                        $data["room_amount"] .
-                        " room(s) for this reservation, please try again with different room type(s) or select more rooms."
-                );
-        }
-
         if ($amountRooms < $data["room_amount"]) {
             return redirect()
                 ->back()
@@ -111,6 +100,15 @@ class BookingController extends Controller
             return redirect()
                 ->back()
                 ->with("error", "You have selected too much rooms.");
+        } elseif (array_sum($roomsCapacity) < $totalGuests) {
+            return redirect()
+                ->back()
+                ->with(
+                    "error",
+                    "There is not enough capacity in " .
+                        $data["room_amount"] .
+                        " room(s) for this reservation, please try again with different room type(s) or select more rooms."
+                );
         } else {
             return view("booking.step3", compact("data", "roomsToBook"));
         }
