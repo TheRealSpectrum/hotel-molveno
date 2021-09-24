@@ -41,7 +41,7 @@
         <div class="text-red-700">{{ $message }}</div>
         @enderror
         <label for="address">Address</label>
-        <input type="text" name="address" id="" value="{{ auth()->user()->guest->address }}" class="flex rounded-md mb-6 @error("address") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror"> 
+        <input class="flex rounded-md mb-6 @error("email") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror" type="text" name="address" id="autocomplete" value="{{ auth()->user()->guest->address }}">
 
         @error("phone")
         <div class="text-red-700">{{ $message }}</div>
@@ -91,9 +91,9 @@
         @error("address")
         <div class="text-red-700">{{ $message }}</div>
         @enderror
-        <label for="address">Address</label>
-        <input class="flex rounded-md mb-6 @error("address") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror" type="text" name="address" id="">
-        
+            <label for="address">Address</label>
+            <input class="flex rounded-md mb-6 @error("email") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror" type="text" name="address" id="autocomplete" placeholder="Choose Location">
+     
         @error("phone")
         <div class="text-red-700">{{ $message }}</div>
         @enderror
@@ -135,4 +135,30 @@
 
        
 </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+    src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places" ></script>
+<script>
+    $(document).ready(function () {
+        $("#latitudeArea").addClass("d-none");
+        $("#longtitudeArea").addClass("d-none");
+    });
+
+</script>
+
+<script>
+    google.maps.event.addDomListener(window, 'load', initialize);
+    function initialize() {
+        var input = document.getElementById('autocomplete');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.addListener('place_changed', function () {
+            var place = autocomplete.getPlace();
+            $('#latitude').val(place.geometry['location'].lat());
+            $('#longitude').val(place.geometry['location'].lng());
+            $("#latitudeArea").removeClass("d-none");
+            $("#longtitudeArea").removeClass("d-none");
+        });
+    }
+</script>
 @endsection
