@@ -13,12 +13,9 @@
     </div>
 @endif
 <div class="flex justify-center p-4 border-b-2"> 
-    <form action="{{ route("booking.step2") }}" method="get">
+    <form class="flex flex-col w-2/4" action="{{ route("booking.step2") }}" method="get">
         @csrf
-        <label class="font-medium" for="check_in">Check-in:</label><br>
-        <input class="bg-gray-100 w-full border-2 rounded" type="date" name="check_in"><br>
-        <label class="font-medium" for="check_out">Check-out:<label><br>
-        <input class="bg-gray-100 w-full border-2 rounded" type="date" name="check_out"><br>
+        <input type="text" name="daterange" /><br>
         <label class="font-medium" for="adults">How many adults?</label><br>
         <input class="bg-gray-100 w-full border-2 rounded" type="number" min="1" name="adults"><br>
         <label class="font-medium" for="children">How many children?</label><br>
@@ -28,4 +25,22 @@
         <input type="submit" value="Room selection(s)" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 w-full lg:mt-0"> 
     </form>
 </div>
+
+<script>
+
+    
+$(function() {
+    $('input[name="daterange"]').daterangepicker({
+    "startDate": moment(),
+    "endDate": moment(),
+    "minDate": new Date(),
+    "opens": "center",
+    locale: {
+        firstDay: 0,
+        default_date_format: 'D MMM YYYY',
+        default_datetime_format: 'D MMM YYYY, HH:mm',
+    }
+    })
+});
+</script>
 @endsection
