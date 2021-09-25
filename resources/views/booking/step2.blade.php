@@ -12,10 +12,10 @@
 @endif
 	<div class="grid grid-cols-4 gap-4 w-3/4 m-auto">
 		<div class="border-t-4 border-blue-500 pt-4">
-			<a href="{{ url()->previous() }}">
+			{{-- <a href="{{ url()->previous() }}"> --}}
 				<p class="uppercase text-blue-500 font-bold">Step 1</p>
 				<p class="font-semibold">Booking information</p>
-			</a>
+			{{-- </a> --}}
 		</div>
 		<div class="border-t-4 border-blue-500 pt-4">
 		<p class="uppercase text-blue-500 font-bold">Step 2</p>
