@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guest;
+use App\Models\Reservation;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Models\Roomtype;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -83,9 +87,22 @@ class BookingController extends Controller
             }
         }
 
-        $roomsToBook = Room::whereIn("id", $roomIDsToBook);
+        $roomsToBook = Room::whereIn("id", $roomIDsToBook)->get();
         $totalGuests = $data["adults"] + $data["children"];
 
+        // Calculate total price
+        $totalPrice = 0;
+        $totalDays = (int) ceil(
+            Carbon::parse($data["check_in"])->floatDiffInDays(
+                Carbon::parse($data["check_out"])
+            )
+        );
+
+        foreach ($roomsToBook as $roomToBook) {
+            $totalPrice += $roomToBook->roomtype->price * $totalDays;
+        }
+
+        // Error checks
         if ($amountRooms < $data["room_amount"]) {
             return redirect()
                 ->back()
@@ -109,53 +126,88 @@ class BookingController extends Controller
                         $data["room_amount"] .
                         " room(s) for this reservation, please try again with different room type(s) or select more rooms."
                 );
+        } elseif (count($roomsToBook) < $data["room_amount"]) {
+            return redirect()
+                ->back()
+                ->with(
+                    "error",
+                    "There are not enough rooms of this room type available on the selected dates, please try again with different room types."
+                );
         } else {
-            return view("booking.step3", compact("data", "roomsToBook"));
+            return view(
+                "booking.step3",
+                compact("data", "roomsToBook", "totalPrice")
+            );
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function personalInfo(Request $request)
     {
-        //
+        if (!Auth::user()) {
+            $guest = Guest::create([
+                "first_name" => $request->first_name,
+                "last_name" => $request->last_name,
+                "email" => $request->email,
+                "address" => $request->address,
+                "phone" => $request->phone,
+                "user_id" => null,
+            ]);
+        } elseif (Auth::user() && !Auth::user()->guest) {
+            $guest = Guest::create([
+                "first_name" => $request->first_name,
+                "last_name" => $request->last_name,
+                "email" => $request->email,
+                "address" => $request->address,
+                "phone" => $request->phone,
+                "user_id" => auth()->user()->id,
+            ]);
+        } else {
+            $guest = Guest::where("user_id", auth()->user()->id)->firstOrFail();
+        }
+
+        $data = [
+            "check_in" => request()->input("check_in"),
+            "check_out" => request()->input("check_out"),
+            "adults" => request()->input("adults"),
+            "children" => request()->input("children"),
+            "room_amount" => request()->input("room_amount"),
+            "first_name" => $request->first_name,
+            "last_name" => $request->last_name,
+            "email" => $request->email,
+            "address" => $request->address,
+            "phone" => $request->phone,
+            "user_id" => auth()->user()->id ?? null,
+            "roomtypes" => $request->roomtypes,
+            "total_price" => request()->input("total_price"),
+            "room_id" => $request->room_id,
+            "guest_id" => $guest->id,
+        ];
+
+        $roomTypeNames = array_count_values($data["roomtypes"]);
+
+        return view("booking.step4", compact("data", "roomTypeNames"));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function confirmBooking(Request $request)
     {
-        //
-    }
+        $roomIDsToBook = $request->room_id;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $reservation = Reservation::create([
+            "check_in" => $request->check_in,
+            "check_out" => $request->check_out,
+            "adults" => $request->adults,
+            "children" => $request->children,
+            "roomtype_id" => 1,
+            "guest_id" => $request->guest_id,
+            "total_price" => $request->total_price,
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        foreach ($roomIDsToBook as $roomIDToBook) {
+            $reservation->rooms()->attach($roomIDToBook);
+        }
+
+        return redirect()
+            ->back()
+            ->with("success", "Reservation successful");
     }
 }
