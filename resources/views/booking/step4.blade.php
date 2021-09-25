@@ -11,16 +11,34 @@
                   {{ Session::get("success") }}
               </p>
       </div>
-      @else
-      <h3 class="text-lg leading-6 font-medium text-gray-900">
-        Please check your reservation
-       </h3>
-       <p class="mt-1 max-w-2xl text-sm text-gray-500">
-         Reservation details
-       </p>
-     </div>
+      @else 
+      <div class="mt-10 sm:mt-0">
+        <div class="grid grid-cols-4 gap-4 w-3/4 m-auto">
+          <div class="border-t-4 border-blue-500 pt-4">
+            {{-- <a href="{{ route("booking.index") }}"> --}}
+              <p class="uppercase text-blue-500 font-bold">Step 1</p>
+              <p class="font-semibold">Booking information</p>	
+            {{-- </a> --}}
+          </div>
+          <div class="border-t-4 border-blue-500 pt-4">
+            {{-- <a href="{{ url()->previous() }}"> --}}
+              <p class="uppercase text-blue-500 font-bold">Step 2</p>
+              <p class="font-semibold">Room type(s)</p>
+            {{-- </a> --}}
+          </div>
+          <div class="border-t-4 border-blue-500 pt-4">
+            {{-- <a href="{{ url()->previous() }}"> --}}
+              <p class="uppercase text-blue-500 font-bold">Step 3</p>
+              <p class="font-semibold">Personal information</p>
+            {{-- </a> --}}
+          </div>
+          <div class="border-t-4 border-blue-500 pt-4">
+          <p class="uppercase text-blue-500 font-bold">Step 4</p>
+          <p class="font-semibold">Preview</p>
+          </div>
+      </div>
   @endif
-      
+
     <div class="border-t border-gray-200">
       <dl>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
