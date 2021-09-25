@@ -12,6 +12,8 @@
 <div class="flex justify-center p-4 border-b-2"> 
     <form class="flex flex-col w-2/4" action="{{ route("booking.step2") }}" method="get">
         @csrf
+        <input type="hidden" name="check_in" value="">
+        <input type="hidden" name="check_out" value="">
         <input type="text" name="daterange" /><br>
         <label class="font-medium" for="adults">How many adults?</label><br>
         <input class="bg-gray-100 w-full border-2 rounded" type="number" min="1" name="adults"><br>
@@ -29,14 +31,18 @@
 $(function() {
     $('input[name="daterange"]').daterangepicker({
     "startDate": moment(),
-    "endDate": moment(),
+    "endDate": moment().add(1, "days"),
     "minDate": new Date(),
+    "autoApply": true,
     "opens": "center",
     locale: {
         firstDay: 0,
         default_date_format: 'D MMM YYYY',
         default_datetime_format: 'D MMM YYYY, HH:mm',
     }
+    }, function (start, end, label) {
+        $('input[name="check_in"]').val(start.format('YYYY-MM-DD 14:00:00'))
+        $('input[name="check_out"]').val(end.format('YYYY-MM-DD 12:00:00'))
     })
 });
 </script>

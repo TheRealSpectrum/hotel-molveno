@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", function () {
     return view("welcome");
-});
+})->name("home");
 
 Route::middleware("auth")->group(function () {
     Route::get("account", [GuestController::class, "index"])->name(
@@ -42,5 +42,15 @@ Route::get("bookings/create", [BookingController::class, "step2"])->name(
 Route::get("bookings/create/step3", [BookingController::class, "step3"])->name(
     "booking.step3"
 );
+
+Route::get("bookings/create/step4", [
+    BookingController::class,
+    "personalInfo",
+])->name("booking.personalInfo");
+
+Route::post("bookings/create/confirm", [
+    BookingController::class,
+    "confirmBooking",
+])->name("booking.confirm");
 
 require __DIR__ . "/auth.php";
