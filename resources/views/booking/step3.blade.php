@@ -3,16 +3,31 @@
 @section('content')
 
 <div class="mt-10 sm:mt-0">
-  <div class="md:grid md:grid-cols-3 md:gap-6">
-    <div class="md:col-span-1">
-      <div class="px-4 sm:px-0">
-        <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
-        <p class="mt-1 text-sm text-gray-600">
-          Please fill in the personal information form:
-        </p>
-      </div>
-    </div>
-    <div class="mt-5 md:mt-0 md:col-span-2">
+  <div class="grid grid-cols-4 gap-4 w-3/4 m-auto">
+		<div class="border-t-4 border-blue-500 pt-4">
+      {{-- <a href="{{ route("booking.index") }}"> --}}
+				<p class="uppercase text-blue-500 font-bold">Step 1</p>
+				<p class="font-semibold">Booking information</p>	
+      {{-- </a> --}}
+		</div>
+		<div class="border-t-4 border-blue-500 pt-4">
+      {{-- <a href="{{ url()->previous() }}"> --}}
+        <p class="uppercase text-blue-500 font-bold">Step 2</p>
+        <p class="font-semibold">Room type(s)</p>
+      {{-- </a> --}}
+		</div>
+		<div class="border-t-4 border-blue-500 pt-4">
+		<p class="uppercase text-blue-500 font-bold">Step 3</p>
+		<p class="font-semibold">Personal information</p>
+		</div>
+		<div class="border-t-4 border-blue-200 pt-4">
+		<p class="uppercase text-gray-400 font-bold">Step 4</p>
+		<p class="font-semibold">Preview</p>
+		</div>
+</div>
+
+  <div class="md:grid md:grid-cols-3 md:gap-6 ">
+    <div class="mt-5 md:mt-4 md:col-start-2">
       <form action="{{ route("booking.personalInfo") }}" method="GET">
         @csrf
         <input type="hidden" name="check_in" value="{{ $data["check_in"] }}">
@@ -56,7 +71,7 @@
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
             <button type="submit"  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Go to confirmation screen
+              Preview Booking
             </button>
           </div>
         </div>

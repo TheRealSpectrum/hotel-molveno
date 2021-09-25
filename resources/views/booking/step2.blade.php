@@ -10,7 +10,27 @@
             </p>
     </div>
 @endif
-	<h1 class="text-2xl font-medium flex justify-center pt-4">Select a room type:</h1>
+	<div class="grid grid-cols-4 gap-4 w-3/4 m-auto">
+		<div class="border-t-4 border-blue-500 pt-4">
+			{{-- <a href="{{ url()->previous() }}"> --}}
+				<p class="uppercase text-blue-500 font-bold">Step 1</p>
+				<p class="font-semibold">Booking information</p>
+			{{-- </a> --}}
+		</div>
+		<div class="border-t-4 border-blue-500 pt-4">
+		<p class="uppercase text-blue-500 font-bold">Step 2</p>
+		<p class="font-semibold">Room type(s)</p>
+		</div>
+		<div class="border-t-4 border-gray-200 pt-4">
+		<p class="uppercase text-gray-400 font-bold">Step 3</p>
+		<p class="font-semibold">Personal information</p>
+		</div>
+		<div class="border-t-4 border-gray-200 pt-4">
+		<p class="uppercase text-gray-400 font-bold">Step 4</p>
+		<p class="font-semibold">Preview</p>
+		</div>
+	</div>
+
 	<div class="flex justify-center p-4 border-b-2">
     <form action="{{ route("booking.step3") }}" method="get">
 		<input type="hidden" name="check_in" value="{{ $data["check_in"] }}">
