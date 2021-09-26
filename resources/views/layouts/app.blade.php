@@ -62,7 +62,7 @@
     @yield('content')
 
     <footer>
-      <div class="border-b-2 grid grid-cols-2 p-12">
+      <div class="border-b-2 grid grid-cols-2 p-0">
           <div></div>
           <div class="flex flex-row">
             <div class="pr-12 p-12">
@@ -103,14 +103,17 @@
             </div>
           </div>
       </div>
-      <div class="flex flex-row justify-between p-12 pb-24">
-          <div>
+      <div class="flex flex-row justify-between p-12">
+          <div class="flex flex-col justify-center">
             <p>© Molveno Resort,  2021</p>
           </div>
-          <div class="flex flex-row">
+          <div class="flex flex-col items-center">
               <p class="pr-4">Follow us:</p>
-              <div style="background-image: url('images/facebook.png')" class="w-10 h-10 pr-4 bg-no-repeat bg-cover"></div>
-              <div style="background-image: url('images/twitter.png')" class="w-10 h-10 pr-4 bg-no-repeat bg-cover"></div>
+              <div class="flex flex-row">
+                <a href="http://www.facebook.com" target="_blank"><i class="lab la-facebook text-5xl"></i></a>
+                <a href="http://www.twitter.com" target="_blank"><i class="lab la-twitter text-5xl"></i></a>
+                <a href="http://www.instagram.com" target="_blank"><i class="lab la-instagram text-5xl"></i></a>
+              </div>
           </div>
       </div>
       <button onclick="topFunction()" id="myBtn" title="Go to top"><i id="scroll-top-icon" class="las la-chevron-circle-up"></i></button>
