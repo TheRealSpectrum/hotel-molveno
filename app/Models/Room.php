@@ -19,8 +19,7 @@ class Room extends Model
         "room_number",
         "is_clean",
         "available",
-        "maximum_adults",
-        "maximum_children",
+        "maximum_guests",
         "roomtype_id",
     ];
 

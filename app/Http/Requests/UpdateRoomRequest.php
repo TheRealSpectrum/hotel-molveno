@@ -32,8 +32,7 @@ class UpdateRoomRequest extends FormRequest
                 "required|unique:rooms,room_number," . $currentRoom->id,
             "is_clean" => "nullable",
             "available" => "nullable",
-            "maximum_adults" => "required|min:1|max:10",
-            "maximum_children" => "required|min:0|max:4",
+            "maximum_guests" => "required|min:1|max:10",
         ];
     }
 
