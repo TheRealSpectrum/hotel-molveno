@@ -31,4 +31,12 @@ class UpdateGuestAccountRequest extends FormRequest
             "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10",
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            "email" => "email address",
+            "phone" => "telephone number",
+        ];
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BookingRequest;
+use App\Http\Requests\UpdateGuestAccountRequest;
 use App\Models\Guest;
 use App\Models\Reservation;
 use App\Models\Room;
@@ -146,7 +147,7 @@ class BookingController extends Controller
         }
     }
 
-    public function personalInfo(Request $request)
+    public function personalInfo(UpdateGuestAccountRequest $request)
     {
         if (!Auth::user()) {
             $guest = Guest::create([
