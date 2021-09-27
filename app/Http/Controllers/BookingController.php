@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BookingRequest;
 use App\Models\Guest;
 use App\Models\Reservation;
 use App\Models\Room;
@@ -17,14 +18,14 @@ class BookingController extends Controller
         return view("booking.step1");
     }
 
-    public function step2()
+    public function step2(BookingRequest $request)
     {
         $data = [
-            "check_in" => request()->get("check_in"),
-            "check_out" => request()->get("check_out"),
-            "adults" => request()->get("adults"),
-            "children" => request()->get("children"),
-            "room_amount" => request()->get("room_amount"),
+            "check_in" => $request->get("check_in"),
+            "check_out" => $request->get("check_out"),
+            "adults" => $request->get("adults"),
+            "children" => $request->get("children"),
+            "room_amount" => $request->get("room_amount"),
         ];
         $rooms = Room::getAvailableRooms($data);
         $roomTypes = Roomtype::all();
@@ -44,11 +45,11 @@ class BookingController extends Controller
     public function step3(Request $request)
     {
         $data = [
-            "check_in" => request()->get("check_in"),
-            "check_out" => request()->get("check_out"),
-            "adults" => request()->get("adults"),
-            "children" => request()->get("children"),
-            "room_amount" => request()->get("room_amount"),
+            "check_in" => $request->get("check_in"),
+            "check_out" => $request->get("check_out"),
+            "adults" => $request->get("adults"),
+            "children" => $request->get("children"),
+            "room_amount" => $request->get("room_amount"),
         ];
 
         $roomTypes = Roomtype::all();
@@ -170,11 +171,11 @@ class BookingController extends Controller
         }
 
         $data = [
-            "check_in" => request()->input("check_in"),
-            "check_out" => request()->input("check_out"),
-            "adults" => request()->input("adults"),
-            "children" => request()->input("children"),
-            "room_amount" => request()->input("room_amount"),
+            "check_in" => $request->input("check_in"),
+            "check_out" => $request->input("check_out"),
+            "adults" => $request->input("adults"),
+            "children" => $request->input("children"),
+            "room_amount" => $request->input("room_amount"),
             "first_name" => $request->first_name,
             "last_name" => $request->last_name,
             "email" => $request->email,
@@ -182,7 +183,7 @@ class BookingController extends Controller
             "phone" => $request->phone,
             "user_id" => auth()->user()->id ?? null,
             "roomtypes" => $request->roomtypes,
-            "total_price" => request()->input("total_price"),
+            "total_price" => $request->input("total_price"),
             "room_id" => $request->room_id,
             "guest_id" => $guest->id,
         ];

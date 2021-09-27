@@ -32,8 +32,36 @@
     <div class="md:grid md:grid-cols-2 mt-5 md:mt-4 md:col-start-2">
     <form class="md:col-span-2" action="{{ route("booking.step2") }}" method="get">
         @csrf
-        <input type="hidden" name="check_in" value="">
-        <input type="hidden" name="check_out" value="">
+        <input type="hidden" name="check_in" value="{{ old("check_in") }}">
+        <input type="hidden" name="check_out" value="{{ old("check_out") }}">
+        @error("check_in")
+        <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4 mb-2" role="alert">
+          <p>
+              {{ $message }}
+          </p>
+        </div>
+        @enderror
+        @error("adults")
+        <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4 mb-2" role="alert">
+          <p>
+              {{ $message }}
+          </p>
+        </div>
+        @enderror
+        @error("children")
+        <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4 mb-2" role="alert">
+          <p>
+              {{ $message }}
+          </p>
+        </div>
+        @enderror
+        @error("room_amount")
+        <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4 mb-2" role="alert">
+          <p>
+              {{ $message }}
+          </p>
+        </div>
+        @enderror
         <div class="relative">
             <label for="daterange" class="pl-2 font-medium">Check in/out date</label>
             <input class="w-full pl-4 pr-10 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="text" name="daterange"/>
@@ -57,16 +85,16 @@
         <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="">
             <label class="pl-2 font-medium w-full" for="adults">Adults (12+)</label>
-            <input class="w-full pl-4 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" min="1" name="adults">
+            <input class="w-full pl-4 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" name="adults" value="{{ old("adults") ?? "" }}">
         </div>
         <div class="">
             <label class="pl-2 font-medium" for="children">Children</label>
-            <input class="pl-4 py-3 w-full leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" min="0" name="children">
+            <input class="pl-4 py-3 w-full leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" name="children" value="{{ old("children") ?? "" }}">
         </div>
         
         <div class="">
             <label class="pl-2 font-medium" for="room_amount">Amount rooms</label>
-            <input class="pl-4 py-3 w-full leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" min="1" name="room_amount">
+            <input class="pl-4 py-3 w-full leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" name="room_amount" value="{{ old("room_amount") ?? "" }}" >
         </div>
     </div>
         <input type="submit" value="Room selection(s)" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 w-full lg:mt-4 cursor-pointer"> 
@@ -82,12 +110,14 @@ $(function() {
     "minDate": new Date(),
     "autoApply": true,
     "opens": "center",
+    "autoUpdateInput": false,
     locale: {
         firstDay: 0,
         default_date_format: 'D MMM YYYY',
         default_datetime_format: 'D MMM YYYY, HH:mm',
     }
     }, function (start, end, label) {
+        $('input[name="daterange"]').val(start.format('DD-MM-YYYY') + " - " + end.format('DD-MM-YYYY'))
         $('input[name="check_in"]').val(start.format('YYYY-MM-DD 14:00:00'))
         $('input[name="check_out"]').val(end.format('YYYY-MM-DD 12:00:00'))
     })
