@@ -54,19 +54,19 @@
         </div>
         @enderror
 
-        <label for="first_name">First name</label>
+        <label for="first_name">First name <span class="text-red-500">*</span></label>
         <input type="text" name="first_name" id="" value="{{ auth()->user()->guest->first_name }}" class="flex rounded-md mb-6 @error("first_name") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror">
 
-        <label for="last_name">Last name</label>
+        <label for="last_name">Last name <span class="text-red-500">*</span></label>
         <input type="text" name="last_name" id="" value="{{ auth()->user()->guest->last_name }}" class="flex rounded-md mb-6 @error("last_name") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror">
 
-        <label for="email">Email address</label>
+        <label for="email">Email address <span class="text-red-500">*</span></label>
         <input type="email" name="email" id="" value="{{ auth()->user()->guest->email }}" class="flex rounded-md mb-6 @error("email") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror">
 
-        <label for="address">Address</label>
+        <label for="address">Address <span class="text-red-500">*</span></label>
         <input class="flex rounded-md mb-6 @error("email") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror" type="text" name="address" id="autocomplete" value="{{ auth()->user()->guest->address }}">
 
-        <label for="phone">Telephone number</label>
+        <label for="phone">Telephone number <span class="text-red-500">*</span></label>
         <input type="text" name="phone" id="" value="{{ auth()->user()->guest->phone }}" class="flex rounded-md mb-6 @error("phone") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror">
         
         <input type="submit" value="Update profile" class="w-1/2 self-center cursor-pointer inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg 

@@ -63,7 +63,7 @@
         </div>
         @enderror
         <div class="relative">
-            <label for="daterange" class="pl-2 font-medium">Check in/out date</label>
+            <label for="daterange" class="pl-2 font-medium">Check in/out date <span class="text-red-500">*</span></label>
             <input class="w-full pl-4 pr-10 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="text" name="daterange"/>
             <div class="absolute top-0 right-0 px-3 py-9">
                 <svg
@@ -84,16 +84,16 @@
 
         <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="">
-            <label class="pl-2 font-medium w-full" for="adults">Adults (12+)</label>
+            <label class="pl-2 font-medium w-full" for="adults">Adults (12+) <span class="text-red-500">*</span></label>
             <input class="w-full pl-4 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" name="adults" value="{{ old("adults") ?? "" }}">
         </div>
         <div class="">
-            <label class="pl-2 font-medium" for="children">Children</label>
+            <label class="pl-2 font-medium" for="children">Children <span class="text-red-500">*</span></label>
             <input class="pl-4 py-3 w-full leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" name="children" value="{{ old("children") ?? "" }}">
         </div>
         
         <div class="">
-            <label class="pl-2 font-medium" for="room_amount">Amount rooms</label>
+            <label class="pl-2 font-medium" for="room_amount">Amount rooms <span class="text-red-500">*</span></label>
             <input class="pl-4 py-3 w-full leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" name="room_amount" value="{{ old("room_amount") ?? "" }}" >
         </div>
     </div>
