@@ -18,34 +18,54 @@
             </p>
         </div>
         @endif
-
         @error("first_name")
-        <div class="text-red-700">{{ $message }}</div>
+        <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4 mb-2" role="alert">
+          <p>
+              {{ $message }}
+          </p>
+        </div>
         @enderror
+        @error("last_name")
+            <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4 mb-2" role="alert">
+            <p>
+                {{ $message }}
+            </p>
+            </div>
+        @enderror
+        @error("email")
+            <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4 mb-2" role="alert">
+            <p>
+                {{ $message }}
+            </p>
+            </div>
+        @enderror
+        @error("address")
+            <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4 mb-2" role="alert">
+            <p>
+                {{ $message }}
+            </p>
+            </div>
+        @enderror
+        @error("phone")
+        <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4 mb-2" role="alert">
+            <p>
+                {{ $message }}
+            </p>
+        </div>
+        @enderror
+
         <label for="first_name">First name</label>
         <input type="text" name="first_name" id="" value="{{ auth()->user()->guest->first_name }}" class="flex rounded-md mb-6 @error("first_name") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror">
 
-        @error("last_name")
-        <div class="text-red-700">{{ $message }}</div>
-        @enderror
         <label for="last_name">Last name</label>
         <input type="text" name="last_name" id="" value="{{ auth()->user()->guest->last_name }}" class="flex rounded-md mb-6 @error("last_name") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror">
 
-        @error("email")
-        <div class="text-red-700">{{ $message }}</div>
-        @enderror
         <label for="email">Email</label>
         <input type="email" name="email" id="" value="{{ auth()->user()->guest->email }}" class="flex rounded-md mb-6 @error("email") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror">
 
-        @error("address")
-        <div class="text-red-700">{{ $message }}</div>
-        @enderror
         <label for="address">Address</label>
         <input class="flex rounded-md mb-6 @error("email") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror" type="text" name="address" id="autocomplete" value="{{ auth()->user()->guest->address }}">
 
-        @error("phone")
-        <div class="text-red-700">{{ $message }}</div>
-        @enderror
         <label for="phone">Phone number</label>
         <input type="text" name="phone" id="" value="{{ auth()->user()->guest->phone }}" class="flex rounded-md mb-6 @error("phone") bg-red-100 border border-red-400 text-red-700 px-4 py-3 @enderror">
         
