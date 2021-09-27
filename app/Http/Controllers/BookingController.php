@@ -65,10 +65,18 @@ class BookingController extends Controller
         $rooms1 = collect($rooms->get());
         $rooms2 = collect();
         $amountRooms = 0;
+        $totalGuests = $data["adults"] + $data["children"];
 
         foreach ($roomTypesKeyValue as $key => $value) {
             $amountRooms += $value;
-            if ($value > 0) {
+            if ($value == 1) {
+                $rooms2->push(
+                    $rooms1
+                        ->where("maximum_guests", ">=", $totalGuests)
+                        ->where("roomtype_id", $key)
+                        ->take($value)
+                );
+            } elseif ($value > 1) {
                 $rooms2->push(
                     $rooms1->where("roomtype_id", $key)->take($value)
                 );
@@ -80,15 +88,11 @@ class BookingController extends Controller
         foreach ($rooms2 as $room2) {
             foreach ($room2 as $room) {
                 array_push($roomIDsToBook, $room->id);
-                array_push(
-                    $roomsCapacity,
-                    $room->maximum_adults + $room->maximum_children
-                );
+                array_push($roomsCapacity, $room->maximum_guests);
             }
         }
 
         $roomsToBook = Room::whereIn("id", $roomIDsToBook)->get();
-        $totalGuests = $data["adults"] + $data["children"];
 
         // Calculate total price
         $totalPrice = 0;

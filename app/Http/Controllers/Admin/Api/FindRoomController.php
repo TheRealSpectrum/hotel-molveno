@@ -27,28 +27,26 @@ class FindRoomController extends Controller
             $roomType = $form["roomtype_id"];
             $adults = $form["adults"];
             $children = $form["children"];
+            $totalGuests = (int) $adults + (int) $children;
 
             $availableRooms = Room::with("reservations")
                 ->whereHas("reservations", function ($q) use (
                     $check_in,
                     $check_out,
                     $roomType,
-                    $adults,
-                    $children
+                    $totalGuests
                 ) {
                     $q->whereNotBetween("check_in", [$check_in, $check_out])
                         ->WhereNotBetween("check_out", [$check_in, $check_out])
                         ->where("available", true)
-                        ->where("maximum_adults", ">=", $adults)
-                        ->where("maximum_children", ">=", $children)
+                        ->where("maximum_guests", ">=", $totalGuests)
                         ->where("roomtype_id", $roomType)
                         ->orderBy("room_number", "asc");
                 })
                 ->orWhereDoesntHave("reservations")
                 ->where("roomtype_id", $roomType)
                 ->where("available", true)
-                ->where("maximum_adults", ">=", $adults)
-                ->where("maximum_children", ">=", $children)
+                ->where("maximum_guests", ">=", $totalGuests)
                 ->orderBy("room_number", "asc");
         }
 
