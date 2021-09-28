@@ -45,7 +45,7 @@
 			@foreach ( $roomTypes as $roomType )
 			<div class="group relative">
 				<div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-					<img src="{{ $roomType->image }}" alt="Room image" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+					<img src="{{ url($roomType->image) }}" alt="Room image" class="w-full h-full object-center object-fill lg:w-full lg:h-full">
 				</div>
 				<div class="mt-4 flex justify-between">
 					<div>
@@ -68,7 +68,7 @@
 		</div>
 		<div class="flex">
 			<div class="justify-end py-6">
-				<input type="submit" value="Finish reservation" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">
+				<input type="submit" value="Personal information" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">
 			</div>
 		</div>
     </form>
