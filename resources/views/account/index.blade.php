@@ -221,7 +221,7 @@
                             Children
                           </th>
                           <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Dummy Roomnumbers
+                            Roomtype
                           </th>
                           <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Price
@@ -264,7 +264,7 @@
                             <div class="flex items-center">
                               <div class="ml-4">
                                 <div class="text-sm font-medium text-gray-900">
-                                    Dummy 1
+                                  Basic
                                 </div>
                           </td>
                           <td >

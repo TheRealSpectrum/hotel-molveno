@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateGuestAccountRequest;
 use App\Models\Guest;
 use App\Models\Reservation;
+use App\Models\Roomtype;
 use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
