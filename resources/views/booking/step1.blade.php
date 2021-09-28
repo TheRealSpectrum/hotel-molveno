@@ -28,6 +28,8 @@
     </div>
 </div>
 
+<div class="shadow overflow-hidden sm:rounded-md">
+<div class="px-4 py-5 bg-white sm:p-6">
 <div class="md:grid md:grid-cols-3 md:gap-6"> 
     <div class="md:grid md:grid-cols-2 mt-5 md:mt-4 md:col-start-2">
     <form class="md:col-span-2" action="{{ route("booking.step2") }}" method="get">
@@ -64,7 +66,7 @@
         @enderror
         <div class="relative">
             <label for="daterange" class="pl-2 font-medium">Check in/out date <span class="text-red-500">*</span></label>
-            <input class="w-full pl-4 pr-10 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="text" name="daterange"/>
+            <input class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="text" name="daterange"/>
             <div class="absolute top-0 right-0 px-3 py-9">
                 <svg
                   class="h-6 w-6 text-gray-400"
@@ -85,20 +87,22 @@
         <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="">
             <label class="pl-2 font-medium w-full" for="adults">Adults (12+) <span class="text-red-500">*</span></label>
-            <input class="w-full pl-4 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" name="adults" value="{{ old("adults") ?? "" }}">
+            <input class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="number" name="adults" value="{{ old("adults") ?? "1" }}">
         </div>
         <div class="">
             <label class="pl-2 font-medium" for="children">Children <span class="text-red-500">*</span></label>
-            <input class="pl-4 py-3 w-full leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" name="children" value="{{ old("children") ?? "" }}">
+            <input class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="number" name="children" value="{{ old("children") ?? "0" }}">
         </div>
         
         <div class="">
             <label class="pl-2 font-medium" for="room_amount">Amount rooms <span class="text-red-500">*</span></label>
-            <input class="pl-4 py-3 w-full leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" type="number" name="room_amount" value="{{ old("room_amount") ?? "" }}" >
+            <input class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="number" name="room_amount" value="{{ old("room_amount") ?? "1" }}" >
         </div>
     </div>
         <input type="submit" value="Room selection(s)" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 w-full lg:mt-4 cursor-pointer"> 
     </form>
+</div>
+</div>
 </div>
 </div>
 
