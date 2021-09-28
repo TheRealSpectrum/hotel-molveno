@@ -68,7 +68,7 @@
 		</div>
 		<div class="flex">
 			<div class="justify-end py-6">
-				<input type="submit" value="Finish reservation" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">
+				<input type="submit" value="Personal information" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">
 			</div>
 		</div>
     </form>
