@@ -124,8 +124,8 @@
                 <h1 class="text-4xl pb-4">Molveno resort</h1>
             </div>
             <div>
-                <a href="#" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Book a room</a>
-                <a href="#" class="inline-block text-sm px-8 py-3 leading-none border rounded-lg text-blue border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Contact us</a>
+                <a href="{{ route("booking.index") }}" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg text-white font-bold border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Book a room</a>
+                <a href="#" class="inline-block text-2xl px-10 py-4 leading-none border rounded-lg text-blue border-blue-500 font-bold hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Contact us</a>
             </div>
           </div>
       </div>
