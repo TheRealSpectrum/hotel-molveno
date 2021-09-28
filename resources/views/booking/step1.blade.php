@@ -28,7 +28,7 @@
     </div>
 </div>
 
-<div class="shadow overflow-hidden sm:rounded-md">
+<div class="shadow overflow-hidden sm:rounded-md h-96">
 <div class="px-4 py-5 bg-white sm:p-6">
 <div class="md:grid md:grid-cols-3 md:gap-6"> 
     <div class="md:grid md:grid-cols-2 mt-5 md:mt-4 md:col-start-2">
