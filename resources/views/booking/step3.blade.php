@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="mt-10 sm:mt-0">
-  <div class="grid grid-cols-4 gap-4 w-3/4 m-auto">
+  <div class="grid grid-cols-4 gap-4 w-2/4 m-auto mt-4 mb-4">
 		<div class="border-t-4 border-blue-500 pt-4">
       {{-- <a href="{{ route("booking.index") }}"> --}}
 				<p class="uppercase text-blue-500 font-bold">Step 1</p>
