@@ -200,90 +200,90 @@
 </div>
         @endif
 
-        <div class="p-4 w-2/6 flex flex-col">
-            <h1 class="text-center mb-10 font-medium capitalize text-4xl">Your Reservations</h1>
-            <div class="-my-2 sm:-mx-6 lg:-mx-8">
-                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                  <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                      <thead class="bg-gray-50">
-                        <tr>
-                          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Check in
-                          </th>
-                          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Check out
-                          </th>
-                          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Adults
-                          </th>
-                          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Children
-                          </th>
-                          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Roomtype
-                          </th>
-                          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Price
-                          </th>                         
-                        </tr>
-                      </thead>
-                      <tbody class="bg-white divide-y divide-gray-200">
-                        @if (!empty($reservations[0]))
-                        @foreach ($reservations as $reservation)
-                        <tr>
-                          <td >
-                            <div class="flex items-center">
-                              <div class="ml-4">
-                                <div class="text-sm font-medium text-gray-900">
-                                    {{ $reservation->check_in->format("d-m-Y H:m")}}
-                                </div>
-                          </td>
-                          <td >
-                            <div class="flex items-center">
-                              <div class="ml-4">
-                                <div class="text-sm font-medium text-gray-900">
-                                    {{ $reservation->check_out->format("d-m-Y H:m")}}
-                                </div>
-                          </td>
-                          <td >
-                            <div class="flex items-center">
-                              <div class="ml-4">
-                                <div class="text-sm font-medium text-gray-900">
-                                    {{ $reservation->adults}}
-                                </div>
-                          </td>
-                          <td >
-                            <div class="flex items-center">
-                              <div class="ml-4">
-                                <div class="text-sm font-medium text-gray-900">
-                                    {{ $reservation->children}}
-                                </div>
-                          </td>
-                          <td >
-                            <div class="flex items-center">
-                              <div class="ml-4">
-                                <div class="text-sm font-medium text-gray-900">
-                                  Basic
-                                </div>
-                          </td>
-                          <td >
-                            <div class="flex items-center">
-                              <div class="ml-4">
-                                <div class="text-sm font-medium text-gray-900">
-                                    €{{ $reservation->total_price}}
-                                </div>
-                          </td>
-                        </tr>
-                        @endforeach
-                        @endif
-                      </tbody>
-                    </table>
-                  </div>
+        <div class="p-4 w-3/6 flex flex-col">
+          <h1 class="text-center mb-10 font-medium capitalize text-3xl">Your Reservations</h1>
+          <div class="-my-2 sm:-mx-6 lg:-mx-8">
+              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                  <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Check in
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Check out
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Adults
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Children
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Roomtype
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Price
+                        </th>                         
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                      @if (!empty($reservations[0]))
+                      @foreach ($reservations as $reservation)
+                      <tr>
+                        <td >
+                          <div class="flex items-center justify-center">
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900">
+                                  {{ $reservation->check_in->format("d-m-Y H:m")}}
+                              </div>
+                        </td>
+                        <td >
+                          <div class="flex items-center justify-center">
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900">
+                                  {{ $reservation->check_out->format("d-m-Y H:m")}}
+                              </div>
+                        </td>
+                        <td >
+                          <div class="flex items-center justify-center">
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900">
+                                  {{ $reservation->adults}}
+                              </div>
+                        </td>
+                        <td>
+                          <div class="flex items-center justify-center">
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900">
+                                  {{ $reservation->children}}
+                              </div>
+                        </td>
+                        <td >
+                          <div class="flex items-center justify-center">
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900">
+                                Basic
+                              </div>
+                        </td>
+                        <td >
+                          <div class="flex items-center justify-center">
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900">
+                                  €{{ $reservation->total_price}}
+                              </div>
+                        </td>
+                      </tr>
+                      @endforeach
+                      @endif
+                    </tbody>
+                  </table>
                 </div>
               </div>
-            
-        </div>
+            </div>
+          
+      </div>
 
        
 </main>
