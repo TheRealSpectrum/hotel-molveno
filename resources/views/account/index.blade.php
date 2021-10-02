@@ -200,7 +200,8 @@
 </div>
         @endif
 
-        <div class="p-4 w-3/6 flex flex-col">
+        
+        <div class="pb-4 px-4 w-3/6 flex flex-col">
           <h1 class="text-center mb-10 font-medium capitalize text-3xl">Your Reservations</h1>
           <div class="-my-2 sm:-mx-6 lg:-mx-8">
               <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -284,7 +285,6 @@
             </div>
           
       </div>
-
        
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

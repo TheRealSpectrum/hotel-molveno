@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="mt-10 sm:mt-0">
-  <div class="grid grid-cols-4 gap-4 w-3/4 m-auto">
+  <div class="grid grid-cols-4 gap-4 w-2/4 m-auto mt-4 mb-4">
 		<div class="border-t-4 border-blue-500 pt-4">
       {{-- <a href="{{ route("booking.index") }}"> --}}
 				<p class="uppercase text-blue-500 font-bold">Step 1</p>
@@ -75,7 +75,7 @@
           <input type="hidden" name="roomtypes[]" value="{{ $roomToBook->roomtype->name }}">
           <input type="hidden" name="room_id[]" value="{{ $roomToBook->id }}">
         @endforeach
-        <div class="shadow overflow-hidden sm:rounded-md">
+        <div class="shadow overflow-hidden sm:rounded-md w-full">
           <div class="px-4 py-5 bg-white sm:p-6">
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 sm:col-span-3">

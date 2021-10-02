@@ -10,7 +10,7 @@
             </p>
     </div>
 	@endif
-	<div class="grid grid-cols-4 gap-4 w-3/4 m-auto">
+	<div class="grid grid-cols-4 gap-4 w-2/4 m-auto mt-4 mb-4">
 		<div class="border-t-4 border-blue-500 pt-4">
 			{{-- <a href="{{ url()->previous() }}"> --}}
 				<p class="uppercase text-blue-500 font-bold">Step 1</p>
@@ -31,8 +31,9 @@
 		</div>
 	</div>
 
-<div class="bg-white">
-  <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+<div class="bg-white flex justify-center">
+<div class="shadow overflow-hidden w-2/3 sm:rounded-md">
+  <div class="max-w-2xl mx-auto py-2 px-4 sm:py-6 sm:px-2 lg:max-w-7xl lg:px-8">
   	<h2 class="text-2xl font-extrabold tracking-tight text-gray-900 text-center">Available rooms</h2>
     <form action="{{ route("booking.step3") }}" method="get">
 		<input type="hidden" name="check_in" value="{{ $data["check_in"] }}">
@@ -40,7 +41,7 @@
 		<input type="hidden" name="adults" value="{{ $data["adults"] }}">
 		<input type="hidden" name="children" value="{{ $data["children"] }}">
 		<input type="hidden" name="room_amount" value="{{ $data["room_amount"] }}">
-		<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+		<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 			@csrf	
 			@foreach ( $roomTypes as $roomType )
 			<div class="group relative">
@@ -55,7 +56,7 @@
 						</h3>
 						<p class="mt-1 text-sm text-gray-500">{{ $roomType->room_surface }}m²</p>
 					</div>
-					<p class="text-sm font-medium text-gray-900">&euro;{{ $roomType->price }}</p>
+					<p class="text-sm font-medium text-gray-900">&euro;{{ $roomType->price }} per night</p>
 				</div>
 				<select class="rounded mt-4" name="room_type{{ $roomType->id }}" id="">
 					<option value="0">0</option>
@@ -66,13 +67,14 @@
 			</div>
 			@endforeach
 		</div>
-		<div class="flex">
-			<div class="justify-end py-6">
+		<div class="flex justify-end">
+			<div class="py-6">
 				<input type="submit" value="Personal information" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">
 			</div>
 		</div>
     </form>
   </div>
+</div>
 </div>
 </main>
 @endsection
