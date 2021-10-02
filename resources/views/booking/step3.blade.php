@@ -75,7 +75,7 @@
           <input type="hidden" name="roomtypes[]" value="{{ $roomToBook->roomtype->name }}">
           <input type="hidden" name="room_id[]" value="{{ $roomToBook->id }}">
         @endforeach
-        <div class="shadow overflow-hidden sm:rounded-md">
+        <div class="shadow overflow-hidden sm:rounded-md w-full">
           <div class="px-4 py-5 bg-white sm:p-6">
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 sm:col-span-3">

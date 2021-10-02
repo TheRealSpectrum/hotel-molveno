@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="en" class="min-h-screen">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 
-<body>
+<body class="">
     <header class="sticky top-0 z-50">
         <nav class="flex items-center justify-between flex-wrap bg-gray-100 pr-6 pl-6">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -103,7 +103,7 @@
             </div>
           </div>
       </div>
-      <div class="flex flex-row justify-between p-12">
+      <div class="flex flex-row justify-between px-12 py-4">
           <div class="flex flex-col justify-center">
             <p>© Molveno Resort,  2021</p>
           </div>

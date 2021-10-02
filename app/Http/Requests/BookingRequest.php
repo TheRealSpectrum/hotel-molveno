@@ -41,8 +41,8 @@ class BookingRequest extends FormRequest
     public function attributes()
     {
         return [
-            "check_in" => "date",
-        ];
+                // "check_in" => "date",
+            ];
     }
 
     /**

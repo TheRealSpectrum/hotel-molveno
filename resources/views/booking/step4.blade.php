@@ -4,7 +4,7 @@
 
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-    <div class="px-4 py-5 sm:px-6">
+    <div class="sm:px-6">
       @if (\Session::has("success"))
       <div class="bg-green-200 border-green-600 text-green-600 border-l-4 p-4" role="alert">
               <p>
@@ -12,8 +12,8 @@
               </p>
       </div>
       @else 
-      <div class="mt-10 sm:mt-0">
-        <div class="grid grid-cols-4 gap-4 w-3/4 m-auto">
+      <div class="sm:mt-0">
+        <div class="grid grid-cols-4 gap-4 w-2/4 m-auto mt-4 mb-4">
           <div class="border-t-4 border-blue-500 pt-4">
             {{-- <a href="{{ route("booking.index") }}"> --}}
               <p class="uppercase text-blue-500 font-bold">Step 1</p>
@@ -38,8 +38,8 @@
           </div>
       </div>
   @endif
-
-    <div class="border-t border-gray-200">
+  <div class="flex justify-center">
+    <div class="border-t border-r border-l  border-gray-200 w-2/3">
       <dl>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
@@ -132,11 +132,12 @@
               Total Price
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {{ $data['total_price'] }}
+              &euro; {{ $data['total_price'] }},00
             </dd>
           </div>
       </dl>
     </div>
+  </div>
     <form action="{{ route("booking.confirm") }}" method="POST">
     @csrf
         <input type="hidden" name="check_in" value="{{ $data["check_in"] }}">
@@ -152,11 +153,13 @@
         
 
       @if (!\Session::has("success"))
-        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+      <div class="flex justify-center">
+        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 w-2/3 border border-gray-200">
           <button type="submit"  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Make Reservation 
           </button>
         </div>
+      </div>
         @else 
           <button type="button" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             <a href="{{ route("home") }}">Back to home</a>

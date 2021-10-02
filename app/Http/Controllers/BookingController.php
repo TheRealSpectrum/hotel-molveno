@@ -122,7 +122,7 @@ class BookingController extends Controller
         } elseif ($amountRooms > $data["room_amount"]) {
             return redirect()
                 ->back()
-                ->with("error", "You have selected too much rooms.");
+                ->with("error", "You have selected too many rooms.");
         } elseif (array_sum($roomsCapacity) < $totalGuests) {
             return redirect()
                 ->back()
