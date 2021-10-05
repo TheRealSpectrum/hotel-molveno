@@ -74,4 +74,80 @@ trait PageTemplates
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
         ]);
     }
+
+    private function homepage()
+    {
+        $this->crud->addField([
+            // CustomHTML
+            "name" => "content_separator",
+            "type" => "custom_html",
+            "value" =>
+                "<br><h2>" .
+                trans("backpack::pagemanager.content") .
+                "</h2><hr>",
+        ]);
+        $this->crud->addField([
+            // CustomHTML
+            "name" => "content_separator_frontpage",
+            "type" => "custom_html",
+            "value" => "<h4>Frontpage</h4><hr>",
+        ]);
+        $this->crud->addField([
+            "name" => "frontpage_image",
+            "label" => "Image",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "box_1_title",
+            "label" => "box 1 title",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "box_1",
+            "label" => "box 1 content",
+            "fake" => true,
+            "type" => "wysiwyg",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "box_2_title",
+            "label" => "box 2 title",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "box_2",
+            "label" => "Box 2 content",
+            "fake" => true,
+            "type" => "wysiwyg",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "box_3_title",
+            "label" => "box 3 title",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "box_3",
+            "label" => "box 3 content",
+            "fake" => true,
+            "type" => "wysiwyg",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+    }
 }

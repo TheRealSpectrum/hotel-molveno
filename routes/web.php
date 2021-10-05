@@ -54,3 +54,8 @@ Route::post("bookings/create/confirm", [
 ])->name("booking.confirm");
 
 require __DIR__ . "/auth.php";
+
+/** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/
+Route::get("{page}/{subs?}", [
+    "uses" => "\App\Http\Controllers\PageController@index",
+])->where(["page" => '^(((?=(?!admin))(?=(?!\/)).))*$', "subs" => ".*"]);
