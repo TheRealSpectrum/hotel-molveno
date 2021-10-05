@@ -27,13 +27,13 @@
           <div class="h-2/4 w-2/4">
               <h1 class="text-center m-10 font-medium capitalize text-4xl">Our rooms</h1>
               <h3 class="text-center font-medium">Room option 1</h3>
-              <img src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
+              <img src="{{ $page->room_image_1 }}" class="w-full">
           </div>
         </div>
         <div class="grid grid-cols-3 mr-16 ml-16 mb-16">
-            <img class="p-5" src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
-            <img class="p-5" src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
-            <img class="p-5" src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
+            <img class="p-5" src="{{ $page->room_image_2 }}">
+            <img class="p-5" src="{{ $page->room_image_3 }}">
+            <img class="p-5" src="{{ $page->room_image_4 }}">
         </div>
     </div>
     <div class="main3" id="facilities">

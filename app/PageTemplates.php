@@ -149,5 +149,43 @@ trait PageTemplates
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
             "store_in" => "extras",
         ]);
+        $this->crud->addField([
+            // CustomHTML
+            "name" => "content_separator_rooms",
+            "type" => "custom_html",
+            "value" => "<h4>Our Rooms</h4><hr>",
+        ]);
+        $this->crud->addField([
+            "name" => "room_image_1",
+            "label" => "Image 1",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "room_image_2",
+            "label" => "Image 2",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "room_image_3",
+            "label" => "Image 3",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "room_image_4",
+            "label" => "Image 4",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
     }
 }
