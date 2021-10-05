@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Finish reservation - Molveno Resort')
 @section('content')
-
 <div class="mt-10 sm:mt-0">
   <div class="grid grid-cols-4 gap-4 w-2/4 m-auto mt-4 mb-4">
 		<div class="border-t-4 border-blue-500 pt-4">
@@ -101,6 +100,24 @@
               <div class="col-span-6">
                 <label for="phone" class="block text-sm font-medium text-gray-700">Telephone number <span class="text-red-500">*</span></label>
                 <input type="tel" name="phone" value="{{ isset(Auth::user()->guest) ? Auth::user()->guest->phone : old("phone") }}" id="telephone" autocomplete="telephone" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6">
+                <div class="block p-4 m-1 border-2 border-gray-300 bg-gray-100 max-w-full">
+                  <style>
+                    a#privacy-terms {
+                      color: blue;
+                    }
+
+                    a#privacy-terms:visited {
+                      color: purple;
+                    }
+                  </style>
+                  <input id="checkbox" required oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please confirm that you agree with our privacy statement')" type="checkbox" class="align-middle h-8 w-8 rounded-md mr-4">
+                  <label id="checkbox" for="checkbox">
+                     I agree with the <a href="https://www.booking.com/content/privacy.nl.html?aid=397594;label=gog235jc-1DCAEoggI46AdIHFgDaKkBiAEBmAEcuAEXyAEM2AED6AEB-AECiAIBqAIDuAKJgPGKBsACAdICJDAzNmMyN2ZlLTBhY2MtNDc1YS1iYTE1LTUyZTc4ZTliNjg1ONgCBOACAQ;sid=c3a472f713ebd163b79e1c59a54f1172" target="_blank" id="privacy-terms">privacy statement</a>
+                  </label>
+                </div>
               </div>
             </div>
           </div>
