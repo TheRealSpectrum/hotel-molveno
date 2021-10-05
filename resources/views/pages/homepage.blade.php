@@ -3,7 +3,7 @@
 @section('content')
 <main>
     <div class="main1">
-      <div style="background-image: url({!! $page->frontpage_image !!})" class="h-96 w-full bg-cover bg-no-repeat bg-center"></div>
+      <div class="h-96 w-full bg-cover bg-no-repeat bg-center overflow-hidden"><img src="{{ $page->frontpage_image ?? asset("images/placeholder_header.jpg") }}" alt=""></div>
       <div class="grid grid-cols-3 bg-gray-100">
           <div class="m-10">
               <h1 class="mb-10 font-medium capitalize text-4xl">{!! $page->box_1_title !!}</h1>
@@ -27,13 +27,13 @@
           <div class="h-2/4 w-2/4">
               <h1 class="text-center m-10 font-medium capitalize text-4xl">Our rooms</h1>
               <h3 class="text-center font-medium">Room option 1</h3>
-              <img src="{{ $page->room_image_1 }}" class="w-full">
+              <img src="{{ $page->room_image_1 ?? asset("images/placeholder_room.webp") }}" class="w-full">
           </div>
         </div>
         <div class="grid grid-cols-3 mr-16 ml-16 mb-16">
-            <img class="p-5" src="{{ $page->room_image_2 }}">
-            <img class="p-5" src="{{ $page->room_image_3 }}">
-            <img class="p-5" src="{{ $page->room_image_4 }}">
+            <img class="p-5" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.webp") }}">
+            <img class="p-5" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.webp") }}">
+            <img class="p-5" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.webp") }}">
         </div>
     </div>
     <div class="main3" id="facilities">
