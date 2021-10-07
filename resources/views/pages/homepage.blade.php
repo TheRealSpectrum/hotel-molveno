@@ -44,11 +44,14 @@
           <div class="absolute flex flex-row w-full">
               <div class="p-12 w-full h-80 text-center mt-10">
                   <ul>
-                      <li class="text-white font-medium text-xl">Wi-Fi</li>
-                      <li class="text-white font-medium text-xl">Parking at the resort</li>
-                      <li class="text-white font-medium text-xl">Airconditioning</li>
-                      <li class="text-white font-medium text-xl">Swimming pool</li>
-                      <li class="text-white font-medium text-xl">Sauna(VIP)</li>
+                      <?php
+                      $facilities = json_decode($page->facilities, true);
+                      foreach ($facilities as $facility => $value) {
+                          echo "<li class='text-white font-medium text-xl'>" .
+                              array_values($value)[0] .
+                              "</li>";
+                      }
+                      ?> 
                   </ul>
               </div>
               <div class="p-12 w-full h-80 text-center mt-10">

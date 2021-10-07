@@ -35,7 +35,7 @@ trait PageTemplates
             // CustomHTML
             "name" => "content_separator_frontpage",
             "type" => "custom_html",
-            "value" => "<h3>Frontpage</h3><hr>",
+            "value" => "<h3 class='text-3xl'>Frontpage</h3><hr>",
         ]);
         $this->crud->addField([
             "name" => "frontpage_image",
@@ -138,9 +138,22 @@ trait PageTemplates
             "type" => "custom_html",
             "value" => "<h3>Facilities</h3><hr>",
         ]);
-        //
-        //
-        //
+        $this->crud->addField([
+            "name" => "facilities",
+            "type" => "repeatable",
+            "store_in" => "extras",
+            "fake" => true,
+            "fields" => [
+                [
+                    "name" => "facilities_add",
+                    "type" => "text",
+                    "label" => "Facility",
+                    "wrapper" => ["class" => "form-group col-md-4"],
+                ],
+            ],
+            "new_item_label" => "Add Facility",
+            "max_rows" => 12, // maximum rows allowed, when reached the "new item" button will be hidden
+        ]);
         $this->crud->addField([
             // CustomHTML
             "name" => "content_separator_environment",
