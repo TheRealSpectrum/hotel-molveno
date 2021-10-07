@@ -108,13 +108,13 @@
     <div class="main6" id="gallery">
         <div class="flex justify-center">
           <div class="h-2/4 w-2/4 p-12">
-              <img src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
+              <img src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
           </div>
         </div>
         <div class="grid grid-cols-3 mr-16 ml-16 mb-16">
-            <img class="p-5" src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
-            <img class="p-5" src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
-            <img class="p-5" src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg">
+            <img class="p-5" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
+            <img class="p-5" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
+            <img class="p-5" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
         </div>
     </div>
     <div class="main7" id="contact">

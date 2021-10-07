@@ -229,5 +229,43 @@ trait PageTemplates
             "crop" => true,
             "store_in" => "extras",
         ]);
+        $this->crud->addField([
+            // CustomHTML
+            "name" => "content_separator_gallery",
+            "type" => "custom_html",
+            "value" => "<h3>Gallery</h3><hr>",
+        ]);
+        $this->crud->addField([
+            "name" => "gallery_image_1",
+            "label" => "Image 1",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "gallery_image_2",
+            "label" => "Image 2",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "gallery_image_3",
+            "label" => "Image 3",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "gallery_image_4",
+            "label" => "Image 4",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
     }
 }
