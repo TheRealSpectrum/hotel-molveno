@@ -20,61 +20,6 @@ trait PageTemplates
     | - page slug
     */
 
-    private function services()
-    {
-        $this->crud->addField([
-            // CustomHTML
-            "name" => "metas_separator",
-            "type" => "custom_html",
-            "value" =>
-                "<br><h2>" . trans("backpack::pagemanager.metas") . "</h2><hr>",
-        ]);
-        $this->crud->addField([
-            "name" => "meta_title",
-            "label" => trans("backpack::pagemanager.meta_title"),
-            "fake" => true,
-            "store_in" => "extras",
-        ]);
-        $this->crud->addField([
-            "name" => "meta_description",
-            "label" => trans("backpack::pagemanager.meta_description"),
-            "fake" => true,
-            "store_in" => "extras",
-        ]);
-        $this->crud->addField([
-            "name" => "meta_keywords",
-            "type" => "textarea",
-            "label" => trans("backpack::pagemanager.meta_keywords"),
-            "fake" => true,
-            "store_in" => "extras",
-        ]);
-        $this->crud->addField([
-            // CustomHTML
-            "name" => "content_separator",
-            "type" => "custom_html",
-            "value" =>
-                "<br><h2>" .
-                trans("backpack::pagemanager.content") .
-                "</h2><hr>",
-        ]);
-        $this->crud->addField([
-            "name" => "content",
-            "label" => trans("backpack::pagemanager.content"),
-            "type" => "wysiwyg",
-            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
-        ]);
-    }
-
-    private function about_us()
-    {
-        $this->crud->addField([
-            "name" => "content",
-            "label" => trans("backpack::pagemanager.content"),
-            "type" => "wysiwyg",
-            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
-        ]);
-    }
-
     private function homepage()
     {
         $this->crud->addField([
@@ -90,7 +35,7 @@ trait PageTemplates
             // CustomHTML
             "name" => "content_separator_frontpage",
             "type" => "custom_html",
-            "value" => "<h4>Frontpage</h4><hr>",
+            "value" => "<h3>Frontpage</h3><hr>",
         ]);
         $this->crud->addField([
             "name" => "frontpage_image",
@@ -153,7 +98,7 @@ trait PageTemplates
             // CustomHTML
             "name" => "content_separator_rooms",
             "type" => "custom_html",
-            "value" => "<h4>Our Rooms</h4><hr>",
+            "value" => "<h3>Our Rooms</h3><hr>",
         ]);
         $this->crud->addField([
             "name" => "room_image_1",
@@ -185,6 +130,73 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            // CustomHTML
+            "name" => "content_separator_facilities",
+            "type" => "custom_html",
+            "value" => "<h3>Facilities</h3><hr>",
+        ]);
+        //
+        //
+        //
+        $this->crud->addField([
+            // CustomHTML
+            "name" => "content_separator_environment",
+            "type" => "custom_html",
+            "value" => "<h3>The Environment</h3><hr>",
+        ]);
+        $this->crud->addField([
+            "name" => "environment_text_box",
+            "label" => "Text content",
+            "fake" => true,
+            "type" => "wysiwyg",
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "environment_image_1",
+            "label" => "Environment image 1",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "environment_text_1",
+            "label" => "Environment text 1",
+            "fake" => true,
+            "type" => "wysiwyg",
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "environment_image_2",
+            "label" => "Environment image 2",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "environment_text_2",
+            "label" => "Environment text 2",
+            "fake" => true,
+            "type" => "wysiwyg",
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "environment_image_3",
+            "label" => "Environment image 3",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "environment_text_3",
+            "label" => "Environment text 3",
+            "fake" => true,
+            "type" => "wysiwyg",
             "store_in" => "extras",
         ]);
     }

@@ -65,29 +65,26 @@
     </div>
     <div class="main4" id="location">
         <div class="p-12 pt-20 h-96 md:w-1/2">
-          <h1 class="text-black font-bold text-4xl pb-4">The environment</h1>
-          <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga deleniti hic quae labore facilis perspiciatis voluptas ab? Dicta delectus quas sed expedita quibusdam. Voluptatibus unde quidem nulla labore laboriosam aperiam fugiat dicta ab saepe ea impedit iure pariatur facere alias ratione praesentium dolorem qui harum, aliquid sit accusantium repellendus. Nulla ratione error, architecto doloribus qui, reprehenderit impedit neque perspiciatis corporis id voluptatum corrupti voluptatibus natus similique consectetur dolorum sunt illum vero dignissimos atque suscipit. Quaerat aliquam id, earum molestias assumenda, veritatis reiciendis.</p>
+          <h1 class="text-black font-bold text-4xl pb-4">The Environment</h1>
+          {!! $page->environment_text_box !!}
         </div>
         <div class="grid grid-cols-3 pb-16">
           <div class="ml-12 mr-6 h-96 border-2 border-gray-300">
-              <div style="background-image: url('images/Hero1.jpg')" class="w-full h-40 bg-no-repeat bg-cover"></div>
+              <div class="w-full h-40 bg-no-repeat bg-cover overflow-hidden"><img src="{{ $page->environment_image_1 ?? asset("images/placeholder_header.jpg") }}" alt="environment_image_1"></div>
               <div class="p-8">
-                  <h2>Location</h2>
-                  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.</p>
+                  {!! $page->environment_text_1 !!}
               </div>
           </div>
           <div class="ml-6 mr-6 h-96 border-2 border-gray-300">
-              <div style="background-image: url('images/Hero1.jpg')" class="w-full h-40 bg-no-repeat bg-cover"></div>
+              <div class="w-full h-40 bg-no-repeat bg-cover overflow-hidden"><img src="{{ $page->environment_image_2 ?? asset("images/placeholder_header.jpg") }}" alt="environment_image_2"></div>
               <div class="p-8">
-                  <h2>Nature</h2>
-                  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.</p>
+                  {!! $page->environment_text_2 !!}
               </div>
           </div>
           <div class="mr-12 ml-6 h-96 border-2 border-gray-300">
-              <div style="background-image: url('images/Hero1.jpg')" class="w-full h-40 bg-no-repeat bg-cover"></div>
+              <div class="w-full h-40 bg-no-repeat bg-cover overflow-hidden"><img src="{{ $page->environment_image_3 ?? asset("images/placeholder_header.jpg") }}" alt="environment_image_3"></div>
               <div class="p-8">
-                  <h2>Relaxation</h2>
-                  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.</p>
+                  {!! $page->environment_text_3 !!}
               </div>
           </div>
         </div>
