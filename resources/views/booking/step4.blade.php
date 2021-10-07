@@ -128,13 +128,28 @@
           @endforeach
         </div>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+
+          <dt class="text-sm font-medium text-gray-500">
+            Package(s)
+          </dt>
+          
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            
+          </dd>
+
+          <dt class="text-sm font-medium text-gray-500">
+            
+          </dt>
+        
+        </div>
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">
               Total Price
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
               &euro; {{ $data['total_price'] }},00
             </dd>
-          </div>
+        </div>
       </dl>
     </div>
   </div>
@@ -149,6 +164,10 @@
         <input type="hidden" name="guest_id" value="{{ $data["guest_id"] }}">
         @foreach ($data["room_id"] as $room_id)
         <input type="hidden" name="room_id[]" value="{{ $room_id }}">
+        @endforeach
+        @foreach ($packages as $package)
+          <input type="hidden" name="packages[]" value="{{ $package->name }}">
+          <input type="hidden" name="package_id[]" value="{{ $package->id }}">
         @endforeach
         
 

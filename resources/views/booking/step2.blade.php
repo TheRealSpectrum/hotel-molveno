@@ -41,7 +41,6 @@
 					<input type="hidden" name="adults" value="{{ $data["adults"] }}">
 					<input type="hidden" name="children" value="{{ $data["children"] }}">
 					<input type="hidden" name="room_amount" value="{{ $data["room_amount"] }}">
-					<input type="hidden" name="package_select" value="{{ $data["package_select"] }}">
 
 					<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 						@csrf
@@ -78,7 +77,7 @@
 								</h3>
 							</div>
 						</div>
-						<input type="checkbox" name="package{{ $package->id }}" id="">
+						<input type="checkbox" name="package{{ $package->id }}" id="" value="{{ $package->id }}">
 					</div>
 					@endforeach
 					<div class="flex justify-end">

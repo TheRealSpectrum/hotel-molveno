@@ -28,12 +28,10 @@ class BookingController extends Controller
             "adults" => $request->get("adults"),
             "children" => $request->get("children"),
             "room_amount" => $request->get("room_amount"),
-            "package_select" => $request->get("package_select"),
         ];
         $rooms = Room::getAvailableRooms($data);
         $roomTypes = Roomtype::all();
         $packages = Package::all();
-
         if ($data["room_amount"] > $rooms->count()) {
             return redirect()
                 ->back()
@@ -57,7 +55,6 @@ class BookingController extends Controller
             "adults" => $request->get("adults"),
             "children" => $request->get("children"),
             "room_amount" => $request->get("room_amount"),
-            "package_select" => $request->get("package_select"),
         ];
 
         $roomTypes = Roomtype::all();
@@ -69,6 +66,18 @@ class BookingController extends Controller
             array_push($roomTypesArr, request()->get("room_type" . $i++));
         }
         $roomTypesKeyValue = array_combine($roomTypeKeys, $roomTypesArr);
+
+        $packages = [];
+        $packagesCount = Package::max("id");
+
+        for ($j = 1; $j <= $packagesCount; $j++) {
+            if ($request->get("package" . $j) != null) {
+                array_push(
+                    $packages,
+                    Package::find($request->get("package" . $j))
+                );
+            }
+        }
 
         $rooms = Room::getAvailableRooms($data);
         $rooms1 = collect($rooms->get());
@@ -149,7 +158,7 @@ class BookingController extends Controller
         } else {
             return view(
                 "booking.step3",
-                compact("data", "roomsToBook", "totalPrice")
+                compact("data", "roomsToBook", "totalPrice", "packages")
             );
         }
     }
@@ -184,6 +193,7 @@ class BookingController extends Controller
             "adults" => $request->input("adults"),
             "children" => $request->input("children"),
             "room_amount" => $request->input("room_amount"),
+            "packages" => $request->input("packages"),
             "first_name" => $request->first_name,
             "last_name" => $request->last_name,
             "email" => $request->email,
