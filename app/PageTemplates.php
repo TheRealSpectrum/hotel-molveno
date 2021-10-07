@@ -199,5 +199,35 @@ trait PageTemplates
             "type" => "wysiwyg",
             "store_in" => "extras",
         ]);
+        $this->crud->addField([
+            // CustomHTML
+            "name" => "content_separator_restaurant",
+            "type" => "custom_html",
+            "value" => "<h3>Restaurant</h3><hr>",
+        ]);
+        $this->crud->addField([
+            "name" => "restaurant_text_box",
+            "label" => "Text content",
+            "fake" => true,
+            "type" => "wysiwyg",
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "restaurant_phone",
+            "label" => "Restaurant Phone number",
+            "fake" => true,
+            "type" => "text",
+            "store_in" => "extras",
+            "prefix" => '<i class="fas fa-phone-alt"></i>',
+            "wrapper" => ["class" => "form-group col-md-3"],
+        ]);
+        $this->crud->addField([
+            "name" => "restaurant_image",
+            "label" => "Restaurant menu",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
     }
 }

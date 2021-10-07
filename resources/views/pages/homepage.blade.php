@@ -93,13 +93,15 @@
         <div class="bg-gray-100 h-96 w-full grid grid-cols-2 p-12">
             <div class="mr-6">
               <h1 class="text-4xl pb-4">Restaurant</h1>
-              <p class="pb-20">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.</p>
-              <h1 class="text-4xl"><i class="fas fa-phone-alt pr-1"></i>0039 – 934 4444 32</h1>
+              <div class="pb-20">{!! $page->restaurant_text_box !!}</div>
+              <h1 class="text-4xl"><i class="fas fa-phone-alt pr-1"></i>{{ $page->restaurant_phone }}</h1>
             </div>
-            <div style="background-image: url('images/Menukaart.jpg')" class="w-full bg-no-repeat bg-cover ml-6">
-              <div class="grid place-items-center h-full">
-                  <a href="{{ url("images/Menukaart.jpg") }}" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Menu</a>
-              </div>
+            <div class="w-full bg-no-repeat bg-cover ml-6 overflow-hidden relative">
+                <img src="{{ $page->restaurant_image }}" alt="restaurant_menu">
+                <div class="absolute top-1/2 left-1/2">
+                    <a href="{{ $page->restaurant_image }}" target="_blank" class="inline-block text-xl px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Menu</a>
+                </div>
+                
             </div>
         </div>
     </div>
