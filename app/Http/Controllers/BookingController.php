@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateGuestAccountRequest;
 use App\Models\Guest;
 use App\Models\Reservation;
 use App\Models\Room;
+use App\Models\Package;
 use Illuminate\Http\Request;
 use App\Models\Roomtype;
 use Carbon\Carbon;
@@ -27,9 +28,11 @@ class BookingController extends Controller
             "adults" => $request->get("adults"),
             "children" => $request->get("children"),
             "room_amount" => $request->get("room_amount"),
+            "package_select" => $request->get("package_select"),
         ];
         $rooms = Room::getAvailableRooms($data);
         $roomTypes = Roomtype::all();
+        $packages = Package::all();
 
         if ($data["room_amount"] > $rooms->count()) {
             return redirect()
@@ -39,7 +42,10 @@ class BookingController extends Controller
                     "There are not enough rooms available on this date."
                 );
         } else {
-            return view("booking.step2", compact("rooms", "roomTypes", "data"));
+            return view(
+                "booking.step2",
+                compact("rooms", "roomTypes", "data", "packages")
+            );
         }
     }
 
@@ -51,6 +57,7 @@ class BookingController extends Controller
             "adults" => $request->get("adults"),
             "children" => $request->get("children"),
             "room_amount" => $request->get("room_amount"),
+            "package_select" => $request->get("package_select"),
         ];
 
         $roomTypes = Roomtype::all();
