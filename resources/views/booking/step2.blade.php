@@ -41,31 +41,21 @@
 					<input type="hidden" name="adults" value="{{ $data["adults"] }}">
 					<input type="hidden" name="children" value="{{ $data["children"] }}">
 					<input type="hidden" name="room_amount" value="{{ $data["room_amount"] }}">
-
 					<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-						@csrf
-						@foreach ( $roomTypes as $roomType )
-						<div class="group relative">
-							<div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-								<img src="{{ url($roomType->image) }}" alt="Room image" class="w-full h-full object-center object-fill lg:w-full lg:h-full">
-							</div>
-							<div class="mt-4 flex justify-between">
-								<div>
-									<h3 class="text-sm text-gray-700">
-										<span aria-hidden="true" class="absolute"></span>
-										{{ $roomType->name }}
-									</h3>
-									<p class="mt-1 text-sm text-gray-500">{{ $roomType->room_surface }}m²</p>
-								</div>
-								<p class="text-sm font-medium text-gray-900">&euro;{{ $roomType->price }} per night</p>
-							</div>
-							<select class="rounded mt-4" name="room_type{{ $roomType->id }}" id="">
-								<option value="0">0</option>
-								@for ($i=1; $i <= $data['room_amount']; $i++) <option value="{{ $i }}">{{ $i }}</option>
-									@endfor
-							</select>
-						</div>
-						@endforeach
+					@csrf	
+					@foreach ( $roomTypes as $roomType )
+				<div class="group relative">
+				<div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+					<img src="{{ url($roomType->image ?? 'https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg') }}" 
+					alt="Room type" class="w-full h-full object-center object-fill lg:w-full lg:h-full">
+				</div>
+				<div class="mt-4 flex justify-between">
+					<div>
+						<h3 class="text-sm text-gray-700">
+							<span aria-hidden="true" class="absolute"></span>
+							{{ $roomType->name }}
+						</h3>
+						<p class="mt-1 text-sm text-gray-500">{{ $roomType->room_surface }}m²</p>
 					</div>
 					@foreach ( $packages as $package )
 					<div class="group relative">
