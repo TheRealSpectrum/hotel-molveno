@@ -23,6 +23,7 @@ class CreateReservationTable extends Migration
             $table->integer("children");
             $table->foreignId("guest_id")->constrained();
             $table->foreignId("roomtype_id")->constrained();
+            $table->foreignId("package_id");
             //$table->foreignId("room_id")->constrained();
             $table->integer("total_price");
             $table->timestamps();

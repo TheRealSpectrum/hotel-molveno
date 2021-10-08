@@ -193,7 +193,6 @@ class BookingController extends Controller
             "adults" => $request->input("adults"),
             "children" => $request->input("children"),
             "room_amount" => $request->input("room_amount"),
-            "packages" => $request->input("packages"),
             "first_name" => $request->first_name,
             "last_name" => $request->last_name,
             "email" => $request->email,
@@ -204,16 +203,23 @@ class BookingController extends Controller
             "total_price" => $request->input("total_price"),
             "room_id" => $request->room_id,
             "guest_id" => $guest->id,
+            "packages" => $request->packages,
+            "package_id" => $request->package_id,
         ];
 
         $roomTypeNames = array_count_values($data["roomtypes"]);
+        $packageNames = array_count_values($data["packages"]);
 
-        return view("booking.step4", compact("data", "roomTypeNames"));
+        return view(
+            "booking.step4",
+            compact("data", "roomTypeNames", "packageNames")
+        );
     }
 
     public function confirmBooking(Request $request)
     {
         $roomIDsToBook = $request->room_id;
+        $packageIDsToBook = $request->package_id;
 
         $reservation = Reservation::create([
             "check_in" => $request->check_in,
@@ -221,12 +227,16 @@ class BookingController extends Controller
             "adults" => $request->adults,
             "children" => $request->children,
             "roomtype_id" => 1,
+            "package_id" => 1,
             "guest_id" => $request->guest_id,
             "total_price" => $request->total_price,
         ]);
 
         foreach ($roomIDsToBook as $roomIDToBook) {
             $reservation->rooms()->attach($roomIDToBook);
+        }
+        foreach ($packageIDsToBook as $packageIDsToBook) {
+            $reservation->packages()->attach($packageIDsToBook);
         }
 
         return redirect()
