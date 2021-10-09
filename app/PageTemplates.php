@@ -35,7 +35,7 @@ trait PageTemplates
             // CustomHTML
             "name" => "content_separator_frontpage",
             "type" => "custom_html",
-            "value" => "<h3 class='text-3xl'>Frontpage</h3><hr>",
+            "value" => "<h3>Frontpage</h3><hr>",
         ]);
         $this->crud->addField([
             "name" => "frontpage_image",

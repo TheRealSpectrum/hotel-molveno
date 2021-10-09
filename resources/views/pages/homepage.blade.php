@@ -55,13 +55,13 @@
                   </ul>
               </div>
               <div class="p-12 w-full h-80 text-center mt-10">
-                  <ul>
+                  {{-- <ul>
                       <li class="text-white font-medium text-xl">Wi-Fi</li>
                       <li class="text-white font-medium text-xl">Parking at the resort</li>
                       <li class="text-white font-medium text-xl">Airconditioning</li>
                       <li class="text-white font-medium text-xl">Swimming pool</li>
                       <li class="text-white font-medium text-xl">Sauna(VIP)</li>
-                  </ul>
+                  </ul> --}}
               </div>
           </div>
       </div>
