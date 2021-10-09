@@ -142,6 +142,14 @@ trait PageTemplates
             "value" => "<h3>Facilities</h3><hr>",
         ]);
         $this->crud->addField([
+            "name" => "facilities_image",
+            "label" => "Background image",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
             "name" => "facilities",
             "type" => "repeatable",
             "store_in" => "extras",
@@ -216,7 +224,7 @@ trait PageTemplates
             "type" => "wysiwyg",
             "store_in" => "extras",
         ]);
-        // Restaurant
+        // RESTAURANT
         $this->crud->addField([
             // CustomHTML
             "name" => "content_separator_restaurant",
@@ -247,6 +255,7 @@ trait PageTemplates
             "crop" => true,
             "store_in" => "extras",
         ]);
+        // GALLERY
         $this->crud->addField([
             // CustomHTML
             "name" => "content_separator_gallery",

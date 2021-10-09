@@ -37,11 +37,12 @@
         </div>
     </div>
     <div class="main3" id="facilities">
-      <div style="background-image: url('images/Hero2-xl.webp')" class="relative w-full h-96 bg-cover bg-no-repeat bg-center">
-          <div class="absolute text-center w-full mt-10">
+      <div class="relative">
+        <img class=" w-full h-96 bg-cover bg-no-repeat bg-center overflow-hidden" src="{{ $page->facilities_image }}" alt="">
+          <div class="absolute text-center w-full mt-10 top-0">
               <h1 class="text-white text-center font-bold text-4xl">Facilities</h1>
           </div>
-          <div class="absolute flex flex-row w-full">
+          <div class="absolute top-0 flex flex-row w-full">
               <div class="p-12 w-full h-80 text-center mt-10">
                   <ul>
                       <?php
