@@ -38,7 +38,7 @@
     </div>
     <div class="main3" id="facilities">
       <div class="relative">
-        <img class=" w-full h-96 bg-cover bg-no-repeat bg-center overflow-hidden" src="{{ $page->facilities_image }}" alt="">
+        <img class=" w-full h-96 bg-cover bg-no-repeat bg-center overflow-hidden" src="{{ $page->facilities_image ?? asset("images/placeholder_facilities.jpg") }}" alt="facilities_image">
           <div class="absolute text-center w-full mt-10 top-0">
               <h1 class="text-white text-center font-bold text-4xl">Facilities</h1>
           </div>
