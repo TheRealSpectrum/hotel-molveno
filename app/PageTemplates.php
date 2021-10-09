@@ -31,6 +31,7 @@ trait PageTemplates
                 trans("backpack::pagemanager.content") .
                 "</h2><hr>",
         ]);
+        // FRONT PAGE
         $this->crud->addField([
             // CustomHTML
             "name" => "content_separator_frontpage",
@@ -94,6 +95,7 @@ trait PageTemplates
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
             "store_in" => "extras",
         ]);
+        // OUR ROOMS
         $this->crud->addField([
             // CustomHTML
             "name" => "content_separator_rooms",
@@ -132,6 +134,7 @@ trait PageTemplates
             "crop" => true,
             "store_in" => "extras",
         ]);
+        // FACILITIES
         $this->crud->addField([
             // CustomHTML
             "name" => "content_separator_facilities",
@@ -154,6 +157,7 @@ trait PageTemplates
             "new_item_label" => "Add Facility",
             "max_rows" => 12, // maximum rows allowed, when reached the "new item" button will be hidden
         ]);
+        // ENVIRONMENT
         $this->crud->addField([
             // CustomHTML
             "name" => "content_separator_environment",
@@ -212,6 +216,7 @@ trait PageTemplates
             "type" => "wysiwyg",
             "store_in" => "extras",
         ]);
+        // Restaurant
         $this->crud->addField([
             // CustomHTML
             "name" => "content_separator_restaurant",
