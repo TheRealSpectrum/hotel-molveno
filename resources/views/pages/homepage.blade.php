@@ -23,18 +23,23 @@
       </div>
     </div>
     <div class="main2" id="rooms">
+        <h1 class="text-center m-10 font-medium capitalize text-4xl">Our rooms</h1>
         <div class="flex justify-center">
-          <div class="h-2/4 w-2/4">
-              <h1 class="text-center m-10 font-medium capitalize text-4xl">Our rooms</h1>
-              <h3 class="text-center font-medium">Room option 1</h3>
-              <img src="{{ $page->room_image_1 ?? asset("images/placeholder_room.webp") }}" class="w-full">
-          </div>
+        <div class="w-1/2">
+            <div class="slider slider-for">
+                <img style="height: 800px" src="{{ $page->room_image_1 ?? asset("images/placeholder_room.webp") }}">
+                <img style="height: 800px" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.webp") }}">
+                <img style="height: 800px" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.webp") }}">
+                <img style="height: 800px" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.webp") }}">
+            </div>
+            <div class="slider slider-nav">
+                <img class="p-3" src="{{ $page->room_image_1 ?? asset("images/placeholder_room.webp") }}">
+                <img class="p-3" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.webp") }}">
+                <img class="p-3" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.webp") }}">
+                <img class="p-3" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.webp") }}">
+            </div>
         </div>
-        <div class="grid grid-cols-3 mr-16 ml-16 mb-16">
-            <img class="p-5" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.webp") }}">
-            <img class="p-5" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.webp") }}">
-            <img class="p-5" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.webp") }}">
-        </div>
+    </div>
     </div>
     <div class="main3" id="facilities">
       <div class="relative">
@@ -133,4 +138,37 @@
         </div>
     </div>
 </main>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+      });
+        $('.slider-nav').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            dots: true,
+            centerMode: false,
+            focusOnSelect: true,
+            variableWidth: true,
+            infinite: false,
+            asNavFor: '.slider-for',
+        });
+    });
+</script>
+<style>
+    .slider-nav > .slick-list > .slick-track > .slick-slide {
+        width: 250px;
+        height: 170px;
+        opacity: 50%;
+    }
+    .slider-nav > .slick-list > .slick-track > .slick-current {
+        opacity: 100%;
+    }
+    /* .slider-for > .slick-list > .slick-track  */
+</style>
 @endsection
