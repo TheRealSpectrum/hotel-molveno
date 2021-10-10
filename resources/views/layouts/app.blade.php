@@ -23,28 +23,28 @@
     <header class="sticky top-0 z-50">
         <nav class="flex items-center justify-between flex-wrap bg-gray-100 pr-6 pl-6">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <a href="/">
+                <a href="{{ url("home") }}">
                     <img src="{{ asset("images/Logo Molveno Resort Black.svg") }}" alt="Molveno Resort Logo" class="fill-current h-20 w-20 mr-12 ml-4">
                 </a>
             </div>
             <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                 <div class="text-sm lg:flex-grow">
-                    <a href="{{ url('/#rooms') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('home/#rooms') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Rooms
                     </a>
-                    <a href="{{ url('/#facilities') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('home/#facilities') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Facilities
                     </a>
-                    <a href="{{ url('/#gallery') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('home/#gallery') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Gallery
                     </a>
-                    <a href="{{ url('/#restaurant') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('home/#restaurant') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Restaurant
                     </a>
-                    <a href="{{ url('/#location') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('home/#location') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Location
                     </a>
-                    <a href="{{ url('/#contact') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600">
+                    <a href="{{ url('home/#contact') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600">
                         Contact
                     </a>
                 </div>
