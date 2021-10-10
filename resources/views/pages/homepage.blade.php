@@ -26,13 +26,13 @@
         <h1 class="text-center m-10 font-medium capitalize text-4xl">Our rooms</h1>
         <div class="flex justify-center">
         <div class="w-1/2">
-            <div class="slider slider-for">
+            <div class="slider slider-for" id="slider-rooms">
                 <img style="height: 800px" src="{{ $page->room_image_1 ?? asset("images/placeholder_room.webp") }}">
                 <img style="height: 800px" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.webp") }}">
                 <img style="height: 800px" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.webp") }}">
                 <img style="height: 800px" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.webp") }}">
             </div>
-            <div class="slider slider-nav">
+            <div class="slider slider-nav" id="slider-rooms-nav">
                 <img class="p-3" src="{{ $page->room_image_1 ?? asset("images/placeholder_room.webp") }}">
                 <img class="p-3" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.webp") }}">
                 <img class="p-3" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.webp") }}">
@@ -115,8 +115,23 @@
         </div>
     </div>
     <div class="main6" id="gallery">
-        <div class="flex justify-center">
-          <div class="h-2/4 w-2/4 p-12">
+        <div class="flex justify-center pt-8">
+            <div class="w-1/2">
+                <div class="slider slider-gallery" id="slider-gallery">
+                    <img style="height: 800px" src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 800px" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 800px" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 800px" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
+                </div>
+                <div class="slider slider-gallery-nav" id="slider-gallery-nav">
+                    <img class="p-3" src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
+                    <img class="p-3" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
+                    <img class="p-3" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
+                    <img class="p-3" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
+                </div>
+            </div>
+        </div>
+          {{-- <div class="h-2/4 w-2/4 p-12">
               <img src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
           </div>
         </div>
@@ -124,7 +139,7 @@
             <img class="p-5" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
             <img class="p-5" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
             <img class="p-5" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
-        </div>
+        </div> --}}
     </div>
     <div class="main7" id="contact">
         <div class="grid grid-flow-row grid-cols-2 bg-gray-100 h-96 place-items-center">
@@ -141,14 +156,14 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-      $('.slider-for').slick({
+      $('#slider-rooms').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
         fade: true,
-        asNavFor: '.slider-nav'
+        asNavFor: '#slider-rooms-nav'
       });
-        $('.slider-nav').slick({
+        $('#slider-rooms-nav').slick({
             slidesToShow: 4,
             slidesToScroll: 1,
             dots: true,
@@ -156,11 +171,36 @@
             focusOnSelect: true,
             variableWidth: true,
             infinite: false,
-            asNavFor: '.slider-for',
+            asNavFor: '#slider-rooms',
+        });
+      $('.slider-gallery').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true,
+        asNavFor: '.slider-gallery-nav'
+      });
+        $('.slider-gallery-nav').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            dots: true,
+            centerMode: false,
+            focusOnSelect: true,
+            variableWidth: false,
+            infinite: false,
+            asNavFor: '.slider-gallery',
         });
     });
 </script>
 <style>
+    .slider-gallery-nav > .slick-list > .slick-track > .slick-slide {
+        width: 250px;
+        height: 170px;
+        opacity: 50%;
+    }
+    .slider-gallery-nav > .slick-list > .slick-track > .slick-current {
+        opacity: 100%;
+    }
     .slider-nav > .slick-list > .slick-track > .slick-slide {
         width: 250px;
         height: 170px;
