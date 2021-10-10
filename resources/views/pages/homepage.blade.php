@@ -131,15 +131,6 @@
                 </div>
             </div>
         </div>
-          {{-- <div class="h-2/4 w-2/4 p-12">
-              <img src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
-          </div>
-        </div>
-        <div class="grid grid-cols-3 mr-16 ml-16 mb-16">
-            <img class="p-5" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
-            <img class="p-5" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
-            <img class="p-5" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
-        </div> --}}
     </div>
     <div class="main7" id="contact">
         <div class="grid grid-flow-row grid-cols-2 bg-gray-100 h-96 place-items-center">
@@ -193,22 +184,13 @@
     });
 </script>
 <style>
-    .slider-gallery-nav > .slick-list > .slick-track > .slick-slide {
+    .slider-gallery-nav > .slick-list > .slick-track > .slick-slide, .slider-nav > .slick-list > .slick-track > .slick-slide  {
         width: 250px;
         height: 170px;
         opacity: 50%;
     }
-    .slider-gallery-nav > .slick-list > .slick-track > .slick-current {
+    .slider-gallery-nav > .slick-list > .slick-track > .slick-current, .slider-nav > .slick-list > .slick-track > .slick-current {
         opacity: 100%;
     }
-    .slider-nav > .slick-list > .slick-track > .slick-slide {
-        width: 250px;
-        height: 170px;
-        opacity: 50%;
-    }
-    .slider-nav > .slick-list > .slick-track > .slick-current {
-        opacity: 100%;
-    }
-    /* .slider-for > .slick-list > .slick-track  */
 </style>
 @endsection
