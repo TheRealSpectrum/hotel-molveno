@@ -23,14 +23,14 @@
       </div>
     </div>
     <div class="main2" id="rooms">
-        <h1 class="text-center m-10 font-medium capitalize text-4xl">Our rooms</h1>
+        <h1 class="text-center mt-4 mb-2 font-medium capitalize text-4xl">Our rooms</h1>
         <div class="flex justify-center">
-        <div class="w-1/2">
+        <div class="w-7/12">
             <div class="slider slider-for" id="slider-rooms">
-                <img style="height: 800px" src="{{ $page->room_image_1 ?? asset("images/placeholder_room.webp") }}">
-                <img style="height: 800px" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.webp") }}">
-                <img style="height: 800px" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.webp") }}">
-                <img style="height: 800px" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.webp") }}">
+                <img style="height: 600px" src="{{ $page->room_image_1 ?? asset("images/placeholder_room.webp") }}">
+                <img style="height: 600px" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.webp") }}">
+                <img style="height: 600px" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.webp") }}">
+                <img style="height: 600px" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.webp") }}">
             </div>
             <div class="slider slider-nav" id="slider-rooms-nav">
                 <img class="p-3" src="{{ $page->room_image_1 ?? asset("images/placeholder_room.webp") }}">
@@ -116,12 +116,12 @@
     </div>
     <div class="main6" id="gallery">
         <div class="flex justify-center pt-8">
-            <div class="w-1/2">
+            <div class="w-7/12">
                 <div class="slider slider-gallery" id="slider-gallery">
-                    <img style="height: 800px" src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
-                    <img style="height: 800px" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
-                    <img style="height: 800px" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
-                    <img style="height: 800px" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 600px" src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 600px" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 600px" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 600px" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
                 </div>
                 <div class="slider slider-gallery-nav" id="slider-gallery-nav">
                     <img class="p-3" src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
@@ -138,7 +138,7 @@
               <h1 class="text-4xl pb-4">Molveno resort</h1>
           </div>
           <div>
-              <a href="{{ route("booking.index") }}" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg text-white font-bold border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Book a room</a>
+              <a href="{{ route("booking.index") }}" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg text-white font-bold border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Book now</a>
               <a href="#" class="inline-block text-2xl px-10 py-4 leading-none border rounded-lg text-blue border-blue-500 font-bold hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Contact us</a>
           </div>
         </div>
@@ -167,7 +167,7 @@
       $('.slider-gallery').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: true,
+        arrows: false,
         fade: true,
         asNavFor: '.slider-gallery-nav'
       });
@@ -177,7 +177,7 @@
             dots: true,
             centerMode: false,
             focusOnSelect: true,
-            variableWidth: false,
+            variableWidth: true,
             infinite: false,
             asNavFor: '.slider-gallery',
         });
@@ -185,8 +185,8 @@
 </script>
 <style>
     .slider-gallery-nav > .slick-list > .slick-track > .slick-slide, .slider-nav > .slick-list > .slick-track > .slick-slide  {
-        width: 250px;
-        height: 170px;
+        width: 170px;
+        height: 100px;
         opacity: 50%;
     }
     .slider-gallery-nav > .slick-list > .slick-track > .slick-current, .slider-nav > .slick-list > .slick-track > .slick-current {
