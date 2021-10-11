@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+<div class="bg-white shadow sm:rounded-lg pb-8">
     <div class="sm:px-6">
       @if (\Session::has("success"))
       <div class="bg-green-200 border-green-600 text-green-600 border-l-4 p-4" role="alert">
@@ -168,4 +168,6 @@
        
     </form>
   </div>
+  </div>
+</div>
 @endsection
