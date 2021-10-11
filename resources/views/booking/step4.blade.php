@@ -162,7 +162,7 @@
       </div>
         @else 
           <button type="button" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            <a href="{{ route("home") }}">Back to home</a>
+            <a href="{{ url("home") }}">Back to home</a>
           </button>
       @endif
        
