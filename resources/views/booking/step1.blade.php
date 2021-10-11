@@ -2,6 +2,7 @@
 @section('title', 'Make a reservation - Molveno Resort')
 @section('content')
 
+<div class="flex-grow">
   @if (\Session::has("error"))
   <div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4" role="alert">
           <p>
@@ -113,6 +114,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 
