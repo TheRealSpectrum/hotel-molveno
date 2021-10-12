@@ -31,7 +31,7 @@
 </div>
 
 <div class="flex justify-center">
-<div class="shadow overflow-hidden sm:rounded-md w-2/3">
+<div class="shadow overflow-hidden sm:rounded-md w-full">
   <div class="px-4 py-5 bg-white h-full sm:p-6">
     <div class="md:grid md:grid-cols-3 md:gap-6 justify-center"> 
       <div class="md:grid md:grid-cols-2 mt-5 md:mt-4 md:col-start-2">
@@ -101,12 +101,11 @@
             </div>
             <div class="">
                 <label class="flex pl-2 font-medium" for="children">Children <span class="text-red-500">*</span></label>
-                <input class="mt-7 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="number" name="children" value="{{ old("children") ?? "0" }}">
-            </div>
-            
+                <input class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="number" name="children" value="{{ old("children") ?? "0" }}">
+            </div>            
             <div class="">
                 <label class="flex pl-2 font-medium" for="room_amount">Rooms <span class="text-red-500">*</span></label>
-                <input class="mt-7 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="number" name="room_amount" value="{{ old("room_amount") ?? "1" }}" >
+                <input class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="number" name="room_amount" value="{{ old("room_amount") ?? "1" }}" >
             </div>
         </div>
             <input type="submit" value="Room selection(s)" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 w-full lg:mt-4 cursor-pointer"> 

@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateGuestAccountRequest;
 use App\Models\Guest;
 use App\Models\Reservation;
 use App\Models\Room;
+use App\Models\Package;
 use Illuminate\Http\Request;
 use App\Models\Roomtype;
 use Carbon\Carbon;
@@ -30,7 +31,7 @@ class BookingController extends Controller
         ];
         $rooms = Room::getAvailableRooms($data);
         $roomTypes = Roomtype::all();
-
+        $packages = Package::all();
         if ($data["room_amount"] > $rooms->count()) {
             return redirect()
                 ->back()
@@ -39,7 +40,10 @@ class BookingController extends Controller
                     "There are not enough rooms available on this date."
                 );
         } else {
-            return view("booking.step2", compact("rooms", "roomTypes", "data"));
+            return view(
+                "booking.step2",
+                compact("rooms", "roomTypes", "data", "packages")
+            );
         }
     }
 
@@ -62,6 +66,18 @@ class BookingController extends Controller
             array_push($roomTypesArr, request()->get("room_type" . $i++));
         }
         $roomTypesKeyValue = array_combine($roomTypeKeys, $roomTypesArr);
+
+        $packages = [];
+        $packagesCount = Package::max("id");
+
+        for ($j = 1; $j <= $packagesCount; $j++) {
+            if ($request->get("package" . $j) != null) {
+                array_push(
+                    $packages,
+                    Package::find($request->get("package" . $j))
+                );
+            }
+        }
 
         $rooms = Room::getAvailableRooms($data);
         $rooms1 = collect($rooms);
@@ -142,7 +158,7 @@ class BookingController extends Controller
         } else {
             return view(
                 "booking.step3",
-                compact("data", "roomsToBook", "totalPrice")
+                compact("data", "roomsToBook", "totalPrice", "packages")
             );
         }
     }
@@ -187,16 +203,27 @@ class BookingController extends Controller
             "total_price" => $request->input("total_price"),
             "room_id" => $request->room_id,
             "guest_id" => $guest->id,
+            "packages" => $request->packages,
+            "package_id" => $request->package_id,
         ];
 
         $roomTypeNames = array_count_values($data["roomtypes"]);
+        if (isset($data["packages"])) {
+            $packageNames = array_count_values($data["packages"]);
+        } else {
+            $packageNames = ["none"];
+        }
 
-        return view("booking.step4", compact("data", "roomTypeNames"));
+        return view(
+            "booking.step4",
+            compact("data", "roomTypeNames", "packageNames")
+        );
     }
 
     public function confirmBooking(Request $request)
     {
         $roomIDsToBook = $request->room_id;
+        $packageIDsToBook = $request->package_id;
 
         $reservation = Reservation::create([
             "check_in" => $request->check_in,
@@ -210,6 +237,10 @@ class BookingController extends Controller
 
         foreach ($roomIDsToBook as $roomIDToBook) {
             $reservation->rooms()->attach($roomIDToBook);
+        }
+
+        foreach ($packageIDsToBook as $packageIDsToBook) {
+            $reservation->packages()->attach($packageIDsToBook);
         }
 
         return redirect()
