@@ -21,6 +21,7 @@ class Reservation extends Model
         "guest_id",
         "room_id",
         "roomtype_id",
+        "package_id",
         "check_in",
         "check_out",
         "adults",
@@ -40,6 +41,7 @@ class Reservation extends Model
         "guest_id" => "integer",
         "room_id" => "integer",
         "roomtype_id" => "integer",
+        "package_id" => "integer",
         "check_in" => "datetime",
         "check_out" => "datetime",
         "adults" => "integer",
@@ -58,6 +60,14 @@ class Reservation extends Model
         return $this->belongsToMany(
             \App\Models\Room::class,
             "reservation_room"
+        );
+    }
+
+    public function packages()
+    {
+        return $this->belongsToMany(
+            \App\Models\Package::class,
+            "reservation_package"
         );
     }
 

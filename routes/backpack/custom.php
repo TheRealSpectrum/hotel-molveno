@@ -22,6 +22,7 @@ Route::group(
         Route::crud("roomtype", "RoomtypeCrudController");
         Route::crud("guest", "GuestCrudController");
         Route::crud("reservation", "ReservationCrudController");
+        Route::crud("package", "PackageCrudController");
         Route::get("api/room", "Api\FindRoomController@index");
         Route::get("api/room/{id}", "Api\FindRoomController@show");
         Route::get(
