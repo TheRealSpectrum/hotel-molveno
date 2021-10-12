@@ -77,7 +77,7 @@ class ReservationCrudController extends CrudController
         ]);
         $this->crud->addButtonFromView(
             "line",
-            "test",
+            "check_in-out",
             "check_in_out",
             "beginning"
         );
@@ -168,7 +168,7 @@ class ReservationCrudController extends CrudController
         ]);
         $this->crud->addButtonFromView(
             "line",
-            "test",
+            "Check_In_Out",
             "check_in_out",
             "beginning"
         );

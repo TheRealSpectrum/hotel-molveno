@@ -22,11 +22,13 @@ Route::group(
         Route::crud("roomtype", "RoomtypeCrudController");
         Route::crud("guest", "GuestCrudController");
         Route::crud("reservation", "ReservationCrudController");
+        Route::crud("document", "DocumentCrudController");
         Route::get("api/room", "Api\FindRoomController@index");
         Route::get("api/room/{id}", "Api\FindRoomController@show");
         Route::get(
             "/reservation/checkinout/{id}",
             "CheckInOutController@index"
         );
+        // Route::get();
     }
 ); // this should be the absolute last line of this file
