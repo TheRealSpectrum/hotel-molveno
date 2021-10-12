@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -48,19 +49,48 @@ class Room extends Model
 
     protected static function getAvailableRooms($data)
     {
-        return Room::with("reservations")
-            ->whereHas("reservations", function ($q) use ($data) {
-                $q->whereNotBetween("check_in", [
-                    $data["check_in"],
-                    $data["check_out"],
-                ])
-                    ->WhereNotBetween("check_out", [
-                        $data["check_in"],
-                        $data["check_out"],
-                    ])
-                    ->where("available", true);
-            })
-            ->orWhereDoesntHave("reservations")
-            ->where("available", true);
+        $availableRooms = collect();
+        $roomsRooms = Room::with("reservations")
+            ->where("available", true)
+            ->get();
+
+        foreach ($roomsRooms as $room) {
+            $available = true;
+            foreach ($room->reservations as $reservation) {
+                if (
+                    ($reservation->check_in->gte(
+                        Carbon::createFromFormat(
+                            "Y-m-d H:i:s",
+                            $data["check_in"]
+                        )
+                    ) &&
+                        $reservation->check_in->lte(
+                            Carbon::createFromFormat(
+                                "Y-m-d H:i:s",
+                                $data["check_out"]
+                            )
+                        )) ||
+                    ($reservation->check_out->gte(
+                        Carbon::createFromFormat(
+                            "Y-m-d H:i:s",
+                            $data["check_in"]
+                        )
+                    ) &&
+                        $reservation->check_out->lte(
+                            Carbon::createFromFormat(
+                                "Y-m-d H:i:s",
+                                $data["check_out"]
+                            )
+                        ))
+                ) {
+                    $available = false;
+                }
+            }
+            if ($available) {
+                $availableRooms->push($room);
+            }
+        }
+
+        return $availableRooms;
     }
 }
