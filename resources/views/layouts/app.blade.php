@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" class="min-h-screen">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,39 +9,42 @@
 
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <script src="https://kit.fontawesome.com/146730865b.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
-<body class="">
+<body class="flex flex-col h-screen">
     <header class="sticky top-0 z-50">
         <nav class="flex items-center justify-between flex-wrap bg-gray-100 pr-6 pl-6">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <a href="/">
+                <a href="{{ url("home") }}">
                     <img src="{{ asset("images/Logo Molveno Resort Black.svg") }}" alt="Molveno Resort Logo" class="fill-current h-20 w-20 mr-12 ml-4">
                 </a>
             </div>
             <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                 <div class="text-sm lg:flex-grow">
-                    <a href="{{ url('/#rooms') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('home/#rooms') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Rooms
                     </a>
-                    <a href="{{ url('/#facilities') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('home/#facilities') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Facilities
                     </a>
-                    <a href="{{ url('/#gallery') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('home/#gallery') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Gallery
                     </a>
-                    <a href="{{ url('/#restaurant') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('home/#restaurant') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Restaurant
                     </a>
-                    <a href="{{ url('/#location') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
+                    <a href="{{ url('home/#location') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                         Location
                     </a>
-                    <a href="{{ url('/#contact') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600">
+                    <a href="{{ url('home/#contact') }}" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600">
                         Contact
                     </a>
                 </div>

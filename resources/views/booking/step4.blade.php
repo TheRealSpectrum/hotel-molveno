@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+<div class="bg-white shadow sm:rounded-lg pb-8">
     <div class="sm:px-6">
       @if (\Session::has("success"))
       <div class="bg-green-200 border-green-600 text-green-600 border-l-4 p-4" role="alert">
@@ -184,10 +184,12 @@
       </div>
         @else 
           <button type="button" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            <a href="{{ route("home") }}">Back to home</a>
+            <a href="{{ url("home") }}">Back to home</a>
           </button>
       @endif
        
     </form>
   </div>
+  </div>
+</div>
 @endsection
