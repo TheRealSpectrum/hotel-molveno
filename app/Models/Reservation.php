@@ -63,6 +63,14 @@ class Reservation extends Model
         );
     }
 
+    public function packages()
+    {
+        return $this->belongsToMany(
+            \App\Models\Package::class,
+            "reservation_package"
+        );
+    }
+
     public function roomtype()
     {
         return $this->belongsTo(Roomtype::class);

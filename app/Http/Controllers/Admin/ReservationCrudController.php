@@ -84,6 +84,9 @@ class ReservationCrudController extends CrudController
         CRUD::column("rooms")
             ->type("relationship")
             ->name("rooms");
+        CRUD::column("packages")
+            ->type("relationship")
+            ->name("packages");
         CRUD::column("adults");
         CRUD::column("children");
         CRUD::column("check_in")

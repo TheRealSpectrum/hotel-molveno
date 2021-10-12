@@ -14,8 +14,8 @@ class PackageSeeder extends Seeder
      */
     public function run()
     {
-        Package::factory()
-            ->count(1)
-            ->create();
+        Package::create(["name" => "Annuleringspakket", "price" => 25]);
+        Package::create(["name" => "Pakket2", "price" => 50]);
+        Package::create(["name" => "Pakket3", "price" => 75]);
     }
 }
