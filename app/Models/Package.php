@@ -3,18 +3,20 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Package extends Model
 {
     use CrudTrait;
+    use HasFactory;
 
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-    protected $fillable = ["name", "price", "name_price"];
+    protected $fillable = ["name", "price"];
     // protected $hidden = [];
     // protected $dates = [];
 

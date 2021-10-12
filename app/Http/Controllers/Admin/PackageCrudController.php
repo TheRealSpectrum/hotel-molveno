@@ -55,13 +55,8 @@ class PackageCrudController extends CrudController
     {
         CRUD::setValidation(PackageRequest::class);
 
-        CRUD::setFromDb(); // fields
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
-         */
+        CRUD::field("name");
+        CRUD::field("price");
     }
 
     /**

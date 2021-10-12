@@ -219,7 +219,6 @@ class BookingController extends Controller
     public function confirmBooking(Request $request)
     {
         $roomIDsToBook = $request->room_id;
-        $packageIDsToBook = $request->package_id;
 
         $reservation = Reservation::create([
             "check_in" => $request->check_in,
@@ -227,16 +226,13 @@ class BookingController extends Controller
             "adults" => $request->adults,
             "children" => $request->children,
             "roomtype_id" => 1,
-            "package_id" => 1,
+            "package_id" => $request->package_id,
             "guest_id" => $request->guest_id,
             "total_price" => $request->total_price,
         ]);
 
         foreach ($roomIDsToBook as $roomIDToBook) {
             $reservation->rooms()->attach($roomIDToBook);
-        }
-        foreach ($packageIDsToBook as $packageIDsToBook) {
-            $reservation->packages()->attach($packageIDsToBook);
         }
 
         return redirect()
