@@ -80,7 +80,7 @@ class BookingController extends Controller
         }
 
         $rooms = Room::getAvailableRooms($data);
-        $rooms1 = collect($rooms->get());
+        $rooms1 = collect($rooms);
         $rooms2 = collect();
         $amountRooms = 0;
         $totalGuests = $data["adults"] + $data["children"];
