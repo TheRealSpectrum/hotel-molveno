@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\ReservationRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use Faker\Provider\ar_JO\Text;
-use App\Models\Reservation;
 
 /**
  * Class ReservationCrudController
@@ -42,7 +40,6 @@ class ReservationCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->addColumn([
-            // Select
             "label" => "Guest",
             "type" => "select",
             "name" => "guest_id", // the db column for the foreign key
@@ -75,26 +72,27 @@ class ReservationCrudController extends CrudController
                 },
             ],
         ]);
-        $this->crud->addButtonFromView(
-            "line",
-            "test",
-            "check_in_out",
-            "beginning"
-        );
+
+        CRUD::addButtonFromView("line", "test", "check_in_out", "beginning");
+
         CRUD::column("rooms")
             ->type("relationship")
             ->name("rooms");
+
         CRUD::column("packages")
             ->type("relationship")
             ->name("packages");
+
         CRUD::column("adults");
         CRUD::column("children");
+
         CRUD::column("check_in")
             ->type("date")
             ->format("ddd D MMM YYYY HH:mm");
         CRUD::column("check_out")
             ->type("date")
             ->format("ddd D MMM YYYY HH:mm");
+
         CRUD::column("total_price")->prefix("€");
     }
 
@@ -108,18 +106,70 @@ class ReservationCrudController extends CrudController
     {
         CRUD::setValidation(ReservationRequest::class);
 
-        //CRUD::field("check_in")
-        //    ->type("datetime_picker")
-        //   ->wrapper([
-        //       "class" => "form-group col-md-6 input",
-        //        "id" => "date_check_in",
-        //    ]);
-        //CRUD::field("check_out")
-        //    ->type("datetime_picker")
-        //    ->wrapper([
-        //        "class" => "form-group col-md-6 input",
-        //        "id" => "date_check_out",
-        //    ]);
+        $this->crud->addField([
+            "type" => "date_range",
+            "name" => ["check_in", "check_out"],
+            "label" => "Event Date Range",
+            "class" => "form-group col-md-6 input",
+            "wrapper" => ["id" => "date_check_in, date_check_out"],
+            "date_range_options" => [
+                "drops" => "down", // can be one of [down/up/auto]
+            ],
+        ]);
+
+        CRUD::field("adults")
+            ->wrapper(["class" => "form-group col-md-6 in"])
+            ->default(1);
+        CRUD::field("children")
+            ->wrapper(["class" => "form-group col-md-6"])
+            ->default(0);
+
+        CRUD::field("guest_id")->attribute("fullname");
+
+        CRUD::field("roomtype_id")
+            ->type("select2")
+            ->model("App\Models\Roomtype")
+            ->attribute("name_price")
+            ->wrapper(["id" => "roomtype_select2"]);
+
+        CRUD::field("rooms")
+            ->type("select2_from_ajax_multiple")
+            ->name("rooms")
+            ->entity("rooms")
+            ->attribute("room_number")
+            ->data_source(url("/admin/api/room"))
+            ->placeholder("Select Room(s)")
+            ->include_all_form_fields(true)
+            ->minimum_input_length(0)
+            ->dependencies([
+                "check_in",
+                "check_out",
+                "roomtype_id",
+                "adults",
+                "children",
+            ])
+            ->pivot(true)
+            ->wrapper(["id" => "room_select2"]);
+
+        CRUD::field("total_price")
+            ->type("TotalPrice")
+            ->prefix("€")
+            ->attributes(["readonly" => "readonly"])
+            ->wrapper([
+                "class" => "form-group col-md-3",
+                "id" => "total_price_field",
+            ]);
+    }
+
+    /**
+     * Define what happens when the Update operation is loaded.
+     *
+     * @see https://backpackforlaravel.com/docs/crud-operation-update
+     * @return void
+     */
+    protected function setupUpdateOperation()
+    {
+        CRUD::setValidation(ReservationRequest::class);
 
         $this->crud->addField([
             "type" => "date_range",
@@ -150,31 +200,24 @@ class ReservationCrudController extends CrudController
         CRUD::field("check_in_status");
         CRUD::field("check_out_status");
 
-        $this->crud->addField([
-            "type" => "select2_from_ajax_multiple",
-            "name" => "rooms", // the relationship name in your Model
-            "entity" => "rooms", // the relationship name in your Model
-            "attribute" => "room_number", // attribute on Article that is shown to admin
-            "data_source" => url("/admin/api/room"), // url to controller search function (with /{id} should return model)
-            "placeholder" => "Select Room(s)", // placeholder for the select
-            "include_all_form_fields" => true, //sends the other form fields along with the request so it can be filtered.
-            "minimum_input_length" => 0, // minimum characters to type before querying results
-            "dependencies" => [
+        CRUD::field("rooms")
+            ->type("select2_from_ajax_multiple")
+            ->name("rooms")
+            ->entity("rooms")
+            ->attribute("room_number")
+            ->data_source(url("/admin/api/room"))
+            ->placeholder("Select Room(s)")
+            ->include_all_form_fields(true)
+            ->minimum_input_length(0)
+            ->dependencies([
                 "check_in",
                 "check_out",
                 "roomtype_id",
                 "adults",
                 "children",
-            ], // when a dependency changes, this select2 is reset to null
-            "pivot" => true, // on create&update, do you need to add/delete pivot table entries?
-            "wrapper" => ["id" => "room_select2"],
-        ]);
-        $this->crud->addButtonFromView(
-            "line",
-            "test",
-            "check_in_out",
-            "beginning"
-        );
+            ])
+            ->pivot(true)
+            ->wrapper(["id" => "room_select2"]);
 
         CRUD::field("total_price")
             ->type("TotalPrice")
@@ -185,34 +228,4 @@ class ReservationCrudController extends CrudController
                 "id" => "total_price_field",
             ]);
     }
-
-    /**
-     * Define what happens when the Update operation is loaded.
-     *
-     * @see https://backpackforlaravel.com/docs/crud-operation-update
-     * @return void
-     */
-    protected function setupUpdateOperation()
-    {
-        $this->setupCreateOperation();
-    }
-    // Check In Check Out functie
-    // public function checkinout($id)
-    // {
-    //     //ophalen entry uit db
-    //     //veranderen van of checkin of checkout status
-    //     //save
-    //     // dd($id);
-    //     $reservation = Reservation::find($id);
-    //     if ("check_in_status" == 0) {
-    //         $reservation->update(["check_in_status" => 1]);
-    //         $reservation->save();
-    //         dd($reservation);
-    //         return redirect()->back();
-    //     } elseif ("check_out_status" == 0) {
-    //         $reservation->update(["check_out_status" => 1]);
-    //         $reservation->save();
-    //         return redirect()->back();
-    //     }
-    // }
 }
