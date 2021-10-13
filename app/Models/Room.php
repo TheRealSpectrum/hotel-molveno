@@ -22,6 +22,7 @@ class Room extends Model
         "available",
         "maximum_guests",
         "roomtype_id",
+        "notes",
     ];
 
     /**
@@ -35,6 +36,7 @@ class Room extends Model
         "maximum_adults" => "integer",
         "maximum_children" => "integer",
         "roomtype_id" => "integer",
+        "notes" => "string",
     ];
 
     public function roomtype()

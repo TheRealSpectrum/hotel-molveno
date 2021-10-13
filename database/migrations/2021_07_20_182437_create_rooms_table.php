@@ -22,6 +22,7 @@ class CreateRoomsTable extends Migration
             $table->boolean("available");
             $table->integer("maximum_guests");
             $table->foreignId("roomtype_id")->constrained();
+            $table->text("notes")->nullable();
             $table->timestamps();
         });
 
