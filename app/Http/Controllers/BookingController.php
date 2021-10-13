@@ -223,7 +223,7 @@ class BookingController extends Controller
     public function confirmBooking(Request $request)
     {
         $roomIDsToBook = $request->room_id;
-        $packageIDsToBook = $request->package_id;
+        $packageIDsToBook = $request->package_id ?? [];
 
         $reservation = Reservation::create([
             "check_in" => $request->check_in,
