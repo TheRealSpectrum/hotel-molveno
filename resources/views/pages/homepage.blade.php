@@ -51,7 +51,7 @@
               <div class="p-12 w-full h-80 text-center mt-10">
                   <ul>
                       <?php
-                      $facilities = json_decode($page->facilities, true);
+                      $facilities = json_decode($page->facilities, true) ?? [];
                       foreach ($facilities as $facility => $value) {
                           echo "<li class='text-white font-medium text-xl'>" .
                               array_values($value)[0] .
