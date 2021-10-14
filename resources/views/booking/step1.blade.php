@@ -18,7 +18,7 @@
   </div>
   <div class="border-t-4 border-gray-200 pt-4">
     <p class="uppercase text-gray-400 font-bold">Step 2</p>
-    <p class="font-semibold">Room type(s)</p>
+    <p class="font-semibold">Options</p>
   </div>
   <div class="border-t-4 border-gray-200 pt-4">
     <p class="uppercase text-gray-400 font-bold">Step 3</p>
@@ -108,7 +108,7 @@
                 <input class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="number" name="room_amount" value="{{ old("room_amount") ?? "1" }}" >
             </div>
         </div>
-            <input type="submit" value="Room selection(s)" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 w-full lg:mt-4 cursor-pointer"> 
+            <input type="submit" value="Room options" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 w-full lg:mt-4 cursor-pointer"> 
         </form>
       </div>
     </div>

@@ -19,7 +19,7 @@
 		</div>
 		<div class="border-t-4 border-blue-500 pt-4">
 			<p class="uppercase text-blue-500 font-bold">Step 2</p>
-			<p class="font-semibold">Room type(s)</p>
+			<p class="font-semibold">Options</p>
 		</div>
 		<div class="border-t-4 border-gray-200 pt-4">
 			<p class="uppercase text-gray-400 font-bold">Step 3</p>
