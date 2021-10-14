@@ -18,7 +18,7 @@ class CheckInOutController extends Controller
             //tussenstap formulier invullen en documenten opslaan
             $reservation->update(["check_in_status" => 1]);
             $reservation->save();
-            return redirect()->back();
+            return redirect(backpack_url("/reservation/{$id}/edit"));
         } elseif ($reservation->check_out_status == 0) {
             $reservation->update(["check_out_status" => 1]);
             $reservation->save();
