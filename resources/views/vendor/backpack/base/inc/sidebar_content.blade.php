@@ -11,5 +11,10 @@
 </li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('room') }}'><i class='la la-bed nav-icon'></i> Rooms</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('roomtype') }}'><i class='nav-icon las la-info'></i> Room types</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('package') }}'><i class='nav-icon las la-info'></i> Packages</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('guest') }}'><i class='nav-icon la la-user-tag'></i> Guests</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('reservation') }}'><i class='nav-icon la la-calendar-check'></i> Reservations</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('page') }}'><i class='nav-icon la la-file-o'></i> <span>Pages</span></a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('document') }}'><i class='nav-icon la la-calendar-check'></i> Documents</a></li>
+

@@ -59,6 +59,7 @@ class RoomCrudController extends CrudController
         ]);
         CRUD::column("maximum_guests");
         CRUD::column("roomtype_id");
+        CRUD::column("notes");
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -82,6 +83,7 @@ class RoomCrudController extends CrudController
         CRUD::field("is_clean");
         CRUD::field("maximum_guests");
         CRUD::field("roomtype_id");
+        CRUD::field("notes");
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

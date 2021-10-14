@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+<div class="bg-white shadow sm:rounded-lg pb-8">
     <div class="sm:px-6">
       @if (\Session::has("success"))
       <div class="bg-green-200 border-green-600 text-green-600 border-l-4 p-4" role="alert">
@@ -128,13 +128,29 @@
           @endforeach
         </div>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          
+          <dt class="text-sm font-medium text-gray-500">
+            Package(s)
+          </dt>
+          @if (isset($packageNames))
+            @foreach ($packageNames as $packages => $amount)
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                {{ $packages }}
+              </dd>
+              <dt class="text-sm font-medium text-gray-500">
+    
+              </dt>
+            @endforeach
+          @endif
+        </div>
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">
               Total Price
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
               &euro; {{ $data['total_price'] }},00
             </dd>
-          </div>
+        </div>
       </dl>
     </div>
   </div>
@@ -147,9 +163,15 @@
         <input type="hidden" name="room_amount" value="{{ $data["room_amount"] }}">
         <input type="hidden" name="total_price" value="{{ $data["total_price"] }}">
         <input type="hidden" name="guest_id" value="{{ $data["guest_id"] }}">
+
         @foreach ($data["room_id"] as $room_id)
         <input type="hidden" name="room_id[]" value="{{ $room_id }}">
         @endforeach
+        @if( isset($data["packages"]))
+          @foreach ($data["package_id"] as $package_id)
+          <input type="hidden" name="package_id[]" value="{{ $package_id }}">
+          @endforeach
+        @endif
         
 
       @if (!\Session::has("success"))
@@ -162,10 +184,12 @@
       </div>
         @else 
           <button type="button" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            <a href="{{ route("home") }}">Back to home</a>
+            <a href="{{ url("home") }}">Back to home</a>
           </button>
       @endif
        
     </form>
   </div>
+  </div>
+</div>
 @endsection

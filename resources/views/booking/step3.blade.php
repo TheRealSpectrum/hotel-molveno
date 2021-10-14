@@ -70,6 +70,10 @@
         <input type="hidden" name="children" value="{{ $data["children"] }}">
         <input type="hidden" name="room_amount" value="{{ $data["room_amount"] }}">
         <input type="hidden" name="total_price" value="{{ $totalPrice }}">
+        @foreach ($packages as $package)
+          <input type="hidden" name="packages[]" value="{{ $package->name }}">
+          <input type="hidden" name="package_id[]" value="{{ $package->id }}">
+        @endforeach
         @foreach ($roomsToBook as $roomToBook)
           <input type="hidden" name="roomtypes[]" value="{{ $roomToBook->roomtype->name }}">
           <input type="hidden" name="room_id[]" value="{{ $roomToBook->id }}">

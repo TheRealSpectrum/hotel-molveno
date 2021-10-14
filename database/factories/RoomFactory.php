@@ -29,6 +29,7 @@ class RoomFactory extends Factory
             "available" => $this->faker->boolean,
             "maximum_guests" => $this->faker->numberBetween(2, 6),
             "roomtype_id" => $this->faker->numberBetween(1, 2),
+            "notes" => null,
         ];
     }
 }
