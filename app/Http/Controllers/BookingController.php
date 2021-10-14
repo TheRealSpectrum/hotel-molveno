@@ -124,6 +124,10 @@ class BookingController extends Controller
             $totalPrice += $roomToBook->roomtype->price * $totalDays;
         }
 
+        foreach ($packages as $package) {
+            $totalPrice += $package->price;
+        }
+
         // Error checks
         if ($amountRooms < $data["room_amount"]) {
             return redirect()
