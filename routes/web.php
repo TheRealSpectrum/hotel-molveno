@@ -19,6 +19,10 @@ Route::get("/", function () {
     return redirect(url("home"));
 })->name("home");
 
+Route::get("welcome", function () {
+    return view("welcome");
+});
+
 Route::middleware("auth")->group(function () {
     Route::get("account", [GuestController::class, "index"])->name(
         "account.index"
