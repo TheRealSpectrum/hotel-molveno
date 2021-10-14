@@ -105,9 +105,9 @@
               <div class="pb-20">{!! $page->restaurant_text_box !!}</div>
               <h1 class="text-4xl"><i class="fas fa-phone-alt pr-1"></i>{{ $page->restaurant_phone }}</h1>
             </div>
-            <div class="w-full bg-no-repeat bg-cover ml-6 overflow-hidden relative">
+            <div class="w-full grid place-items-center bg-no-repeat bg-cover ml-6 overflow-hidden relative">
                 <img src="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}" alt="restaurant_menu">
-                <div class="absolute top-1/2 left-1/2">
+                <div class="absolute top-1/2">
                     <a href="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}" target="_blank" class="inline-block text-xl px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Menu</a>
                 </div>
                 
