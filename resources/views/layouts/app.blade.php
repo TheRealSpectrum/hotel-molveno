@@ -16,6 +16,8 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0mMHuW9NsJxC81NBqIhSf1aWL7YZmb3c&callback=initMap"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
@@ -65,10 +67,12 @@
     @yield('content')
 
     <footer>
-      <div class="border-b-2 grid grid-cols-2 p-0">
-          <div></div>
-          <div class="flex flex-row">
-            <div class="pr-12 p-12">
+      <div class="border-b-2 grid grid-cols-2 p-4 px-12 h-72">
+            <div class="flex justify-center w-3/4">
+                <div id="map" class="h-full w-full rounded-md"></div>
+            </div>
+          <div class="flex flex-row justify-end items-center px-12">
+            <div class="h-1/3 ml-12">
                 <h3 class="text-sm font-bold pb-4">Marketing/work</h3>
                 <ul>
                     <li><a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
@@ -79,7 +83,7 @@
                     </a></li>
                 </ul>
             </div>
-            <div class="pr-12 p-12">
+            <div class="h-1/3 ml-12">
                 <h3 class="text-sm font-bold pb-4">Privacy</h3>
                 <ul>
                     <li><a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
@@ -90,7 +94,7 @@
                     </a></li>
                 </ul>
             </div>
-            <div class="p-12">
+            <div class="h-1/3 ml-12">
                 <h3 class="text-sm font-bold pb-4">Molveno resort</h3>
                 <ul>
                     <li><a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
@@ -167,6 +171,23 @@
             document.body.scrollTop = 0; 
             document.documentElement.scrollTop = 0; 
         }
+    </script>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Molveno Resort
+  const molvenoResort = { lat: 46.133471, lng: 10.9687150 };
+  // The map, centered at Molveno Resort
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 15,
+    center: molvenoResort,
+  });
+  // The marker, positioned at Molveno Resort
+  const marker = new google.maps.Marker({
+    position: molvenoResort,
+    map: map,
+  });
+}
     </script>
 </body>
 </html>
