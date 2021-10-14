@@ -87,6 +87,31 @@ class DocumentCrudController extends CrudController
          * - CRUD::addField(['name' => 'price', 'type' => 'number']));
          */
     }
+    protected function setupInlineCreateOperation()
+    {
+        CRUD::removeField("reservation_id");
+        CRUD::field("reservation_id")
+            ->attributes([
+                //   "type" => "select2",
+                "attribute" => "id",
+                "type" => "hidden",
+            ])
+            ->wrapper([
+                "style" => "display:none",
+            ]);
+
+        // CRUD::field("reservation_id")
+        //     ->type("select2")
+        //     ->model("App\Models\Reservation")
+        //     ->attribute("reservation_id")
+        //     ->wrapper(["id" => "reservation_select2"]);
+
+        /**
+         * Fields can be defined using the fluent syntax or array syntax:
+         * - CRUD::field('price')->type('number');
+         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
+         */
+    }
 
     /**
      * Define what happens when the Update operation is loaded.
