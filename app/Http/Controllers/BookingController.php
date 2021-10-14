@@ -247,8 +247,9 @@ class BookingController extends Controller
             $reservation->packages()->attach($packageIDsToBook);
         }
 
-        return redirect()
-            ->back()
-            ->with("success", "Reservation successful");
+        return view("booking.success")->with(
+            "success",
+            "Reservation successful"
+        );
     }
 }
