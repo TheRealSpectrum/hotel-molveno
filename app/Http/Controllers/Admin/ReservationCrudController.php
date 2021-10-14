@@ -20,6 +20,7 @@ class ReservationCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -77,7 +78,7 @@ class ReservationCrudController extends CrudController
         ]);
         $this->crud->addButtonFromView(
             "line",
-            "check_in-out",
+            "check_in_out",
             "check_in_out",
             "beginning"
         );
@@ -166,12 +167,62 @@ class ReservationCrudController extends CrudController
             "pivot" => true, // on create&update, do you need to add/delete pivot table entries?
             "wrapper" => ["id" => "room_select2"],
         ]);
-        $this->crud->addButtonFromView(
-            "line",
-            "Check_In_Out",
-            "check_in_out",
-            "beginning"
-        );
+        $this->crud->addField([
+            "name" => "document",
+            "type" => "relationship",
+            "ajax" => true,
+            "inline_create" => true,
+            // "inline_create" => [
+            //     "entity" => "document",
+            //     // "create_route" => route("document-inline-create-save"),
+            // ],
+        ]);
+        // "entity" => "document",
+        // "model" => "App\Models\Document",
+        // "attribute" => "document",
+        // "store_in" => "documents",
+        //     "fake" => true,
+        //     "fields" => [
+        //         [
+        //             "name" => "fullname_add",
+        //             "type" => "text",
+        //             "label" => "Full Name",
+        //             "wrapper" => ["class" => "form-group col-md-4"],
+        //         ],
+        //         [
+        //             "name" => "dob_add",
+        //             "type" => "date",
+        //             "label" => "Date of Birth",
+        //             "wrapper" => ["class" => "form-group col-md-4"],
+        //         ],
+        //         [
+        //             "name" => "doctype_add",
+        //             "type" => "text",
+        //             "label" => "Document Type",
+        //             "wrapper" => ["class" => "form-group col-md-4"],
+        //         ],
+        //         [
+        //             "name" => "docnumber_add",
+        //             "type" => "text",
+        //             "label" => "Document Number",
+        //             "wrapper" => ["class" => "form-group col-md-4"],
+        //         ],
+        //         [
+        //             "name" => "docexp_add",
+        //             "type" => "date",
+        //             "label" => "Document Expiration",
+        //             "wrapper" => ["class" => "form-group col-md-4"],
+        //         ],
+        //     ],
+        //     "new_item_label" => "Add Document",
+        //     "max_rows" => 12, // maximum rows allowed, when reached the "new item" button will be hidden
+        // ]);
+        // $this->crud->addButtonFromView(
+        //     "line",
+        //     "Check_In_Out",
+        //     "check_in_out",
+        //     "beginning"
+        // );
 
         CRUD::field("total_price")
             ->type("TotalPrice")

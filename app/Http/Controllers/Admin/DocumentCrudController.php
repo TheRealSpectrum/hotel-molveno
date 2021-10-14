@@ -19,6 +19,7 @@ class DocumentCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -48,7 +49,7 @@ class DocumentCrudController extends CrudController
         CRUD::column("document_expiration_date");
         CRUD::column("reservation_id")
             ->type("relationship")
-            ->name("reservation_id");
+            ->attribute("id");
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -96,5 +97,10 @@ class DocumentCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function blabla()
+    {
+        //  dd("blabla");
     }
 }
