@@ -21,7 +21,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
-<body class="flex flex-col h-screen">
+<body class="flex flex-col min-h-screen">
     <header class="sticky top-0 z-50">
         <nav class="flex items-center justify-between flex-wrap bg-gray-100 pr-6 pl-6">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
