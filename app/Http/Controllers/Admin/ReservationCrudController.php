@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ReservationRequest;
+use App\Http\Requests\UpdateReservationRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -170,7 +171,7 @@ class ReservationCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        CRUD::setValidation(ReservationRequest::class);
+        CRUD::setValidation(UpdateReservationRequest::class);
 
         $this->crud->addField([
             "type" => "date_range",
@@ -202,23 +203,21 @@ class ReservationCrudController extends CrudController
         CRUD::field("check_out_status");
 
         CRUD::field("rooms")
-            ->type("select2_from_ajax_multiple")
+            ->type("select2_multiple")
             ->name("rooms")
             ->entity("rooms")
             ->attribute("room_number")
-            ->data_source(url("/admin/api/room"))
-            ->placeholder("Select Room(s)")
-            ->include_all_form_fields(true)
-            ->minimum_input_length(0)
+            ->wrapper([
+                "style" => "display:none",
+                "id" => "room_select2",
+            ])
             ->dependencies([
                 "check_in",
                 "check_out",
                 "roomtype_id",
                 "adults",
                 "children",
-            ])
-            ->pivot(true)
-            ->wrapper(["id" => "room_select2"]);
+            ]);
 
         $this->crud->addField([
             "name" => "document",
@@ -272,7 +271,7 @@ class ReservationCrudController extends CrudController
         // ]);
 
         CRUD::field("total_price")
-            ->type("TotalPrice")
+            ->type("TotalPriceUpdate")
             ->prefix("€")
             ->attributes(["readonly" => "readonly"])
             ->wrapper([
