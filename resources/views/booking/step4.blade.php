@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-white shadow sm:rounded-lg pb-8">
+<div class="bg-white sm:rounded-lg pb-8">
     <div class="sm:px-6">
       @if (\Session::has("success"))
       <div class="bg-green-200 border-green-600 text-green-600 border-l-4 p-4" role="alert">
@@ -39,9 +39,9 @@
       </div>
   @endif
   <div class="flex justify-center">
-    <div class="border-t border-r border-l  border-gray-200 w-2/3">
+    <div class="border-t border-r border-l  border-gray-200 w-7/12">
       <dl>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-gray-50 px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             First name
           </dt>
@@ -49,7 +49,7 @@
            {{ $data["first_name"] }}
           </dd>
         </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-white px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Last name
           </dt>
@@ -57,7 +57,7 @@
             {{ $data["last_name"] }}
           </dd>
         </div>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-gray-50 px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Email address
           </dt>
@@ -65,7 +65,7 @@
             {{ $data["email"] }}
           </dd>
         </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-white px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Address
           </dt>
@@ -73,7 +73,7 @@
             {{ $data["address"] }}
           </dd>
         </div>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-gray-50 px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Phone number
           </dt>
@@ -81,7 +81,7 @@
             {{ $data["phone"] }}
           </dd>
         </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-white px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Check in
           </dt>
@@ -89,7 +89,7 @@
               {{ $data['check_in'] }}
           </dd>
         </div>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-gray-50 px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Check out
           </dt>
@@ -97,7 +97,7 @@
               {{ $data['check_out'] }}
           </dd>
         </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-white px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Adults
           </dt>
@@ -105,7 +105,7 @@
               {{ $data['adults'] }}
           </dd>
         </div>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-gray-50 px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Children
           </dt>
@@ -113,7 +113,7 @@
               {{ $data['children'] }}
           </dd>
         </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-white px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           
           <dt class="text-sm font-medium text-gray-500">
             Room(s)
@@ -127,7 +127,7 @@
           </dt>
           @endforeach
         </div>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-gray-50 px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           
           <dt class="text-sm font-medium text-gray-500">
             Package(s)
@@ -143,7 +143,7 @@
             @endforeach
           @endif
         </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-white px-2 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">
               Total Price
             </dt>
@@ -176,7 +176,7 @@
 
       @if (!\Session::has("success"))
       <div class="flex justify-center">
-        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 w-2/3 border border-gray-200">
+        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 w-7/12 border border-gray-200">
           <button type="submit"  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Make Reservation 
           </button>
