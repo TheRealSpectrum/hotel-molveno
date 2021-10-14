@@ -67,8 +67,8 @@
     @yield('content')
 
     <footer>
-      <div class="border-b-2 grid grid-cols-2 p-4 px-12 h-96">
-            <div class="flex justify-center w-full">
+      <div class="border-b-2 grid grid-cols-2 p-4 px-12 h-72">
+            <div class="flex justify-center w-3/4">
                 <div id="map" class="h-full w-full rounded-md"></div>
             </div>
           <div class="flex flex-row justify-end items-center px-12">
