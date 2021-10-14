@@ -15,6 +15,7 @@ class CheckInOutController extends Controller
     {
         $reservation = Reservation::find($id);
         if ($reservation->check_in_status == 0) {
+            //tussenstap formulier invullen en documenten opslaan
             $reservation->update(["check_in_status" => 1]);
             $reservation->save();
             return redirect()->back();

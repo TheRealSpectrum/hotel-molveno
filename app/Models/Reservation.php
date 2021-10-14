@@ -6,6 +6,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Guest;
+use App\Models\Document;
 
 class Reservation extends Model
 {
@@ -74,5 +75,20 @@ class Reservation extends Model
     public function roomtype()
     {
         return $this->belongsTo(Roomtype::class);
+    }
+
+    public function document()
+    {
+        return $this->hasMany(Document::class);
+    }
+
+    public function setDocuments()
+    {
+        dd("blabla");
+    }
+
+    public function setDocument()
+    {
+        dd("geen s");
     }
 }

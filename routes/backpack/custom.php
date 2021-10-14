@@ -5,6 +5,8 @@
 // --------------------------
 // This route file is loaded automatically by Backpack\Base.
 // Routes you generate using Backpack\Generators will be placed here.
+
+use App\Http\Controllers\Admin\DocumentCrudController;
 use App\Http\Controllers\Admin\ReservationCrudController;
 
 Route::group(
@@ -22,6 +24,7 @@ Route::group(
         Route::crud("roomtype", "RoomtypeCrudController");
         Route::crud("guest", "GuestCrudController");
         Route::crud("reservation", "ReservationCrudController");
+        Route::crud("document", "DocumentCrudController");
         Route::crud("package", "PackageCrudController");
         Route::get("api/room", "Api\FindRoomController@index");
         Route::get("api/room/{id}", "Api\FindRoomController@show");
@@ -29,5 +32,14 @@ Route::group(
             "/reservation/checkinout/{id}",
             "CheckInOutController@index"
         );
+        // Route::post("document-inline-create", [
+        //     DocumentCrudController::class,
+        //     "setupCreateOperation",
+        // ])->name("document-inline-create");
+        // Route::post("document-inline-create-save", [
+        //     DocumentCrudController::class,
+        //     "blabla",
+        // ])->name("document-inline-create-save");
+        // Route::get();
     }
 ); // this should be the absolute last line of this file
