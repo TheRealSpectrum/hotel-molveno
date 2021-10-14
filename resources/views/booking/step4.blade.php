@@ -23,7 +23,7 @@
           <div class="border-t-4 border-blue-500 pt-4">
             {{-- <a href="{{ url()->previous() }}"> --}}
               <p class="uppercase text-blue-500 font-bold">Step 2</p>
-              <p class="font-semibold">Room type(s)</p>
+              <p class="font-semibold">Options</p>
             {{-- </a> --}}
           </div>
           <div class="border-t-4 border-blue-500 pt-4">
