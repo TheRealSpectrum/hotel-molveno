@@ -64,3 +64,14 @@ Merge your pull request # You can also delete your branch after merging your pul
 git switch main
 git checkout -b patch-nielslinden-new-feature
 ```
+
+## Usage
+
+#### Default login credentials
+
+```bash
+
+
+Admin user: Admin@molvenoresort.com : password
+Guest user: testuser@molvenoresort.com : password
+```
