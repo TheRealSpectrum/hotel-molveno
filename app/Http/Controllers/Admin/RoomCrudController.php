@@ -40,6 +40,7 @@ class RoomCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::addButtonFromView("line", "test1", "room_clean", "beginning");
         CRUD::column("room_number");
         CRUD::addColumn([
             "name" => "is_clean",
@@ -60,12 +61,6 @@ class RoomCrudController extends CrudController
         CRUD::column("maximum_guests");
         CRUD::column("roomtype_id");
         CRUD::column("notes");
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
     }
 
     /**
@@ -84,12 +79,6 @@ class RoomCrudController extends CrudController
         CRUD::field("maximum_guests");
         CRUD::field("roomtype_id");
         CRUD::field("notes");
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
-         */
     }
 
     /**
