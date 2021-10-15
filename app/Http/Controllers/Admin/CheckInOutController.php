@@ -20,6 +20,10 @@ class CheckInOutController extends Controller
             $reservation->save();
             return redirect(backpack_url("/reservation/{$id}/edit"));
         } elseif ($reservation->check_out_status == 0) {
+            foreach ($reservation->rooms as $room) {
+                $room->update(["is_clean" => 0]);
+                $room->save();
+            }
             $reservation->update(["check_out_status" => 1]);
             $reservation->save();
             return redirect()->back();
