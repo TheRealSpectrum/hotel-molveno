@@ -20,15 +20,24 @@ class PermissionSeeder extends Seeder
 
         // create permissions
         $adminRole = Role::create(["name" => "Admin"]);
-        Role::create(["name" => "Guest"]);
+        $guestRole = Role::create(["name" => "Guest"]);
 
-        // create demo users
-        $user = \App\Models\User::factory()->create([
+        // create demo admin user
+        $adminUser = \App\Models\User::factory()->create([
             "name" => "Admin",
             "email" => "admin@molvenoresort.com",
             "password" => bcrypt("password"),
             "email_verified_at" => now(),
         ]);
-        $user->assignRole($adminRole);
+        $adminUser->assignRole($adminRole);
+
+        // create demo guest user
+        $guestUser = \App\Models\User::factory()->create([
+            "name" => "TestUser",
+            "email" => "testuser@molvenoresort.com",
+            "password" => bcrypt("password"),
+            "email_verified_at" => now(),
+        ]);
+        $guestUser->assignRole($guestRole);
     }
 }
