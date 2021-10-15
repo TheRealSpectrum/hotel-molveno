@@ -30,9 +30,9 @@
   </div>
 </div>
 
-<div class="flex justify-center">
-<div class="shadow overflow-hidden sm:rounded-md w-full">
-  <div class="px-4 py-5 bg-white h-full sm:p-6">
+<div class="grid justify-center grid-rows-4 grid-cols-6">
+<div class="shadow sm:rounded-md row-span-3 col-span-4 col-start-2">
+  <div class="px-4 py-5 bg-white sm:p-6">
     <div class="md:grid md:grid-cols-3 md:gap-6 justify-center"> 
       <div class="md:grid md:grid-cols-2 mt-5 md:mt-4 md:col-start-2">
         <form class="md:col-span-2" action="{{ route("booking.step2") }}" method="get">
