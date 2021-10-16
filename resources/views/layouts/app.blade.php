@@ -2,22 +2,29 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>@yield('title')</title>
+    <title>@yield('title')</title>
 
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-  <script src="https://kit.fontawesome.com/146730865b.js" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0mMHuW9NsJxC81NBqIhSf1aWL7YZmb3c&callback=initMap"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- Links  -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Scripts -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/146730865b.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0mMHuW9NsJxC81NBqIhSf1aWL7YZmb3c&callback=initMap"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
 <body class="flex flex-col min-h-screen">
@@ -29,25 +36,34 @@
                 </a>
             </div>
             <div class="py-4 lg:flex lg:flex-row lg:items-center lg:justify-between lg:w-full lg:py-0">
-                <div class="flex flex-col py-4 lg:flex-row lg:py-0">
-                    <a href="{{ url('home/#rooms') }}" class="text-blue-500 my-2 lg:mx-2">
-                        Rooms
-                    </a>
-                    <a href="{{ url('home/#facilities') }}" class="text-blue-500 my-2 lg:mx-2">
-                        Facilities
-                    </a>
-                    <a href="{{ url('home/#gallery') }}" class="text-blue-500 my-2 lg:mx-2">
-                        Gallery
-                    </a>
-                    <a href="{{ url('home/#restaurant') }}" class="text-blue-500 my-2 lg:mx-2">
-                        Restaurant
-                    </a>
-                    <a href="{{ url('home/#location') }}" class="text-blue-500 my-2 lg:mx-2">
-                        Location
-                    </a>
-                    <a href="{{ url('home/#contact') }}" class="text-blue-500 my-2 lg:mx-2">
-                        Contact
-                    </a>
+                <p>
+                <a class="btn btn-primary inline-block w-32 text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue my-4 lg:h-10" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Menu
+                </a>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <div class="flex flex-col py-4 lg:flex-row lg:py-0">
+                            <a href="{{ url('home/#rooms') }}" class="text-blue-500 my-2 lg:mx-2">
+                                Rooms
+                            </a>
+                            <a href="{{ url('home/#facilities') }}" class="text-blue-500 my-2 lg:mx-2">
+                                Facilities
+                            </a>
+                            <a href="{{ url('home/#gallery') }}" class="text-blue-500 my-2 lg:mx-2">
+                                Gallery
+                            </a>
+                            <a href="{{ url('home/#restaurant') }}" class="text-blue-500 my-2 lg:mx-2">
+                                Restaurant
+                            </a>
+                            <a href="{{ url('home/#location') }}" class="text-blue-500 my-2 lg:mx-2">
+                                Location
+                            </a>
+                            <a href="{{ url('home/#contact') }}" class="text-blue-500 my-2 lg:mx-2">
+                                Contact
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="flex flex-col py-4 text-center lg:flex-row lg:flex-grow lg:justify-end lg:items-center lg:py-0">
                     <a href="{{ route("booking.index") }}" class="inline-block w-48 text-2xl px-8 py-4 bg-blue-500 leading-none border rounded-lg font-bold text-white my-4 lg:mr-12">Book now</a>
@@ -66,8 +82,8 @@
     @yield('content')
 
     <footer>
-        <div class="flex flex-col items-center border-b-2 border-t-2 lg:grid lg:grid-cols-2 p-4 px-12 mt-20">
-            <div class="flex justify-center w-full">
+        <div class="flex flex-col items-center border-b-2 border-t-2 lg:grid lg:grid-cols-2 p-4">
+            <div class="flex justify-center my-4 h-96 w-full lg:w-3/5">
                 <div id="map" class="h-full w-full rounded-md"></div>
             </div>
             <div class="flex flex-col lg:flex-row lg:justify-end lg:items-center px-12 lg:h-96">
@@ -117,6 +133,7 @@
         <button onclick="topFunction()" id="myBtn" title="Go to top"><i id="scroll-top-icon" class="las la-chevron-circle-up"></i></button>
     </footer>
 
+    <!-- Styles -->
     <style>
         #myBtn {
             background-color: black;
@@ -144,6 +161,7 @@
             font-size: 50px;
         }
     </style>
+    <!-- Scripts -->
     <script>
 
         mybutton = document.getElementById("myBtn");
