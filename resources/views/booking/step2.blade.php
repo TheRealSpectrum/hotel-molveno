@@ -57,7 +57,7 @@
 									</h3>
 									<p class="mt-1 text-sm text-gray-500">{{ $roomType->room_surface }}m²</p>
 								</div>
-								<p class="text-sm font-medium text-gray-900">&euro;{{ $roomType->price }} per night</p>
+								<p class="text-sm font-medium text-gray-900">{{ "€" . $roomType->price }} per night</p>
 							</div>
 							<select class="rounded mt-4" name="room_type{{ $roomType->id }}" id="">
 								<option value="0">0</option>
@@ -68,13 +68,14 @@
 						</div>
 						@endforeach
 					</div>
+					<h2 class="text-2xl font-extrabold tracking-tight text-gray-900 mt-6">Add to your stay</h2>
 					@foreach ( $packages as $package )
 					<div class="group relative">
 						<div class="mt-4 flex">
 							<div>
 								<h3 class="text-sm text-gray-700">
 									<span aria-hidden="true" class="absolute"></span>
-									{{ $package->name }} &euro;{{ $package->price }}
+									{{ $package->name }} {{ ($package->price !== 0) ? "€" . $package->price : "Free of charge" }}
 								</h3>
 							</div>
 						</div>
