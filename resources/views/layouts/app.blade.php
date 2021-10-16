@@ -22,14 +22,14 @@
 
 <body class="flex flex-col min-h-screen">
     <header class="md:sticky top-0 z-50">
-        <nav class="flex flex-col justify-between bg-gray-100 px-6 lg:flex-row">
+        <nav class="flex flex-col flex-grow justify-between bg-gray-100 p-4 lg:flex-row lg:p-0 lg:px-4">
             <div class="flex items-center flex-shrink-0 lg:mr-12">
                 <a href="{{ url("home") }}">
                     <img src="{{ asset("images/Logo Molveno Resort Black.svg") }}" alt="Molveno Resort Logo" class="fill-current h-20 w-20">
                 </a>
             </div>
-            <div class="lg:flex lg:flex-row lg:items-center lg:justify-between lg:w-full">
-                <div class="flex flex-col lg:flex-row">
+            <div class="py-4 lg:flex lg:flex-row lg:items-center lg:justify-between lg:w-full lg:py-0">
+                <div class="flex flex-col py-4 lg:flex-row lg:py-0">
                     <a href="{{ url('home/#rooms') }}" class="text-blue-500 my-2 lg:mx-2">
                         Rooms
                     </a>
@@ -49,15 +49,7 @@
                         Contact
                     </a>
                 </div>
-                <div class="flex flex-col py-6 lg:flex-row lg:items-center lg:py-0">
-                    <!-- <a href="{{ route("booking.index") }}" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg font-bold text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 mr-8 lg:mt-0">Book now</a>
-                    @if (auth()->user())
-                    <a href="{{ route("account.index") }}" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Account</a>
-                    <a href="{{ route("logout") }}" class="inline-block text-sm px-8 py-3 leading-none border rounded-lg text-blue border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Sign out</a>
-                    @else
-                    <a href="{{ route("login") }}" class="inline-block text-sm px-8 py-3 leading-none border rounded-lg text-blue border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Sign in</a>
-                    <a href="{{ route("register") }}" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Register</a>
-                    @endif -->
+                <div class="flex flex-col py-4 text-center lg:flex-row lg:flex-grow lg:justify-end lg:items-center lg:py-0">
                     <a href="{{ route("booking.index") }}" class="inline-block w-48 text-2xl px-8 py-4 bg-blue-500 leading-none border rounded-lg font-bold text-white my-4 lg:mr-12">Book now</a>
                     @if (auth()->user())
                     <a href="{{ route("account.index") }}" class="inline-block w-32 text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue my-4 lg:h-10 lg:mr-2">Account</a>
@@ -109,12 +101,12 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-row justify-between px-12 py-4">
+        <div class="flex flex-row flex-grow justify-between px-16 py-4">
             <div class="flex flex-col justify-center">
                 <p>© Molveno Resort,  2021</p>
             </div>
             <div class="flex flex-col items-center">
-                <p class="pr-4">Follow us:</p>
+                <p>Follow us:</p>
                 <div class="flex flex-row">
                     <a href="http://www.facebook.com" target="_blank"><i class="lab la-facebook text-5xl"></i></a>
                     <a href="http://www.twitter.com" target="_blank"><i class="lab la-twitter text-5xl"></i></a>
