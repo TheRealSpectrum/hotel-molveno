@@ -13,12 +13,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Scripts -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/146730865b.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -27,52 +23,67 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
-<body class="flex flex-col min-h-screen">
-    <header class="md:sticky top-0 z-50">
-        <nav class="flex flex-col flex-grow justify-between bg-gray-100 p-4 lg:flex-row lg:p-0 lg:px-4">
-            <div class="flex items-center flex-shrink-0 lg:mr-12">
+<body class="min-h-screen">
+    <header class="lg:sticky lg:top-0 lg:z-50">
+        <nav class="p-4 flex flex-col justify-between bg-gray-100 lg:flex-row lg:px-4 lg:p-0">
+            <div class="flex flex-shrink-0 items-center lg:mr-12">
                 <a href="{{ url("home") }}">
                     <img src="{{ asset("images/Logo Molveno Resort Black.svg") }}" alt="Molveno Resort Logo" class="fill-current h-20 w-20">
                 </a>
             </div>
-            <div class="py-4 lg:flex lg:flex-row lg:items-center lg:justify-between lg:w-full lg:py-0">
-                <p>
-                <a class="btn btn-primary inline-block w-32 text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue my-4 lg:h-10" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Menu
-                </a>
-                </p>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
-                        <div class="flex flex-col py-4 lg:flex-row lg:py-0">
-                            <a href="{{ url('home/#rooms') }}" class="text-blue-500 my-2 lg:mx-2">
-                                Rooms
-                            </a>
-                            <a href="{{ url('home/#facilities') }}" class="text-blue-500 my-2 lg:mx-2">
-                                Facilities
-                            </a>
-                            <a href="{{ url('home/#gallery') }}" class="text-blue-500 my-2 lg:mx-2">
-                                Gallery
-                            </a>
-                            <a href="{{ url('home/#restaurant') }}" class="text-blue-500 my-2 lg:mx-2">
-                                Restaurant
-                            </a>
-                            <a href="{{ url('home/#location') }}" class="text-blue-500 my-2 lg:mx-2">
-                                Location
-                            </a>
-                            <a href="{{ url('home/#contact') }}" class="text-blue-500 my-2 lg:mx-2">
-                                Contact
-                            </a>
+            <div class="lg:flex lg:flex-row lg:items-center lg:justify-between lg:w-full lg:py-0">
+                <div class="py-4 lg:hidden">
+                    <div class="relative">
+                        <input type="checkbox" id="sortbox" class="hidden absolute">
+                        <label for="sortbox" class="flex items-center space-x-1 cursor-pointer">
+                            <span class="py-3 px-8 w-3/5 text-xl flex flex-row justify-center bg-blue-500 leading-none border rounded-lg font-bold text-white text-center">
+                                Menu
+                                <svg class="h-4 w-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </span>
+                        </label>
+
+                        <div id="sortboxmenu" class="absolute mt-1 left-1 top-full min-w-max shadow rounded opacity-0 bg-gray-300 border border-gray-400 transition delay-75 ease-in-out z-10">
+                            <ul class="block text-left text-white bg-blue-500">
+                                <li><a href="{{ url('home/#rooms') }}" class="block px-3 py-2 hover:bg-gray-200">Rooms</a></li>
+                                <li><a href="{{ url('home/#facilities') }}" class="block px-3 py-2 hover:bg-gray-200">Facilities</a></li>
+                                <li><a href="{{ url('home/#gallery') }}" class="block px-3 py-2 hover:bg-gray-200">Gallery</a></li>
+                                <li><a href="{{ url('home/#restaurant') }}" class="block px-3 py-2 hover:bg-gray-200">Restaurant</a></li>
+                                <li><a href="{{ url('home/#location') }}" class="block px-3 py-2 hover:bg-gray-200">Location</a></li>
+                                <li><a href="{{ url('home/#contact') }}" class="block px-3 py-2 hover:bg-gray-200">Contact</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col py-4 text-center lg:flex-row lg:flex-grow lg:justify-end lg:items-center lg:py-0">
-                    <a href="{{ route("booking.index") }}" class="inline-block w-48 text-2xl px-8 py-4 bg-blue-500 leading-none border rounded-lg font-bold text-white my-4 lg:mr-12">Book now</a>
+                <div class="hidden lg:flex lg:flex-row lg:show">
+                    <a href="{{ url('home/#rooms') }}" class="text-blue-500 my-2 lg:mx-2">
+                        Rooms
+                    </a>
+                    <a href="{{ url('home/#facilities') }}" class="text-blue-500 my-2 lg:mx-2">
+                        Facilities
+                    </a>
+                    <a href="{{ url('home/#gallery') }}" class="text-blue-500 my-2 lg:mx-2">
+                        Gallery
+                    </a>
+                    <a href="{{ url('home/#restaurant') }}" class="text-blue-500 my-2 lg:mx-2">
+                        Restaurant
+                    </a>
+                    <a href="{{ url('home/#location') }}" class="text-blue-500 my-2 lg:mx-2">
+                        Location
+                    </a>
+                    <a href="{{ url('home/#contact') }}" class="text-blue-500 my-2 lg:mx-2">
+                        Contact
+                    </a>
+                </div>
+                <div class="flex flex-col w-3/5 my-4 lg:flex-row lg:justify-end lg:items-center lg:my-0">
+                    <a href="{{ route("booking.index") }}" class="py-3 px-8 my-4 lg:my-0 text-2xl bg-blue-500 leading-none border-2 rounded-lg font-bold text-white text-center lg:mr-12 lg:w-42">Book now</a>
                     @if (auth()->user())
-                    <a href="{{ route("account.index") }}" class="inline-block w-32 text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue my-4 lg:h-10 lg:mr-2">Account</a>
-                    <a href="{{ route("logout") }}" class="inline-block w-32 text-sm px-8 py-3 leading-none border rounded-lg text-blue border-blue-500 my-4 lg:h-10">Sign out</a>
+                    <a href="{{ route("account.index") }}" class="py-2 px-6 my-4 lg:my-0 text-sm bg-blue-500 leading-none border-2 rounded-lg text-white text-center border-blue lg:mr-4 lg:w-24">Account</a>
+                    <a href="{{ route("logout") }}" class="py-2 px-6 my-4 lg:my-0 text-sm leading-none border-2 rounded-lg text-blue text-center border-blue-500 lg:mr-2 lg:w-24">Sign out</a>
                     @else
-                    <a href="{{ route("login") }}" class="inline-block w-32 text-sm px-8 py-3 leading-none border rounded-lg text-blue border-blue-500 my-4 lg:h-10 lg:mr-2">Sign in</a>
-                    <a href="{{ route("register") }}" class="inline-block w-32 text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue my-4 lg:h-10">Register</a>
+                    <a href="{{ route("login") }}" class="py-2 px-6 my-4 lg:my-0 text-sm leading-none border-2 rounded-lg text-blue text-center border-blue-500 lg:mr-2 lg:w-24">Sign in</a>
+                    <a href="{{ route("register") }}" class="py-2 px-6 my-4 lg:my-0 text-sm bg-blue-500 leading-none border-2 rounded-lg text-white text-center border-blue lg:mr-4 lg:w-24">Register</a>
                     @endif
                 </div>
             </div>
@@ -83,7 +94,7 @@
 
     <footer>
         <div class="flex flex-col items-center border-b-2 border-t-2 lg:grid lg:grid-cols-2 p-4">
-            <div class="flex justify-center my-4 h-96 w-full lg:w-3/5">
+            <div class="flex justify-center my-4 h-96 w-full lg:flex-row lg:max-w-xl lg:mx-4">
                 <div id="map" class="h-full w-full rounded-md"></div>
             </div>
             <div class="flex flex-col lg:flex-row lg:justify-end lg:items-center px-12 lg:h-96">
@@ -140,7 +151,7 @@
             display: none; 
             position: fixed; 
             bottom: 20px; 
-            right: 10px; 
+            right: 20px; 
             z-index: 99; 
             border: none; 
             outline: none; 
@@ -160,6 +171,11 @@
         #scroll-top-icon {
             font-size: 50px;
         }
+    </style>
+    <style>
+    #sortbox:checked ~ #sortboxmenu {
+        opacity: 1;
+    }
     </style>
     <!-- Scripts -->
     <script>

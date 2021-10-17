@@ -34,10 +34,10 @@
                         <img style="height: 360px" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.webp") }}">
                     </div>
                     <div class="slider slider-nav" id="slider-rooms-nav">
-                        <img style="height: 120px" class="py-4" src="{{ $page->room_image_1 ?? asset("images/placeholder_room.webp") }}">
-                        <img style="height: 120px" class="p-4" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.webp") }}">
-                        <img style="height: 120px" class="p-4" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.webp") }}">
-                        <img style="height: 120px" class="py-4" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.webp") }}">
+                        <img style="height: 120px" class="my-4" src="{{ $page->room_image_1 ?? asset("images/placeholder_room.webp") }}">
+                        <img style="height: 120px" class="m-4" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.webp") }}">
+                        <img style="height: 120px" class="m-4" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.webp") }}">
+                        <img style="height: 120px" class="my-4" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.webp") }}">
                     </div>
                 </div>
             </div>
@@ -101,28 +101,25 @@
                 <div>{!! $page->restaurant_text_box !!}</div>
             </div>
             <h1 class="text-4xl my-4"><i class="fas fa-phone-alt pr-1"></i>{{ $page->restaurant_phone }}</h1>
-            <div class="w-full relative my-4">
-                <img src="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}" alt="restaurant_menu">
-                <div class="absolute">
-                    <a href="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}" target="_blank" class="inline-block text-xl px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Menu</a>
-                </div>
+            <div class="w-full my-4">
+                <img class="inline-block text-xl px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue" src="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}" alt="restaurant_menu">
             </div>
         </div>
     </div>
     <div class="main6" id="gallery">
         <div class="flex justify-center pt-8">
-            <div class="w-7/12">
+            <div class="w-full">
                 <div class="slider slider-gallery" id="slider-gallery">
-                    <img style="height: 600px" src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
-                    <img style="height: 600px" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
-                    <img style="height: 600px" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
-                    <img style="height: 600px" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 360px" src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 360px" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 360px" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 360px" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
                 </div>
                 <div class="slider slider-gallery-nav" id="slider-gallery-nav">
-                    <img class="p-3" src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
-                    <img class="p-3" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
-                    <img class="p-3" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
-                    <img class="p-3" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 120px" class="p-3" src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 120px" class="p-3" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 120px" class="p-3" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
+                    <img style="height: 120px" class="p-3" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
                 </div>
             </div>
         </div>
