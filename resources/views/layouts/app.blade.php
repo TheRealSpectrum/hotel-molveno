@@ -16,9 +16,10 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-  <script defer src="https://maps.googleapis.com/maps/api/js?key={{ env("GOOGLE_MAP_KEY") }}&callback=initMap"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body class="flex flex-col min-h-screen">
@@ -173,22 +174,26 @@
         }
     </script>
     <script>
-// Initialize and add the map
-function initMap() {
-  // The location of Molveno Resort
-  const molvenoResort = { lat: 46.133471, lng: 10.9687150 };
-  // The map, centered at Molveno Resort
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 15,
-    center: molvenoResort,
-  });
-  // The marker, positioned at Molveno Resort
-  const marker = new google.maps.Marker({
-    position: molvenoResort,
-    map: map,
-  });
-}
+        // Initialize and add the map
+        function initMap() {
+        // The location of Molveno Resort
+        const molvenoResort = { lat: 46.133471, lng: 10.9687150 };
+        // The map, centered at Molveno Resort
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: molvenoResort,
+        });
+        // The marker, positioned at Molveno Resort
+        const marker = new google.maps.Marker({
+            position: molvenoResort,
+            map: map,
+        });
+        if (typeof addressAutoComplete == 'function') {
+            addressAutoComplete()
+        };
+    }
     </script>
 </body>
+<script async src="https://maps.googleapis.com/maps/api/js?key={{ env("GOOGLE_MAP_KEY") }}&callback=initMap&libraries=places&callback=initMap"></script>
 </html>
 
