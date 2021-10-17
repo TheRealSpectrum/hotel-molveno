@@ -21,40 +21,23 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0mMHuW9NsJxC81NBqIhSf1aWL7YZmb3c&callback=initMap"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
 
 <body class="min-h-screen">
     <header class="lg:sticky lg:top-0 lg:z-50">
-        <nav class="p-4 flex flex-col justify-between bg-gray-100 lg:flex-row lg:px-4 lg:p-0">
-            <div class="flex flex-shrink-0 items-center lg:mr-12">
-                <a href="{{ url("home") }}">
-                    <img src="{{ asset("images/Logo Molveno Resort Black.svg") }}" alt="Molveno Resort Logo" class="fill-current h-20 w-20">
-                </a>
-            </div>
-            <div class="lg:flex lg:flex-row lg:items-center lg:justify-between lg:w-full lg:py-0">
-                <div class="py-4 lg:hidden">
-                    <div class="relative">
-                        <input type="checkbox" id="sortbox" class="hidden absolute">
-                        <label for="sortbox" class="flex items-center space-x-1 cursor-pointer">
-                            <span class="py-3 px-8 mt-4 w-3/5 text-xl flex flex-row justify-center bg-blue-500 leading-none border rounded-lg font-bold text-white text-center">
-                                Menu
-                                <svg class="h-4 w-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </span>
-                        </label>
-
-                        <div id="sortboxmenu" class="absolute mt-1 left-1 top-full min-w-max shadow rounded opacity-0 bg-gray-300 border border-gray-400 transition delay-75 ease-in-out z-10">
-                            <ul class="block text-left text-white bg-blue-500">
-                                <li><a href="{{ url('home/#rooms') }}" class="block px-3 py-2 hover:bg-gray-200">Rooms</a></li>
-                                <li><a href="{{ url('home/#facilities') }}" class="block px-3 py-2 hover:bg-gray-200">Facilities</a></li>
-                                <li><a href="{{ url('home/#gallery') }}" class="block px-3 py-2 hover:bg-gray-200">Gallery</a></li>
-                                <li><a href="{{ url('home/#restaurant') }}" class="block px-3 py-2 hover:bg-gray-200">Restaurant</a></li>
-                                <li><a href="{{ url('home/#location') }}" class="block px-3 py-2 hover:bg-gray-200">Location</a></li>
-                                <li><a href="{{ url('home/#contact') }}" class="block px-3 py-2 hover:bg-gray-200">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
+        <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+            <div x-data="{ open: false }" class="flex flex-col max-w-full px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                <div class="md:mr-6 flex flex-row items-center justify-between">
+                    <a href="{{ url("home") }}">
+                        <img src="{{ asset("images/Logo Molveno Resort Black.svg") }}" alt="Molveno Resort Logo" class="fill-current h-20 w-20">
+                    </a>
+                    <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+                        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                            <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                            <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
                 </div>
                 <div class="hidden lg:flex lg:flex-row lg:show">
                     <a href="{{ url('home/#rooms') }}" class="text-blue-500 my-2 lg:mx-2">
@@ -76,24 +59,54 @@
                         Contact
                     </a>
                 </div>
-                <div class="flex flex-col w-3/5 my-4 lg:flex-row lg:justify-end lg:items-center lg:my-0">
-                    <a href="{{ route("booking.index") }}" class="py-3 px-8 my-4 lg:my-0 text-2xl bg-blue-500 leading-none border-2 rounded-lg font-bold text-white text-center lg:mr-12 lg:w-42">Book now</a>
-                    @if (auth()->user())
-                    <a href="{{ route("account.index") }}" class="py-2 px-6 my-4 lg:my-0 text-sm bg-blue-500 leading-none border-2 rounded-lg text-white text-center border-blue lg:mr-4 lg:w-24">Account</a>
-                    <a href="{{ route("logout") }}" class="py-2 px-6 my-4 lg:my-0 text-sm leading-none border-2 rounded-lg text-blue text-center border-blue-500 lg:mr-2 lg:w-24">Sign out</a>
-                    @else
-                    <a href="{{ route("login") }}" class="py-2 px-6 my-4 lg:my-0 text-sm leading-none border-2 rounded-lg text-blue text-center border-blue-500 lg:mr-2 lg:w-24">Sign in</a>
-                    <a href="{{ route("register") }}" class="py-2 px-6 my-4 lg:my-0 text-sm bg-blue-500 leading-none border-2 rounded-lg text-white text-center border-blue lg:mr-4 lg:w-24">Register</a>
-                    @endif
-                </div>
+                <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow p-4 md:pb-0 hidden md:flex md:flex-row md:items-center md:justify-between">
+                    <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                        <button @click="open = !open" class="lg:hidden flex flex-row items-center justify-center w-full px-4 py-2 mt-2 text-sm font-semibold text-center bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            <span>Navigation</span>
+                            <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+                            <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+                                <a href="{{ url('home/#rooms') }}" class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                Rooms
+                                </a>
+                                <a href="{{ url('home/#facilities') }}" class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                Facilities
+                                </a>
+                                <a href="{{ url('home/#gallery') }}" class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                Gallery
+                                </a>
+                                <a href="{{ url('home/#restaurant') }}" class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                Restaurant
+                                </a>
+                                <a href="{{ url('home/#location') }}" class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                Location
+                                </a>
+                                <a href="{{ url('home/#contact') }}" class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-end">
+                        <a href="{{ route("booking.index") }}" class="px-6 py-3 my-4 md:mx-4 text-2xl bg-blue-500 leading-none border-2 rounded-lg font-bold text-white text-center border-blue-500">Book now</a>
+                        @if (auth()->user())
+                        <a href="{{ route("account.index") }}" class="px-6 py-2 my-2 md:mx-2 text-sm bg-blue-500 leading-none border-2 rounded-lg text-white text-center border-blue-500">Account</a>
+                        <a href="{{ route("logout") }}" class="px-6 py-2 text-sm leading-none border-2 rounded-lg text-blue text-center border-blue-500">Sign out</a>
+                        @else
+                        <a href="{{ route("login") }}" class="px-6 py-2 my-2 md:mx-2 text-sm leading-none border-2 rounded-lg text-blue text-center border-blue-500">Sign in</a>
+                        <a href="{{ route("register") }}" class="px-6 py-2 text-sm bg-blue-500 leading-none border-2 rounded-lg text-white text-center border-blue-500">Register</a>
+                        @endif
+                    </div>
+                </nav>
             </div>
-        </nav>
+        </div>
     </header>
    
     @yield('content')
 
     <footer>
-        <div class="flex flex-col items-center border-b-2 border-t-2 lg:grid lg:grid-cols-2 p-4">
+        <div class="flex flex-col items-center border-b-2 border-t-2 lg:grid lg:grid-cols-2 py-4 px-4 lg:px-12">
             <div class="flex justify-center my-4 h-96 w-full lg:flex-row lg:max-w-xl lg:mx-4">
                 <div id="map" class="h-full w-full rounded-md"></div>
             </div>
