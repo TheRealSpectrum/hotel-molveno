@@ -36,7 +36,7 @@
                     <div class="relative">
                         <input type="checkbox" id="sortbox" class="hidden absolute">
                         <label for="sortbox" class="flex items-center space-x-1 cursor-pointer">
-                            <span class="py-3 px-8 w-3/5 text-xl flex flex-row justify-center bg-blue-500 leading-none border rounded-lg font-bold text-white text-center">
+                            <span class="py-3 px-8 mt-4 w-3/5 text-xl flex flex-row justify-center bg-blue-500 leading-none border rounded-lg font-bold text-white text-center">
                                 Menu
                                 <svg class="h-4 w-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
