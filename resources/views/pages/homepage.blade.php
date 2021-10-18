@@ -20,7 +20,7 @@
                     <h1 class="mb-10 font-medium capitalize text-4xl">{!! $page->box_3_title !!}</h1>
                     {!! $page->box_3 !!}
                     <div class="mt-12 flex justify-end text-center">
-                        <a href="{{ route("booking.index") }}" class="inline-block w-48 text-2xl px-6 py-3 bg-blue-500 leading-none border rounded-lg font-bold text-white text-center">Book now</a>
+                        <a href="{{ route("booking.index") }}" class="px-6 py-3 my-4 md:mx-4 text-2xl bg-blue-500 leading-none border rounded-lg font-bold text-white text-center border-blue-500">Book now</a>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
             <div class="md:h-96 md:relative overflow-hidden flex justify-center">
                 <img class="object-cover md:h-96 w-full" src="{{ $page->facilities_image ?? asset("images/placeholder_facilities.jpg") }}" alt="facilities">
                 <div class="absolute w-full flex justify-center p-4 md:p-12">
-                    <h1 class="text-white font-bold text-xl">Facilities</h1>
+                    <h1 class="text-white font-bold text-xl lg:text-4xl">Facilities</h1>
                 </div>
                 <ul class="absolute flex flex-col flex-wrap w-full text-center h-56 md:h-96 md:w-3/5 py-12 mt-4 px-4 md:py-32 md:mt-6">
                     <?php
@@ -68,25 +68,25 @@
         </div>
     </div>
     <div class="main4" id="location">
-        <div class="m-4">
+        <div class="m-4 md:m-12">
             <div class="my-6 md:w-2/4">
                 <h1 class="text-black font-medium text-4xl pb-4">The Environment</h1>
                 {!! $page->environment_text_box !!}
             </div>
             <div class="flex flex-col lg:grid lg:grid-cols-3">
-                <div class="my-4 border-2 border-gray-300 md:my-4 md:mr-4">
+                <div class="border-2 border-gray-300 my-4 lg:mr-4">
                     <div class="w-full h-40 bg-no-repeat bg-cover overflow-hidden"><img src="{{ $page->environment_image_1 ?? asset("images/placeholder_header.jpg") }}" alt="environment_image_1"></div>
                     <div class="p-4">
                         {!! $page->environment_text_1 !!}
                     </div>
                 </div>
-                <div class="my-4 border-2 border-gray-300 md:mx-4 md:my-4">
+                <div class="border-2 border-gray-300 my-4 lg:mx-4">
                     <div class="w-full h-40 bg-no-repeat bg-cover overflow-hidden"><img src="{{ $page->environment_image_2 ?? asset("images/placeholder_header.jpg") }}" alt="environment_image_2"></div>
                     <div class="p-4">
                         {!! $page->environment_text_2 !!}
                     </div>
                 </div>
-                <div class="my-4 border-2 border-gray-300 md:my-4 md:ml-4">
+                <div class="border-2 border-gray-300 my-4 lg:ml-4">
                     <div class="w-full h-40 bg-no-repeat bg-cover overflow-hidden"><img src="{{ $page->environment_image_3 ?? asset("images/placeholder_header.jpg") }}" alt="environment_image_3"></div>
                     <div class="p-4">
                         {!! $page->environment_text_3 !!}
@@ -102,9 +102,12 @@
                 <div>{!! $page->restaurant_text_box !!}</div>
                 <h1 class="text-4xl my-4"><i class="fas fa-phone-alt pr-1"></i>{{ $page->restaurant_phone }}</h1>
             </div>
-            <div class="flex justify-center">
+            <div class="flex justify-center relative">
                 <a href="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}">
-                    <img class="md:h-96" src="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}" alt="restaurant_menu">
+                    <img class="h-96" src="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}" alt="restaurant menu">
+                </a>
+                <a href="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}" class="absolute top-2/4 text-2xl px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue-500">
+                    Menu
                 </a>
             </div>
         </div>
@@ -133,8 +136,8 @@
               <h1 class="text-4xl pb-4">Molveno resort</h1>
           </div>
           <div class="flex flex-col md:flex-row">
-              <a href="{{ route("booking.index") }}" class="inline-block text-2xl px-10 py-4 md:mr-4 bg-blue-500 leading-none border rounded-lg text-white font-bold border-blue-500 hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0 lg:mr-0">Book now</a>
-              <a href="#" class="inline-block text-2xl px-10 py-4 leading-none border rounded-lg text-blue border-blue-500 font-bold hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Contact us</a>
+              <a href="{{ route("booking.index") }}" class="px-6 py-3 my-4 md:mx-4 text-2xl bg-blue-500 leading-none border rounded-lg font-bold text-white text-center border-blue-500">Book now</a>
+              <a href="#" class="px-6 py-3 my-4 md:mx-4 text-2xl bg-none leading-none border rounded-lg font-bold text-black text-center border-blue-500">Contact us</a>
           </div>
         </div>
     </div>
