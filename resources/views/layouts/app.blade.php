@@ -229,6 +229,5 @@
         }
     </script>
 </body>
-<script async src="https://maps.googleapis.com/maps/api/js?key={{ env("GOOGLE_MAP_KEY") }}&callback=initMap&libraries=places&callback=initMap"></script>
 </html>
 
