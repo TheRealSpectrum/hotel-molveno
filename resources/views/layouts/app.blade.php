@@ -59,7 +59,7 @@
                         Contact
                     </a>
                 </div>
-                <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow p-4 md:pb-0 hidden md:flex md:flex-row md:items-center md:justify-between">
+                <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow p-4 z-50 md:p-0 md:pb-0 hidden md:flex md:flex-row md:items-center md:justify-between">
                     <div @click.away="open = false" class="relative" x-data="{ open: false }">
                         <button @click="open = !open" class="lg:hidden flex flex-row items-center justify-center w-full px-4 py-2 mt-2 text-sm font-semibold text-center bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                             <span>Navigation</span>
@@ -89,13 +89,13 @@
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row md:items-center md:justify-end">
-                        <a href="{{ route("booking.index") }}" class="px-6 py-3 my-4 md:mx-4 text-2xl bg-blue-500 leading-none border-2 rounded-lg font-bold text-white text-center border-blue-500">Book now</a>
+                        <a href="{{ route("booking.index") }}" class="px-6 py-3 my-4 md:mx-4 text-2xl bg-blue-500 leading-none border rounded-lg font-bold text-white text-center border-blue-500">Book now</a>
                         @if (auth()->user())
-                        <a href="{{ route("account.index") }}" class="px-6 py-2 my-2 md:mx-2 text-sm bg-blue-500 leading-none border-2 rounded-lg text-white text-center border-blue-500">Account</a>
-                        <a href="{{ route("logout") }}" class="px-6 py-2 text-sm leading-none border-2 rounded-lg text-blue text-center border-blue-500">Sign out</a>
+                        <a href="{{ route("account.index") }}" class="px-6 py-2 my-2 md:mx-2 text-sm bg-blue-500 leading-none border rounded-lg text-white text-center border-blue-500">Account</a>
+                        <a href="{{ route("logout") }}" class="px-6 py-2 text-sm leading-none border rounded-lg text-blue text-center border-blue-500">Sign out</a>
                         @else
-                        <a href="{{ route("login") }}" class="px-6 py-2 my-2 md:mx-2 text-sm leading-none border-2 rounded-lg text-blue text-center border-blue-500">Sign in</a>
-                        <a href="{{ route("register") }}" class="px-6 py-2 text-sm bg-blue-500 leading-none border-2 rounded-lg text-white text-center border-blue-500">Register</a>
+                        <a href="{{ route("login") }}" class="px-6 py-2 my-2 md:my-0 md:mx-2 text-sm leading-none border rounded-lg text-blue text-center border-blue-500">Sign in</a>
+                        <a href="{{ route("register") }}" class="px-6 py-2 md:my-0 text-sm bg-blue-500 leading-none border rounded-lg text-white text-center border-blue-500">Register</a>
                         @endif
                     </div>
                 </nav>
@@ -107,7 +107,7 @@
 
     <footer>
         <div class="flex flex-col items-center border-b-2 border-t-2 lg:grid lg:grid-cols-2 py-4 px-4 lg:px-12">
-            <div class="flex justify-center my-4 h-96 w-full lg:flex-row lg:max-w-xl lg:mx-4">
+            <div class="flex justify-center my-4 h-80 w-full lg:flex-row md:max-w-xl lg:mx-4">
                 <div id="map" class="h-full w-full rounded-md"></div>
             </div>
             <div class="flex flex-col lg:flex-row lg:justify-end lg:items-center px-12 lg:h-96">
@@ -163,8 +163,8 @@
             background-color: black;
             display: none; 
             position: fixed; 
-            bottom: 20px; 
-            right: 20px; 
+            bottom: 15px; 
+            right: 15px; 
             z-index: 99; 
             border: none; 
             outline: none; 
