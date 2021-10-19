@@ -72,47 +72,26 @@ class DocumentCrudController extends CrudController
         CRUD::field("document_type");
         CRUD::field("document_number");
         CRUD::field("document_expiration_date");
-        CRUD::field("reservation_id")
-            ->type("relationship")
-            ->attribute("id");
 
-        // CRUD::field("reservation_id")
-        //     ->type("select2")
-        //     ->model("App\Models\Reservation")
-        //     ->attribute("reservation_id")
-        //     ->wrapper(["id" => "reservation_select2"]);
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
-         */
-    }
-    protected function setupInlineCreateOperation()
-    {
-        // CRUD::removeField("reservation_id");
-        CRUD::field("reservation_id")->attributes([
-            //   "type" => "select2",
-            "attribute" => "id",
-            "type" => "hidden",
-        ]);
-        //tijdelijk uitgeschakeld ivm verkeerde reserverings-id
-        // ->wrapper([
-        //     "style" => "display:none",
-        // ]);
-        //tot hier tijdelijk uitgeschakeld.
-
-        // CRUD::field("reservation_id")
-        //     ->type("select2")
-        //     ->model("App\Models\Reservation")
-        //     ->attribute("reservation_id")
-        //     ->wrapper(["id" => "reservation_select2"]);
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
-         */
+        if (
+            request()->headers->get("referer") ===
+            "http://localhost/admin/document"
+        ) {
+            CRUD::field("reservation_id")
+                ->attribute("id")
+                ->label("Reservation id");
+        } else {
+            $id = preg_match_all(
+                "/\d+/",
+                request()->headers->get("referer"),
+                $matches
+            );
+            CRUD::field("reservation_id")
+                ->label("Reservation id")
+                ->type("number")
+                ->default($matches[0][0] ?? 1)
+                ->attributes(["readonly" => "readonly"]);
+        }
     }
 
     /**
