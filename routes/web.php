@@ -57,6 +57,11 @@ Route::post("bookings/create/confirm", [
     "confirmBooking",
 ])->name("booking.confirm");
 
+Route::delete("bookings/delete/{id}", [
+    BookingController::class,
+    "destroy",
+])->name("booking.destroy");
+
 require __DIR__ . "/auth.php";
 
 /** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/

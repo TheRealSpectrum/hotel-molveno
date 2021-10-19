@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ReservationRequest;
+use App\Models\Reservation;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -228,5 +229,12 @@ class ReservationCrudController extends CrudController
                 "class" => "form-group col-md-3",
                 "id" => "total_price_field",
             ]);
+    }
+
+    public function destroy($id)
+    {
+        dd("te");
+        DB::delete("delete from reservations where id = ?", [$id]);
+        return redirect("/account")->with("succes", "Reservation cancelled");
     }
 }
