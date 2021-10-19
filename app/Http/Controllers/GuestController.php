@@ -18,7 +18,9 @@ class GuestController extends Controller
             auth()->user()->guest->id ?? null
         )->get();
 
-        $packages = Package::all();
+        $packages = Reservation::with("packages")
+            ->where("guest_id", auth()->user()->guest->id ?? null)
+            ->get();
         return view("account.index", compact("reservations", "packages"));
     }
 

@@ -283,8 +283,7 @@
                             <div class="ml-4">
                               <div class="text-sm font-medium text-gray-900">
                                 @foreach($packages as $package)
-                                {{dd($package)}}
-                                @if ($package->name == "Cancellation package")
+                                @if($package->name == "Cancellation insurance")
                                 <form action={{ route('booking.destroy', $reservation->id) }} method="POST">
                                   @csrf
                                   @method('DELETE')
