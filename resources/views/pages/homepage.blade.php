@@ -133,7 +133,7 @@
     <div class="main7" id="contact">
         <div class="flex flex-col py-8 md:py-0 md:grid md:grid-flow-row md:grid-cols-2 md:place-items-center bg-gray-100 md:h-80 items-center">
           <div>
-              <h1 class="text-4xl pb-4">Molveno resort</h1>
+              <h1 class="text-4xl pb-4">Molveno Resort</h1>
           </div>
           <div class="flex flex-col md:flex-row">
               <a href="{{ route("booking.index") }}" class="px-6 py-3 my-4 md:mx-4 text-2xl bg-blue-500 leading-none border rounded-lg font-bold text-white text-center border-blue-500">Book now</a>
