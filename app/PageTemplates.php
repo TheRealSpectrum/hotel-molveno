@@ -40,7 +40,7 @@ trait PageTemplates
         ]);
         $this->crud->addField([
             "name" => "frontpage_image",
-            "label" => "Image",
+            "label" => "Banner image",
             "fake" => true,
             "type" => "image",
             "crop" => true,
@@ -49,7 +49,7 @@ trait PageTemplates
         ]);
         $this->crud->addField([
             "name" => "box_1_title",
-            "label" => "box 1 title",
+            "label" => "Title box 1",
             "fake" => true,
             "type" => "text",
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
@@ -57,7 +57,7 @@ trait PageTemplates
         ]);
         $this->crud->addField([
             "name" => "box_1",
-            "label" => "box 1 content",
+            "label" => "Content box 1",
             "fake" => true,
             "type" => "wysiwyg",
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
@@ -65,7 +65,7 @@ trait PageTemplates
         ]);
         $this->crud->addField([
             "name" => "box_2_title",
-            "label" => "box 2 title",
+            "label" => "Title box 2",
             "fake" => true,
             "type" => "text",
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
@@ -73,7 +73,7 @@ trait PageTemplates
         ]);
         $this->crud->addField([
             "name" => "box_2",
-            "label" => "Box 2 content",
+            "label" => "Content box 2",
             "fake" => true,
             "type" => "wysiwyg",
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
@@ -81,7 +81,7 @@ trait PageTemplates
         ]);
         $this->crud->addField([
             "name" => "box_3_title",
-            "label" => "box 3 title",
+            "label" => "Title box 3",
             "fake" => true,
             "type" => "text",
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
@@ -89,7 +89,7 @@ trait PageTemplates
         ]);
         $this->crud->addField([
             "name" => "box_3",
-            "label" => "box 3 content",
+            "label" => "Content box 3",
             "fake" => true,
             "type" => "wysiwyg",
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
@@ -100,7 +100,15 @@ trait PageTemplates
             // CustomHTML
             "name" => "content_separator_rooms",
             "type" => "custom_html",
-            "value" => "<h3>Our Rooms</h3><hr>",
+            "value" => "<h3>Rooms</h3><hr>",
+        ]);
+        $this->crud->addField([
+            "name" => "rooms_title",
+            "label" => "Rooms title",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
         ]);
         $this->crud->addField([
             "name" => "room_image_1",
@@ -142,6 +150,14 @@ trait PageTemplates
             "value" => "<h3>Facilities</h3><hr>",
         ]);
         $this->crud->addField([
+            "name" => "facilities_title",
+            "label" => "Facilities title",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
             "name" => "facilities_image",
             "label" => "Background image",
             "fake" => true,
@@ -173,53 +189,85 @@ trait PageTemplates
             "value" => "<h3>The Environment</h3><hr>",
         ]);
         $this->crud->addField([
+            "name" => "environmentbox_head",
+            "label" => "Head title",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
             "name" => "environment_text_box",
-            "label" => "Text content",
+            "label" => "Head content",
             "fake" => true,
             "type" => "wysiwyg",
             "store_in" => "extras",
         ]);
         $this->crud->addField([
             "name" => "environment_image_1",
-            "label" => "Environment image 1",
+            "label" => "Image 1",
             "fake" => true,
             "type" => "image",
             "crop" => true,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
-            "name" => "environment_text_1",
-            "label" => "Environment text 1",
+            "name" => "environmentbox_title_1",
+            "label" => "Title box 1",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "environmentbox_content_1",
+            "label" => "Content box 1",
             "fake" => true,
             "type" => "wysiwyg",
             "store_in" => "extras",
         ]);
         $this->crud->addField([
             "name" => "environment_image_2",
-            "label" => "Environment image 2",
+            "label" => "Image 2",
             "fake" => true,
             "type" => "image",
             "crop" => true,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
-            "name" => "environment_text_2",
-            "label" => "Environment text 2",
+            "name" => "environmentbox_title_2",
+            "label" => "title box 2",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "environmentbox_content_2",
+            "label" => "Content box 2",
             "fake" => true,
             "type" => "wysiwyg",
             "store_in" => "extras",
         ]);
         $this->crud->addField([
             "name" => "environment_image_3",
-            "label" => "Environment image 3",
+            "label" => "Image 3",
             "fake" => true,
             "type" => "image",
             "crop" => true,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
-            "name" => "environment_text_3",
-            "label" => "Environment text 3",
+            "name" => "environmentbox_title_3",
+            "label" => "Title box 3",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "environmentbox_content_3",
+            "label" => "Content box 3",
             "fake" => true,
             "type" => "wysiwyg",
             "store_in" => "extras",
@@ -229,11 +277,19 @@ trait PageTemplates
             // CustomHTML
             "name" => "content_separator_restaurant",
             "type" => "custom_html",
-            "value" => "<h3>Restaurant</h3><hr>",
+            "value" => "<h3>The Restaurant</h3><hr>",
+        ]);
+        $this->crud->addField([
+            "name" => "restaurant_title",
+            "label" => "Restaurant title",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
         ]);
         $this->crud->addField([
             "name" => "restaurant_text_box",
-            "label" => "Text content",
+            "label" => "Content",
             "fake" => true,
             "type" => "wysiwyg",
             "store_in" => "extras",
@@ -292,6 +348,21 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "store_in" => "extras",
+        ]);
+        // CONTACT
+        $this->crud->addField([
+            // CustomHTML
+            "name" => "content_separator_contact",
+            "type" => "custom_html",
+            "value" => "<h3>Contact</h3><hr>",
+        ]);
+        $this->crud->addField([
+            "name" => "contact_title",
+            "label" => "Contact title",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
             "store_in" => "extras",
         ]);
     }
