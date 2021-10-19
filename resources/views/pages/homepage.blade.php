@@ -9,15 +9,15 @@
             </div>
             <div class="flex flex-col lg:grid lg:grid-cols-3 bg-gray-100">
                 <div class="py-8 px-4 md:px-12">
-                    <h1 class="mb-10 font-medium capitalize text-4xl">{!! $page->box_1_title !!}</h1>
+                    <h1 class="mb-4 font-medium capitalize text-4xl">{!! $page->box_1_title !!}</h1>
                     {!!  $page->box_1  !!}
                 </div>
                 <div class="py-8 px-4 md:px-12">
-                    <h1 class="mb-10 font-medium capitalize text-4xl">{!! $page->box_2_title !!}</h1>
+                    <h1 class="mb-4 font-medium capitalize text-4xl">{!! $page->box_2_title !!}</h1>
                     {!! $page->box_2 !!}
                 </div>
                 <div class="py-8 px-4 md:px-12">
-                    <h1 class="mb-10 font-medium capitalize text-4xl">{!! $page->box_3_title !!}</h1>
+                    <h1 class="mb-4 font-medium capitalize text-4xl">{!! $page->box_3_title !!}</h1>
                     {!! $page->box_3 !!}
                     <div class="mt-12 flex justify-end text-center">
                         <a href="{{ route("booking.index") }}" class="px-6 py-3 my-4 md:mx-4 text-2xl bg-blue-500 leading-none border rounded-lg font-bold text-white text-center border-blue-500">Book now</a>
@@ -28,7 +28,7 @@
     </div>
     <div class="main2" id="rooms">
         <div class="py-4">
-            <h1 class="text-center mt-4 mb-2 font-medium capitalize text-4xl">Our rooms</h1>
+            <h1 class="text-center mt-4 mb-2 font-medium capitalize text-4xl">{!! $page->rooms_title !!}</h1>
             <div class="flex justify-center">
                 <div class="w-full p-4 md:w-3/5">
                     <div class="slider slider-for" id="slider-rooms">
@@ -52,7 +52,7 @@
             <div class="md:h-96 md:relative overflow-hidden flex justify-center">
                 <img class="object-cover md:h-96 w-full" src="{{ $page->facilities_image ?? asset("images/placeholder_facilities.jpg") }}" alt="facilities">
                 <div class="absolute w-full flex justify-center p-4 md:p-12">
-                    <h1 class="text-white font-bold text-xl lg:text-4xl">Facilities</h1>
+                    <h1 class="text-white font-bold text-xl lg:text-4xl">{!! $page->facilities_title !!}</h1>
                 </div>
                 <ul class="absolute flex flex-col flex-wrap w-full text-center h-56 md:h-96 md:w-3/5 py-12 mt-4 px-4 md:py-32 md:mt-6">
                     <?php
@@ -70,26 +70,29 @@
     <div class="main4" id="location">
         <div class="m-4 md:m-12">
             <div class="my-6 md:w-2/4">
-                <h1 class="text-black font-medium text-4xl pb-4">The Environment</h1>
+                <h1 class="text-black font-medium text-4xl pb-4">{!! $page->environmentbox_head !!}</h1>
                 {!! $page->environment_text_box !!}
             </div>
             <div class="flex flex-col lg:grid lg:grid-cols-3">
                 <div class="border-2 border-gray-300 my-4 lg:mr-4">
                     <div class="w-full h-40 bg-no-repeat bg-cover overflow-hidden"><img src="{{ $page->environment_image_1 ?? asset("images/placeholder_header.jpg") }}" alt="environment_image_1"></div>
                     <div class="p-4">
-                        {!! $page->environment_text_1 !!}
+                        <h1 class="mb-4 font-medium capitalize text-2xl">{!! $page->environmentbox_title_1 !!}</h1>
+                        {!! $page->environmentbox_content_1 !!}
                     </div>
                 </div>
                 <div class="border-2 border-gray-300 my-4 lg:mx-4">
                     <div class="w-full h-40 bg-no-repeat bg-cover overflow-hidden"><img src="{{ $page->environment_image_2 ?? asset("images/placeholder_header.jpg") }}" alt="environment_image_2"></div>
                     <div class="p-4">
-                        {!! $page->environment_text_2 !!}
+                        <h1 class="mb-4 font-medium capitalize text-2xl">{!! $page->environmentbox_title_2 !!}</h1>
+                        {!! $page->environmentbox_content_2 !!}
                     </div>
                 </div>
                 <div class="border-2 border-gray-300 my-4 lg:ml-4">
                     <div class="w-full h-40 bg-no-repeat bg-cover overflow-hidden"><img src="{{ $page->environment_image_3 ?? asset("images/placeholder_header.jpg") }}" alt="environment_image_3"></div>
                     <div class="p-4">
-                        {!! $page->environment_text_3 !!}
+                        <h1 class="mb-4 font-medium capitalize text-2xl">{!! $page->environmentbox_title_3 !!}</h1>
+                        {!! $page->environmentbox_content_3 !!}
                     </div>
                 </div>
             </div>
@@ -98,7 +101,7 @@
     <div class="main5" id="restaurant">
         <div class="flex flex-col items-center bg-gray-100 w-full md:grid md:grid-cols-2 p-4">
             <div class="my-6 md:m-6">
-                <h1 class="text-4xl pb-4 font-medium text-black">Restaurant</h1>
+                <h1 class="text-4xl pb-4 font-medium text-black">{!! $page->restaurant_title !!}</h1>
                 <div>{!! $page->restaurant_text_box !!}</div>
                 <h1 class="text-4xl my-4"><i class="fas fa-phone-alt pr-1"></i>{{ $page->restaurant_phone }}</h1>
             </div>
@@ -133,7 +136,7 @@
     <div class="main7" id="contact">
         <div class="flex flex-col py-8 md:py-0 md:grid md:grid-flow-row md:grid-cols-2 md:place-items-center bg-gray-100 md:h-80 items-center">
           <div>
-              <h1 class="text-4xl pb-4">Molveno resort</h1>
+              <h1 class="text-4xl pb-4">{!! $page->contact_title !!}</h1>
           </div>
           <div class="flex flex-col md:flex-row">
               <a href="{{ route("booking.index") }}" class="px-6 py-3 my-4 md:mx-4 text-2xl bg-blue-500 leading-none border rounded-lg font-bold text-white text-center border-blue-500">Book now</a>
