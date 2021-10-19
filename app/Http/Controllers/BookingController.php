@@ -178,15 +178,15 @@ class BookingController extends Controller
                 "phone" => $request->phone,
                 "user_id" => null,
             ]);
-        } elseif (Auth::user() && !Auth::user()->guest) {
-            $guest = Guest::create([
-                "first_name" => $request->first_name,
-                "last_name" => $request->last_name,
-                "email" => $request->email,
-                "address" => $request->address,
-                "phone" => $request->phone,
-                "user_id" => auth()->user()->id,
-            ]);
+            // } elseif (Auth::user() && !Auth::user()->guest) {
+            //     $guest = Guest::create([
+            //         "first_name" => $request->first_name,
+            //         "last_name" => $request->last_name,
+            //         "email" => $request->email,
+            //         "address" => $request->address,
+            //         "phone" => $request->phone,
+            //         "user_id" => auth()->user()->id,
+            //     ]);
         } else {
             $guest = Guest::where("user_id", auth()->user()->id)->firstOrFail();
         }
@@ -247,9 +247,10 @@ class BookingController extends Controller
             $reservation->packages()->attach($packageIDsToBook);
         }
 
-        return redirect()
-            ->back()
-            ->with("success", "Reservation successful");
+        return view("booking.success")->with(
+            "success",
+            "Reservation successful"
+        );
     }
 
     public function destroy($id)

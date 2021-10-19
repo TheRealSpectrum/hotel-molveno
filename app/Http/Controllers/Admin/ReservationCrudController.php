@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ReservationRequest;
 use App\Models\Reservation;
+use App\Http\Requests\UpdateReservationRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class ReservationCrudController
@@ -74,12 +76,23 @@ class ReservationCrudController extends CrudController
                 },
             ],
         ]);
-
-        CRUD::addButtonFromView("line", "test", "check_in_out", "beginning");
+        CRUD::addButtonFromView(
+            "line",
+            "add_remaining_documents",
+            "documents",
+            "beginning"
+        );
+        CRUD::addButtonFromView(
+            "line",
+            "check_in_out",
+            "check_in_out",
+            "beginning"
+        );
 
         CRUD::column("rooms")
             ->type("relationship")
-            ->name("rooms");
+            ->name("rooms")
+            ->label("Room number");
 
         CRUD::column("packages")
             ->type("relationship")
@@ -171,7 +184,7 @@ class ReservationCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        CRUD::setValidation(ReservationRequest::class);
+        CRUD::setValidation(UpdateReservationRequest::class);
 
         $this->crud->addField([
             "type" => "date_range",
@@ -203,26 +216,75 @@ class ReservationCrudController extends CrudController
         CRUD::field("check_out_status");
 
         CRUD::field("rooms")
-            ->type("select2_from_ajax_multiple")
+            ->type("select2_multiple")
             ->name("rooms")
             ->entity("rooms")
             ->attribute("room_number")
-            ->data_source(url("/admin/api/room"))
-            ->placeholder("Select Room(s)")
-            ->include_all_form_fields(true)
-            ->minimum_input_length(0)
+            ->wrapper([
+                "style" => "display:none",
+                "id" => "room_select2",
+            ])
             ->dependencies([
                 "check_in",
                 "check_out",
                 "roomtype_id",
                 "adults",
                 "children",
-            ])
-            ->pivot(true)
-            ->wrapper(["id" => "room_select2"]);
+            ]);
+
+        $this->crud->addField([
+            "name" => "document",
+            "type" => "relationship",
+            "ajax" => true,
+            "inline_create" => true,
+            // "inline_create" => [
+            //     "entity" => "document",
+            //     // "create_route" => route("document-inline-create-save"),
+            // ],
+        ]);
+        // "entity" => "document",
+        // "model" => "App\Models\Document",
+        // "attribute" => "document",
+        // "store_in" => "documents",
+        //     "fake" => true,
+        //     "fields" => [
+        //         [
+        //             "name" => "fullname_add",
+        //             "type" => "text",
+        //             "label" => "Full Name",
+        //             "wrapper" => ["class" => "form-group col-md-4"],
+        //         ],
+        //         [
+        //             "name" => "dob_add",
+        //             "type" => "date",
+        //             "label" => "Date of Birth",
+        //             "wrapper" => ["class" => "form-group col-md-4"],
+        //         ],
+        //         [
+        //             "name" => "doctype_add",
+        //             "type" => "text",
+        //             "label" => "Document Type",
+        //             "wrapper" => ["class" => "form-group col-md-4"],
+        //         ],
+        //         [
+        //             "name" => "docnumber_add",
+        //             "type" => "text",
+        //             "label" => "Document Number",
+        //             "wrapper" => ["class" => "form-group col-md-4"],
+        //         ],
+        //         [
+        //             "name" => "docexp_add",
+        //             "type" => "date",
+        //             "label" => "Document Expiration",
+        //             "wrapper" => ["class" => "form-group col-md-4"],
+        //         ],
+        //     ],
+        //     "new_item_label" => "Add Document",
+        //     "max_rows" => 12, // maximum rows allowed, when reached the "new item" button will be hidden
+        // ]);
 
         CRUD::field("total_price")
-            ->type("TotalPrice")
+            ->type("TotalPriceUpdate")
             ->prefix("€")
             ->attributes(["readonly" => "readonly"])
             ->wrapper([
@@ -233,7 +295,6 @@ class ReservationCrudController extends CrudController
 
     public function destroy($id)
     {
-        dd("te");
         DB::delete("delete from reservations where id = ?", [$id]);
         return redirect("/account")->with("succes", "Reservation cancelled");
     }

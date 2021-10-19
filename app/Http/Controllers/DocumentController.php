@@ -29,9 +29,4 @@ class CheckInOutController extends Controller
             return redirect()->back();
         }
     }
-
-    public function documentUpdate($id)
-    {
-        return redirect(backpack_url("/reservation/{$id}/edit"));
-    }
 }

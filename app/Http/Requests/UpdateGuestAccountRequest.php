@@ -26,8 +26,8 @@ class UpdateGuestAccountRequest extends FormRequest
         return [
             "first_name" => "required|min:2|string",
             "last_name" => "required|min:2|string",
-            "email" => "required|email",
-            "address" => "required|string",
+            "email" => "required|email:rfc",
+            "address" => "required|string|regex:/\w+,.\w+?,.\w+(?!\w+,.)/",
             "phone" => "required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10",
         ];
     }
