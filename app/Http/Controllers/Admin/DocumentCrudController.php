@@ -6,6 +6,7 @@ use App\Http\Requests\DocumentRequest;
 use Attribute;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Illuminate\Http\Request;
 
 /**
  * Class GuestCrudController
@@ -89,16 +90,17 @@ class DocumentCrudController extends CrudController
     }
     protected function setupInlineCreateOperation()
     {
-        CRUD::removeField("reservation_id");
-        CRUD::field("reservation_id")
-            ->attributes([
-                //   "type" => "select2",
-                "attribute" => "id",
-                "type" => "hidden",
-            ])
-            ->wrapper([
-                "style" => "display:none",
-            ]);
+        // CRUD::removeField("reservation_id");
+        CRUD::field("reservation_id")->attributes([
+            //   "type" => "select2",
+            "attribute" => "id",
+            "type" => "hidden",
+        ]);
+        //tijdelijk uitgeschakeld ivm verkeerde reserverings-id
+        // ->wrapper([
+        //     "style" => "display:none",
+        // ]);
+        //tot hier tijdelijk uitgeschakeld.
 
         // CRUD::field("reservation_id")
         //     ->type("select2")
@@ -122,10 +124,5 @@ class DocumentCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    public function blabla()
-    {
-        //  dd("blabla");
     }
 }

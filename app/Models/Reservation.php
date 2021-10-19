@@ -81,14 +81,4 @@ class Reservation extends Model
     {
         return $this->hasMany(Document::class);
     }
-
-    public function setDocuments()
-    {
-        dd("blabla");
-    }
-
-    public function setDocument()
-    {
-        dd("geen s");
-    }
 }
