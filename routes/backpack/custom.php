@@ -30,5 +30,9 @@ Route::group(
             "CheckInOutController@index"
         );
         Route::get("room/edit/{id}/clean", "CleanController@index");
+        Route::get(
+            "/reservation/documents/{id}",
+            "CheckInOutController@documentUpdate"
+        );
     }
 ); // this should be the absolute last line of this file

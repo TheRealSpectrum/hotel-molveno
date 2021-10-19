@@ -74,8 +74,18 @@ class ReservationCrudController extends CrudController
                 },
             ],
         ]);
-
-        CRUD::addButtonFromView("line", "test", "check_in_out", "beginning");
+        CRUD::addButtonFromView(
+            "line",
+            "add_remaining_documents",
+            "documents",
+            "beginning"
+        );
+        CRUD::addButtonFromView(
+            "line",
+            "check_in_out",
+            "check_in_out",
+            "beginning"
+        );
 
         CRUD::column("rooms")
             ->type("relationship")
