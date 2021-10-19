@@ -121,7 +121,7 @@
       <div class="main7" id="contact">
           <div class="grid grid-flow-row grid-cols-2 bg-gray-100 h-96 place-items-center">
             <div>
-                <h1 class="text-4xl pb-4">Molveno resort</h1>
+                <h1 class="text-4xl pb-4">Molveno Resort</h1>
             </div>
             <div>
                 <a href="{{ route("booking.index") }}" class="inline-block text-2xl px-10 py-4 bg-blue-500 leading-none border rounded-lg text-white font-bold border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">Book now</a>

@@ -19,8 +19,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0mMHuW9NsJxC81NBqIhSf1aWL7YZmb3c&callback=initMap"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
 
@@ -226,8 +227,12 @@
                 position: molvenoResort,
                 map: map,
             });
+            if (typeof addressAutoComplete == 'function') {
+            addressAutoComplete()
+            };
         }
     </script>
 </body>
+<script async src="https://maps.googleapis.com/maps/api/js?key={{ env("GOOGLE_MAP_KEY") }}&libraries=places&callback=initMap"></script>
 </html>
 
