@@ -252,4 +252,11 @@ class BookingController extends Controller
             "Reservation successful"
         );
     }
+
+    public function destroy($id)
+    {
+        $res = Reservation::find($id);
+        $res->delete();
+        return redirect("/account")->with("succes", "Reservation cancelled");
+    }
 }
