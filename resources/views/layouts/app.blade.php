@@ -90,13 +90,13 @@
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row md:items-center md:justify-end">
-                        <a href="{{ route("booking.index") }}" class="px-6 py-3 my-4 md:mx-4 text-2xl bg-blue-500 leading-none border rounded-lg font-bold text-white text-center border-blue-500">Book now</a>
+                        <a href="{{ route("booking.index") }}" class="px-8 py-3 my-4 md:mx-2 text-2xl bg-blue-500 leading-none border rounded-lg font-bold text-white text-center border-blue-500">Book now</a>
                         @if (auth()->user())
-                        <a href="{{ route("account.index") }}" class="px-6 py-2 my-2 md:mx-2 text-sm bg-blue-500 leading-none border rounded-lg text-white text-center border-blue-500">Account</a>
-                        <a href="{{ route("logout") }}" class="px-6 py-2 text-sm leading-none border rounded-lg text-blue text-center border-blue-500">Sign out</a>
+                        <a href="{{ route("account.index") }}" class="px-8 py-3 my-3 md:mx-2 text-sm bg-blue-500 leading-none border rounded-lg text-white text-center border-blue-500">Account</a>
+                        <a href="{{ route("logout") }}" class="px-8 py-3 text-sm leading-none border rounded-lg text-blue text-center border-blue-500">Sign out</a>
                         @else
-                        <a href="{{ route("login") }}" class="px-6 py-2 my-2 md:my-0 md:mx-2 text-sm leading-none border rounded-lg text-blue text-center border-blue-500">Sign in</a>
-                        <a href="{{ route("register") }}" class="px-6 py-2 md:my-0 text-sm bg-blue-500 leading-none border rounded-lg text-white text-center border-blue-500">Register</a>
+                        <a href="{{ route("login") }}" class="px-8 py-3 my-2 md:my-0 md:mx-2 text-sm leading-none border rounded-lg text-blue text-center border-blue-500">Sign in</a>
+                        <a href="{{ route("register") }}" class="px-8 py-3 md:my-0 text-sm bg-blue-500 leading-none border rounded-lg text-white text-center border-blue-500">Register</a>
                         @endif
                     </div>
                 </nav>
