@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateGuestAccountRequest;
 use App\Models\Guest;
+use App\Models\Package;
 use App\Models\Reservation;
 use App\Models\Roomtype;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,10 @@ class GuestController extends Controller
             auth()->user()->guest->id ?? null
         )->get();
 
-        return view("account.index", compact("reservations"));
+        $packages = Reservation::with("packages")
+            ->where("guest_id", auth()->user()->guest->id ?? null)
+            ->get();
+        return view("account.index", compact("reservations", "packages"));
     }
 
     public function create(UpdateGuestAccountRequest $request)

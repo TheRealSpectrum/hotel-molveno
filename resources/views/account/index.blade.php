@@ -226,7 +226,10 @@
                         </th>
                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                           Price
-                        </th>                         
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Cancel reservation
+                        </th>                          
                       </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -274,6 +277,32 @@
                               <div class="text-sm font-medium text-gray-900">
                                   €{{ $reservation->total_price}}
                               </div>
+                        </td>
+                        <td >
+                          <div class="flex items-center justify-center">
+                            <div class="ml-4">
+                              <div class="text-sm font-medium text-gray-900">
+                                @foreach($packages as $package)
+                                @if($package->name == "Cancellation insurance")
+                                <form action={{ route('booking.destroy', $reservation->id) }} method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                  <input type="hidden" name="id" value={{$reservation->id}}>
+                                  <input type="submit" value="Cancel" class="inline-flex justify-center py-1.5 px-6 border border-transparent cursor-pointer shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                </form>
+                                @endif
+                                @endforeach
+                                @if ($package->name == "Cancellation package")
+                                <form action={{ route('booking.destroy', $reservation->id) }} method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                  <input type="hidden" name="id" value={{$reservation->id}}>
+                                  <input type="submit" value="Cancel" class="inline-flex justify-center py-1.5 px-6 border border-transparent cursor-pointer shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                </form>
+                                @endif
+                              </div>
+                            </div>
+                          </div>  
                         </td>
                       </tr>
                       @endforeach
