@@ -237,14 +237,14 @@
                           <div class="flex items-center justify-center">
                             <div class="ml-4">
                               <div class="text-sm font-medium text-gray-900">
-                                  {{ $reservation->check_in->format("d-m-Y H:m")}}
+                                  {{ $reservation->check_in->format("d-m-Y H:i")}}
                               </div>
                         </td>
                         <td >
                           <div class="flex items-center justify-center">
                             <div class="ml-4">
                               <div class="text-sm font-medium text-gray-900">
-                                  {{ $reservation->check_out->format("d-m-Y H:m")}}
+                                  {{ $reservation->check_out->format("d-m-Y H:i")}}
                               </div>
                         </td>
                         <td >
