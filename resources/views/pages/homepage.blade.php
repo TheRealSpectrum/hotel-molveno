@@ -102,11 +102,11 @@
                 <div>{!! $page->restaurant_text_box !!}</div>
                 <h1 class="text-4xl my-4"><i class="fas fa-phone-alt pr-1"></i>{{ $page->restaurant_phone }}</h1>
             </div>
-            <div class="flex justify-center relative">
+            <div class="grid place-items-center relative">
                 <a href="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}">
                     <img class="h-96" src="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}" alt="restaurant menu">
                 </a>
-                <a href="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}" class="absolute top-2/4 text-2xl px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue-500">
+                <a href="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}" class="absolute object-center text-2xl px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue-500">
                     Menu
                 </a>
             </div>
