@@ -17,7 +17,7 @@ class CreateDocumentsTable extends Migration
             $table->id();
             $table->string("full_name");
             $table->date("date_of_birth");
-            $table->string("document_type");
+            $table->enum("document_type", ["Passport", "ID card"]);
             $table->string("document_number");
             $table->date("document_expiration_date");
             $table->foreignId("reservation_id");

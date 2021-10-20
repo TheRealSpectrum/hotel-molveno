@@ -69,7 +69,7 @@ class DocumentCrudController extends CrudController
     {
         CRUD::field("full_name");
         CRUD::field("date_of_birth");
-        CRUD::field("document_type");
+        CRUD::field("document_type")->type("enum");
         CRUD::field("document_number");
         CRUD::field("document_expiration_date");
 
