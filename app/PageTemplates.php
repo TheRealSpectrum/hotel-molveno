@@ -236,7 +236,7 @@ trait PageTemplates
         ]);
         $this->crud->addField([
             "name" => "environmentbox_title_2",
-            "label" => "title box 2",
+            "label" => "Title box 2",
             "fake" => true,
             "type" => "text",
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
