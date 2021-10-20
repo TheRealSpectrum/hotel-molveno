@@ -12,8 +12,9 @@
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-calendar-check"></i> Reservations</a>
     <ul class="nav-dropdown-items">
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('guest') }}'><i class='nav-icon la la-user-tag'></i> Guests</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('reservation') }}'><i class='nav-icon la la-calendar-check'></i> Reservations</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('guest') }}'><i class='nav-icon la la-user-tag'></i> Guests</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('document') }}'><i class="nav-icon las la-passport"></i>Documents</a></li>
     </ul>
 </li>
 <li class="nav-item nav-dropdown">
