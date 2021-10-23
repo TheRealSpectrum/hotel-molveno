@@ -17,6 +17,7 @@ class CreatePackagesTable extends Migration
             $table->id();
             $table->string("name");
             $table->integer("price");
+            $table->boolean("is_task")->default(0);
             $table->timestamps();
         });
 
