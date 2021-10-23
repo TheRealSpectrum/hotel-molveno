@@ -31,6 +31,37 @@ trait PageTemplates
                 trans("backpack::pagemanager.content") .
                 "</h2><hr>",
         ]);
+        // PROFILE
+        $this->crud->addField([
+            // CustomHTML
+            "name" => "content_separator_profile",
+            "type" => "custom_html",
+            "value" => "<h3>Hotel profile</h3><hr>",
+        ]);
+        $this->crud->addField([
+            "name" => "hotel_name",
+            "label" => "Hotel name",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "hotel_address",
+            "label" => "Hotel address",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "hotel_phonenumber",
+            "label" => "Hotel phonenumber",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
         // FRONT PAGE
         $this->crud->addField([
             // CustomHTML
@@ -295,15 +326,6 @@ trait PageTemplates
             "store_in" => "extras",
         ]);
         $this->crud->addField([
-            "name" => "restaurant_phone",
-            "label" => "Restaurant Phone number",
-            "fake" => true,
-            "type" => "text",
-            "store_in" => "extras",
-            "prefix" => '<i class="fas fa-phone-alt"></i>',
-            "wrapper" => ["class" => "form-group col-md-3"],
-        ]);
-        $this->crud->addField([
             "name" => "restaurant_image",
             "label" => "Restaurant menu",
             "fake" => true,
@@ -348,21 +370,6 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
-            "store_in" => "extras",
-        ]);
-        // CONTACT
-        $this->crud->addField([
-            // CustomHTML
-            "name" => "content_separator_contact",
-            "type" => "custom_html",
-            "value" => "<h3>Contact</h3><hr>",
-        ]);
-        $this->crud->addField([
-            "name" => "contact_title",
-            "label" => "Contact title",
-            "fake" => true,
-            "type" => "text",
-            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
             "store_in" => "extras",
         ]);
     }
