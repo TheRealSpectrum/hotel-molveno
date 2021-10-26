@@ -62,6 +62,23 @@ trait PageTemplates
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
             "store_in" => "extras",
         ]);
+        $this->crud->addField([
+            "name" => "hotel_email",
+            "label" => "Hotel email",
+            "fake" => true,
+            "type" => "text",
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "hotel_logo",
+            "label" => "Hotel logo",
+            "fake" => true,
+            "type" => "image",
+            "crop" => true,
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
+            "store_in" => "extras",
+        ]);
         // FRONT PAGE
         $this->crud->addField([
             // CustomHTML
