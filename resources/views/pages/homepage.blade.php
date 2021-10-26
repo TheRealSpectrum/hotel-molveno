@@ -103,7 +103,7 @@
             <div class="my-6 md:m-6">
                 <h1 class="text-4xl pb-4 font-medium text-black">{!! $page->restaurant_title !!}</h1>
                 <div>{!! $page->restaurant_text_box !!}</div>
-                <h1 class="text-4xl my-4"><i class="fas fa-phone-alt pr-1"></i>{{ $page->restaurant_phone }}</h1>
+                <h1 class="text-4xl my-4"><i class="fas fa-phone-alt pr-1"></i>{{ $page->hotel_phonenumber }}</h1>
             </div>
             <div class="grid place-items-center relative">
                 <a href="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}">
@@ -136,7 +136,7 @@
     <div class="main7" id="contact">
         <div class="flex flex-col py-8 md:py-0 md:grid md:grid-flow-row md:grid-cols-2 md:place-items-center bg-gray-100 md:h-80 items-center">
           <div>
-              <h1 class="text-4xl pb-4">{!! $page->contact_title !!}</h1>
+              <h1 class="text-4xl pb-4">{!! $page->hotel_name !!}</h1>
           </div>
           <div class="flex flex-col md:flex-row">
               <a href="{{ route("booking.index") }}" class="px-6 py-3 my-4 md:mx-4 text-2xl bg-blue-500 leading-none border rounded-lg font-bold text-white text-center border-blue-500">Book now</a>
