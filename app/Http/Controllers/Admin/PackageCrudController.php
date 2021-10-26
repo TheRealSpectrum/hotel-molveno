@@ -40,9 +40,16 @@ class PackageCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::setValidation(PackageRequest::class);
-
         CRUD::column("name");
         CRUD::column("price")->prefix("€");
+        CRUD::addColumn([
+            "name" => "is_task",
+            "type" => "boolean",
+            "options" => [
+                0 => '<span style="color: Red"><i class="fas fa-times"></i></span>',
+                1 => '<span style="color: Green"><i class="fas fa-check"></i></span>',
+            ],
+        ]);
     }
 
     /**
@@ -57,6 +64,7 @@ class PackageCrudController extends CrudController
 
         CRUD::field("name");
         CRUD::field("price");
+        CRUD::field("is_task");
     }
 
     /**
