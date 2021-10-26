@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\PackageRequest;
+use App\Http\Requests\TaskRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class PackageCrudController
+ * Class TaskCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class PackageCrudController extends CrudController
+class TaskCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class PackageCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Package::class);
-        CRUD::setRoute(config("backpack.base.route_prefix") . "/package");
-        CRUD::setEntityNameStrings("package", "packages");
+        CRUD::setModel(\App\Models\Task::class);
+        CRUD::setRoute(config("backpack.base.route_prefix") . "/task");
+        CRUD::setEntityNameStrings("task", "tasks");
     }
 
     /**
@@ -39,17 +39,14 @@ class PackageCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setValidation(PackageRequest::class);
         CRUD::column("name");
-        CRUD::column("price")->prefix("€");
-        CRUD::addColumn([
-            "name" => "is_task",
-            "type" => "boolean",
-            "options" => [
-                0 => '<span style="color: Red"><i class="fas fa-times"></i></span>',
-                1 => '<span style="color: Green"><i class="fas fa-check"></i></span>',
-            ],
-        ]);
+        CRUD::column("is_completed");
+
+        /**
+         * Columns can be defined using the fluent syntax or array syntax:
+         * - CRUD::column('price')->type('number');
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
+         */
     }
 
     /**
@@ -60,11 +57,16 @@ class PackageCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(PackageRequest::class);
+        CRUD::setValidation(TaskRequest::class);
 
         CRUD::field("name");
-        CRUD::field("price");
-        CRUD::field("is_task");
+        CRUD::field("is_completed");
+
+        /**
+         * Fields can be defined using the fluent syntax or array syntax:
+         * - CRUD::field('price')->type('number');
+         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
+         */
     }
 
     /**

@@ -16,7 +16,7 @@ class Package extends Model
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-    protected $fillable = ["name", "price"];
+    protected $fillable = ["name", "price", "is_task"];
     // protected $hidden = [];
     // protected $dates = [];
 

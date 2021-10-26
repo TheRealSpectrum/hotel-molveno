@@ -1,10 +1,10 @@
 created:
-    - database/factories/Models/GuestFactory.php
-    - database/migrations/2021_08_24_122107_create_guests_table.php
-    - app/Models/Guest.php
-    - database/seeders/GuestSeeder.php
+    - database/factories/Models/TaskFactory.php
+    - database/migrations/2021_10_23_025920_create_tasks_table.php
+    - app/Models/Task.php
 models:
     Models\User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
     Models/Room: { room_number: integer, is_clean: boolean, max_guests: integer, roomtype_id: 'id foreign' }
     Models/Roomtype: { name: string, price: integer, room_surface: integer, relationships: { hasMany: Room } }
     Models/Guest: { first_name: string, last_name: string, email: string, address: string, phone: string }
+    Models\Task: { name: string, is_completed: boolean }

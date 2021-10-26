@@ -15,6 +15,7 @@
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('reservation') }}'><i class='nav-icon la la-calendar-check'></i> Reservations</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('guest') }}'><i class='nav-icon la la-user-tag'></i> Guests</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('document') }}'><i class="nav-icon las la-passport"></i>Documents</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('task') }}'><i class="nav-icon las la-tasks"></i>Daily tasks</a></li>
     </ul>
 </li>
 <li class="nav-item nav-dropdown">
