@@ -1,0 +1,6 @@
+models:
+  Models\Task:
+    name: string
+    is_completed: boolean
+
+seeders: Task
