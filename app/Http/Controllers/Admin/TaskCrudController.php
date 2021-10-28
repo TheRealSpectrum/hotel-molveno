@@ -39,9 +39,17 @@ class TaskCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::addButtonFromView("line", "test1", "task_complete", "beginning");
         CRUD::column("room_number");
         CRUD::column("name");
-        CRUD::column("is_completed");
+        CRUD::addColumn([
+            "name" => "is_completed",
+            "type" => "boolean",
+            "options" => [
+                0 => '<span style="color: Red"><i class="fas fa-times"></i></span>',
+                1 => '<span style="color: Green"><i class="fas fa-check"></i></span>',
+            ],
+        ]);
         $this->crud->enableExportButtons();
 
         /**
