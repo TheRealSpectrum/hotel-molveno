@@ -41,6 +41,7 @@ class TaskCrudController extends CrudController
     {
         CRUD::column("name");
         CRUD::column("is_completed");
+        $this->crud->enableExportButtons();
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
