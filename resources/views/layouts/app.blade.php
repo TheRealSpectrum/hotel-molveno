@@ -127,7 +127,7 @@
                     </ul>
                 </div>
                 <div class="py-8 lg:h-2/3 lg:ml-12">
-                    <h3 class="text-sm font-bold pb-4">Molveno resort</h3>
+                    <h3 class="text-sm font-bold pb-4">{{ $page->hotel_name ?? "Molveno resort" }}</h3>
                     <ul>
                         <li><a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-blue-500 hover:text-gray-600 mr-4">
                             Contact
@@ -144,7 +144,7 @@
         </div>
         <div class="flex flex-row flex-grow justify-between px-16 py-4">
             <div class="flex flex-col justify-center">
-                <p>© {{ $page->hotel_name }},  2021</p>
+                <p>© {{ $page->hotel_name ?? "Molveno resort" }},  2021</p>
             </div>
             <div class="flex flex-col items-center">
                 <p>Follow us:</p>
