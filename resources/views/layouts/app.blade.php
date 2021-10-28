@@ -144,7 +144,7 @@
         </div>
         <div class="flex flex-row flex-grow justify-between px-16 py-4">
             <div class="flex flex-col justify-center">
-                <p>© {{ $page->hotel_name }},  2021</p>
+                <p>© {{!! $page->hotel_name !!}},  2021</p>
             </div>
             <div class="flex flex-col items-center">
                 <p>Follow us:</p>
