@@ -67,6 +67,8 @@ class DocumentCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        CRUD::setValidation(DocumentRequest::class);
+
         CRUD::field("full_name");
         CRUD::field("date_of_birth");
         CRUD::field("document_type")->type("enum");
