@@ -101,9 +101,9 @@
     <div class="main5" id="restaurant">
         <div class="flex flex-col items-center bg-gray-100 w-full md:grid md:grid-cols-2 p-4">
             <div class="my-6 md:m-6">
-                <h1 class="text-4xl pb-4 font-medium text-black">{!! $page->restaurant_title !!}</h1>
+                <h1 class="text-4xl pb-4 font-medium text-black">{{ $page->restaurant_title ?? "Our restaurant" }}</h1>
                 <div>{!! $page->restaurant_text_box !!}</div>
-                <h1 class="text-4xl my-4"><i class="fas fa-phone-alt pr-1"></i>{{!! $page->hotel_phonenumber !!}}</h1>
+                <h1 class="text-4xl my-4"><i class="fas fa-phone-alt pr-1"></i>{!! $page->hotel_phonenumber !!}</h1>
             </div>
             <div class="grid place-items-center relative">
                 <a href="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}">
