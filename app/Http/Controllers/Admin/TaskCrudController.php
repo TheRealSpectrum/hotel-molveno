@@ -39,6 +39,7 @@ class TaskCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::column("room_number");
         CRUD::column("name");
         CRUD::column("is_completed");
 
@@ -59,6 +60,7 @@ class TaskCrudController extends CrudController
     {
         CRUD::setValidation(TaskRequest::class);
 
+        CRUD::field("room_number");
         CRUD::field("name");
         CRUD::field("is_completed");
 

@@ -15,9 +15,11 @@ class CreateTasksTable extends Migration
     {
         Schema::create("tasks", function (Blueprint $table) {
             $table->id();
+            $table->integer("room_number");
             $table->string("name");
             $table->boolean("is_completed");
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
