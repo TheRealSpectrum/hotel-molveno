@@ -5,7 +5,7 @@
     <div class="main1">
         <div>
             <div class="md:h-80">
-                <img class="object-fill md:h-80 w-full" src="{{ $page->frontpage_image ?? asset("images/placeholder_header.jpg") }}" alt="Molveno resort banner">
+                <img class="object-cover md:h-80 w-full" src="{{ $page->frontpage_image ?? asset("images/placeholder_header.jpg") }}" alt="Molveno resort banner">
             </div>
             <div class="flex flex-col lg:grid lg:grid-cols-3 bg-gray-100">
                 <div class="py-8 px-4 md:px-12">
