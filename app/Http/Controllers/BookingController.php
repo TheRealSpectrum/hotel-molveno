@@ -10,8 +10,10 @@ use App\Models\Room;
 use App\Models\Package;
 use Illuminate\Http\Request;
 use App\Models\Roomtype;
+use App\Notifications\Confirmation;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class BookingController extends Controller
 {
@@ -246,6 +248,17 @@ class BookingController extends Controller
         foreach ($packageIDsToBook as $packageIDsToBook) {
             $reservation->packages()->attach($packageIDsToBook);
         }
+
+        //get user mail
+        $mail = "";
+        if ($request->guest_id) {
+            $guest = Guest::find($request->guest_id);
+            $mail = $guest->email;
+        }
+        // notification email
+        Notification::route("mail", $mail)->notify(
+            new Confirmation($reservation)
+        );
 
         return view("booking.success")->with(
             "success",
