@@ -39,15 +39,21 @@ class TaskCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::addButtonFromView("line", "test1", "task_complete", "beginning");
+        CRUD::column("room_number");
         CRUD::column("name");
-        CRUD::column("is_completed");
+        CRUD::addColumn([
+            "name" => "is_completed",
+            "type" => "boolean",
+            "options" => [
+                0 => '<span style="color: Red"><i class="fas fa-times"></i></span>',
+                1 => '<span style="color: Green"><i class="fas fa-check"></i></span>',
+            ],
+        ]);
+        CRUD::column("created_at")
+            ->label("Date")
+            ->type("date");
         $this->crud->enableExportButtons();
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
     }
 
     /**
@@ -60,6 +66,7 @@ class TaskCrudController extends CrudController
     {
         CRUD::setValidation(TaskRequest::class);
 
+        CRUD::field("room_number");
         CRUD::field("name");
         CRUD::field("is_completed");
 
