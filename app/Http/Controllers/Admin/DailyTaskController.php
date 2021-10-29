@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Reservation;
+use App\Models\Room;
 use App\Models\Task;
 use Carbon\Carbon;
 
@@ -47,6 +48,15 @@ class DailyTaskController extends Controller
                     "is_completed" => 0,
                 ]);
             }
+        }
+
+        $dirtyRooms = Room::where("is_clean", "=", 0)->get();
+        foreach ($dirtyRooms as $dirtyRoom) {
+            Task::create([
+                "room_number" => $dirtyRoom->room_number,
+                "name" => "Room needs to be cleaned",
+                "is_completed" => 0,
+            ]);
         }
     }
 
