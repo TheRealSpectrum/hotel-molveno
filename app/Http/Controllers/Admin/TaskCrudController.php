@@ -50,13 +50,10 @@ class TaskCrudController extends CrudController
                 1 => '<span style="color: Green"><i class="fas fa-check"></i></span>',
             ],
         ]);
+        CRUD::column("created_at")
+            ->label("Date")
+            ->type("date");
         $this->crud->enableExportButtons();
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
     }
 
     /**
