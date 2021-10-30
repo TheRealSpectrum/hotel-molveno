@@ -3,16 +3,9 @@
 @section('content')
 <main>
     <div class="w-full flex justify-center">
-		<div class="w-full m-4 pb-32 md:w-3/5 md:pb-40 md:pt-12">
-			@if (\Session::has("error"))
-			<div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4" role="alert">
-				<p>
-					{{ Session::get("error") }}
-				</p>
-			</div>
-			@endif
+		<div class="w-full m-4 pb-32 md:pb-40 md:pt-12">
 
-			<div class="grid grid-cols-4 w-full m-auto mt-4 mb-4">
+			<div class="grid grid-cols-4 w-full md:max-w-4xl m-auto mt-4 mb-4">
 				<div class="border-t-4 border-blue-500 pt-4">
 					{{-- <a href="{{ url()->previous() }}"> --}}
 					<p class="uppercase text-blue-500 font-bold">Step 1</p>
@@ -33,8 +26,17 @@
 				</div>
 			</div>
 
-			<div class="bg-white flex justify-center">
-				<div class="shadow overflow-hidden w-full sm:rounded-md">
+			<div class="flex flex-col m-auto md:max-w-7xl">
+
+				@if (\Session::has("error"))
+				<div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4" role="alert">
+					<p>
+						{{ Session::get("error") }}
+					</p>
+				</div>
+				@endif
+
+				<div class="shadow overflow-hidden w-full md:mt-8 sm:rounded-md">
 					<div class="w-full px-16 py-5 md:p-16 bg-white">
 						<h2 class="text-2xl font-extrabold tracking-tight text-gray-900 text-center">Available rooms</h2>
 						<form action="{{ route("booking.step3") }}" method="get">
@@ -85,9 +87,7 @@
 							</div>
 							@endforeach
 							<div class="flex justify-end">
-								<div class="py-6">
-									<input type="submit" value="Personal information" class="inline-block text-sm px-8 py-3 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-0">
-								</div>
+								<input type="submit" value="Personal information" class="inline-block text-sm px-8 py-3 md:mb-4 bg-blue-500 leading-none border rounded-lg text-white border-blue hover:border-transparent hover:text-teal-500 hover:bg-gray-400 mt-4 lg:mt-4 cursor-pointer">
 							</div>
 						</form>
 					</div>
