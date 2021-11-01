@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ReservationRequest;
-use App\Models\Reservation;
 use App\Http\Requests\UpdateReservationRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use Illuminate\Support\Facades\DB;
 
 /**
  * Class ReservationCrudController
@@ -237,51 +235,7 @@ class ReservationCrudController extends CrudController
             "type" => "relationship",
             "ajax" => true,
             "inline_create" => true,
-            // "inline_create" => [
-            //     "entity" => "document",
-            //     // "create_route" => route("document-inline-create-save"),
-            // ],
         ]);
-        // "entity" => "document",
-        // "model" => "App\Models\Document",
-        // "attribute" => "document",
-        // "store_in" => "documents",
-        //     "fake" => true,
-        //     "fields" => [
-        //         [
-        //             "name" => "fullname_add",
-        //             "type" => "text",
-        //             "label" => "Full Name",
-        //             "wrapper" => ["class" => "form-group col-md-4"],
-        //         ],
-        //         [
-        //             "name" => "dob_add",
-        //             "type" => "date",
-        //             "label" => "Date of Birth",
-        //             "wrapper" => ["class" => "form-group col-md-4"],
-        //         ],
-        //         [
-        //             "name" => "doctype_add",
-        //             "type" => "text",
-        //             "label" => "Document Type",
-        //             "wrapper" => ["class" => "form-group col-md-4"],
-        //         ],
-        //         [
-        //             "name" => "docnumber_add",
-        //             "type" => "text",
-        //             "label" => "Document Number",
-        //             "wrapper" => ["class" => "form-group col-md-4"],
-        //         ],
-        //         [
-        //             "name" => "docexp_add",
-        //             "type" => "date",
-        //             "label" => "Document Expiration",
-        //             "wrapper" => ["class" => "form-group col-md-4"],
-        //         ],
-        //     ],
-        //     "new_item_label" => "Add Document",
-        //     "max_rows" => 12, // maximum rows allowed, when reached the "new item" button will be hidden
-        // ]);
 
         CRUD::field("total_price")
             ->type("TotalPriceUpdate")
