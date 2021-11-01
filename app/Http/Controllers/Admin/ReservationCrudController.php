@@ -292,10 +292,4 @@ class ReservationCrudController extends CrudController
                 "id" => "total_price_field",
             ]);
     }
-
-    public function destroy($id)
-    {
-        DB::delete("delete from reservations where id = ?", [$id]);
-        return redirect("/account")->with("succes", "Reservation cancelled");
-    }
 }
