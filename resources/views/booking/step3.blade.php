@@ -89,7 +89,7 @@
               <input type="hidden" name="room_id[]" value="{{ $roomToBook->id }}">
             @endforeach
             <div class="shadow overflow-hidden w-full md:max-w-xl md:mt-8 sm:rounded-md">
-              <div class="w-full px-16 py-5 md:p-16 bg-white">
+              <div class="w-full p-4 md:px-16 md:py-5 md:p-16 bg-white">
                 <div class="grid grid-cols-6 gap-6">
                   <div class="col-span-6 sm:col-span-3">
                     <label for="first-name" class="block text-sm font-medium text-gray-700">First name <span class="text-red-500">*</span></label>
