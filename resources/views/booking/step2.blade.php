@@ -37,7 +37,7 @@
 				@endif
 
 				<div class="shadow overflow-hidden w-full md:mt-8 sm:rounded-md">
-					<div class="w-full px-16 py-5 md:p-16 bg-white">
+					<div class="w-full p-4 md:px-16 md:py-5 md:p-16 bg-white">
 						<h2 class="text-2xl font-extrabold tracking-tight text-gray-900 text-center">Available rooms</h2>
 						<form action="{{ route("booking.step3") }}" method="get">
 							<input type="hidden" name="check_in" value="{{ $data["check_in"] }}">
