@@ -56,9 +56,7 @@ class Confirmation extends Notification
             ->line("Total price: €" . $this->reservation->total_price)
 
             // ->action("Notification Action", url("/"))
-            ->line(
-                "Thank you for your reservation, we look forward to seeing you at Molveno Resort!"
-            );
+            ->line("We look forward to seeing you at Molveno Resort!");
     }
 
     /**
