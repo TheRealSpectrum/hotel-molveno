@@ -21,6 +21,16 @@ width: 100% !important;
 width: 100% !important;
 }
 }
+
+.flex {
+  display:flex;
+  justify-content: center;
+}
+img {
+width:20%;
+height:20%;
+text-align: center;
+}
 </style>
 </head>
 <body>

@@ -1,5 +1,9 @@
 @component('mail::message')
-{{-- Greeting --}}
+{{-- Logo --}}
+<div class="flex">
+    <img src="{{$page->hotel_logo ?? asset("images/Logo Molveno Resort Black.svg") }}" alt="hotel logo">
+</div>
+
 @if (! empty($greeting))
 # {{ $greeting }}
 @else
@@ -18,16 +22,14 @@
 
 {{-- Action Button --}}
 @isset($actionText)
-<?php
-    switch ($level) {
-        case 'success':
-        case 'error':
-            $color = $level;
-            break;
-        default:
-            $color = 'primary';
-    }
-?>
+<?php switch ($level) {
+    case "success":
+    case "error":
+        $color = $level;
+        break;
+    default:
+        $color = "primary";
+} ?>
 @component('mail::button', ['url' => $actionUrl, 'color' => $color])
 {{ $actionText }}
 @endcomponent
