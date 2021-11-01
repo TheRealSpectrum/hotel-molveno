@@ -26,9 +26,9 @@ class DocumentRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required|min:5|max:255",
+            "full_name" => "required|min:5|max:255",
             "date_of_birth" => "required|date",
-            "document_nr" => "required",
+            "document_number" => "required",
             "document_expiration_date" => "required|date",
             "reservation_id" => "required|integer",
         ];
