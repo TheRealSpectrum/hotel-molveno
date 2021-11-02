@@ -3,7 +3,7 @@
 @section('content')
 <main>
     <div class="w-full flex justify-center">
-		<div class="w-full m-4 pb-32 md:pb-40 md:pt-12">
+		<div class="m-4 pb-32 md:pb-40 md:pt-12">
 
 			<div class="grid grid-cols-4 w-full md:max-w-4xl m-auto mt-4 mb-4">
 				<div class="border-t-4 border-blue-500 pt-4">
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col m-auto md:max-w-7xl">
+			<div class="flex flex-col m-auto">
 
 				@if (\Session::has("error"))
 				<div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4" role="alert">
@@ -36,8 +36,8 @@
 				</div>
 				@endif
 
-				<div class="shadow overflow-hidden w-full md:mt-8 sm:rounded-md">
-					<div class="w-full p-4 md:px-16 md:py-5 md:p-16 bg-white">
+				<div class="shadow overflow-hidden md:mt-8 sm:rounded-md">
+					<div class="p-4 md:px-16 md:py-5 md:p-16 bg-white">
 						<h2 class="text-2xl font-extrabold tracking-tight text-gray-900 text-center">Available rooms</h2>
 						<form action="{{ route("booking.step3") }}" method="get">
 							<input type="hidden" name="check_in" value="{{ $data["check_in"] }}">
@@ -45,13 +45,13 @@
 							<input type="hidden" name="adults" value="{{ $data["adults"] }}">
 							<input type="hidden" name="children" value="{{ $data["children"] }}">
 							<input type="hidden" name="room_amount" value="{{ $data["room_amount"] }}">
-							<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+							<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2">
 								@csrf	
 								@foreach ( $roomTypes as $roomType )
 								<div class="group relative">
-									<div class="w-full bg-gray-200 rounded-md overflow-hidden group-hover:opacity-75">
+									<div class=" bg-gray-200 rounded-md overflow-hidden group-hover:opacity-75">
 										<img src="{{ url($roomType->image ?? 'https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg') }}" 
-										alt="Room type" class="w-full object-center object-fill">
+										alt="Room type" class="object-center object-fill">
 									</div>
 									<div class="mt-4 flex justify-between">
 										<div>
