@@ -216,7 +216,6 @@
                   <th class="md:p-3">Children</th>
                   <th class="md:p-3">Roomtype</th>
                   <th class="md:p-3">Price</th>
-                  <th class="md:p-3">Cancel</th>
                 </tr>
               </thead>
               <tbody>
@@ -240,26 +239,6 @@
                   </td>
                   <td class="md:p-3">
                     €{{ $reservation->total_price}}
-                  </td>
-                  <td>
-                    @foreach($packages as $package)
-                    @if($package->name == "Cancellation insurance")
-                    <form action={{ route('booking.destroy', $reservation->id) }} method="POST">
-                      @csrf
-                      @method('DELETE')
-                      <input type="hidden" name="id" value={{$reservation->id}}>
-                      <input type="submit" value="Cancel" class="inline-flex justify-center py-1.5 px-6 border border-transparent cursor-pointer shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    </form>
-                    @endif
-                    @endforeach
-                    @if ($package->name == "Cancellation package")
-                    <form action={{ route('booking.destroy', $reservation->id) }} method="POST">
-                      @csrf
-                      @method('DELETE')
-                      <input type="hidden" name="id" value={{$reservation->id}}>
-                      <input type="submit" value="Cancel" class="inline-flex justify-center py-1.5 px-6 border border-transparent cursor-pointer shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    </form>
-                    @endif
                   </td>
                 </tr>
                 @endforeach
