@@ -36,7 +36,7 @@
 				</div>
 				@endif
 
-				<div class="shadow overflow-hidden md:mt-8 sm:rounded-md">
+				<div class="shadow overflow-hidden md:max-w-4xl md:mt-8 sm:rounded-md">
 					<div class="p-4 md:px-16 md:py-5 md:p-16 bg-white">
 						<h2 class="text-2xl font-extrabold tracking-tight text-gray-900 text-center">Available rooms</h2>
 						<form action="{{ route("booking.step3") }}" method="get">
