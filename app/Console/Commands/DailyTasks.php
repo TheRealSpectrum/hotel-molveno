@@ -41,6 +41,10 @@ class DailyTasks extends Command
      */
     public function handle()
     {
+        // Remove completed task
+
+        Task::where("is_completed", "=", true)->delete();
+
         // Create new tasks
         $reservationsToday = Reservation::where(
             "check_in",
