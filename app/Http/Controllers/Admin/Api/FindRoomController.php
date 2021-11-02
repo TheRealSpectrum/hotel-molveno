@@ -22,45 +22,26 @@ class FindRoomController extends Controller
 
         // if a check in/out has been selected, only show rooms available
         if ($form["check_in"] && $form["check_out"]) {
-            $check_in = $form["check_in"];
-            $check_out = $form["check_out"];
-            $roomType = $form["roomtype_id"];
-            $adults = $form["adults"];
-            $children = $form["children"];
-            $totalGuests = (int) $adults + (int) $children;
+            $availableRooms = Room::getAvailableRooms($form);
 
-            $availableRooms = Room::with("reservations")
-                ->whereHas("reservations", function ($q) use (
-                    $check_in,
-                    $check_out,
-                    $roomType,
-                    $totalGuests
-                ) {
-                    $q->whereNotBetween("check_in", [$check_in, $check_out])
-                        ->WhereNotBetween("check_out", [$check_in, $check_out])
-                        ->where("available", true)
-                        ->where("maximum_guests", ">=", $totalGuests)
-                        ->where("roomtype_id", $roomType)
-                        ->orderBy("room_number", "asc");
-                })
-                ->orWhereDoesntHave("reservations")
-                ->where("roomtype_id", $roomType)
-                ->where("available", true)
-                ->where("maximum_guests", ">=", $totalGuests)
-                ->orderBy("room_number", "asc");
+            $arrAvailableRoomIds = [];
+            foreach ($availableRooms as $availableRoom) {
+                array_push($arrAvailableRoomIds, $availableRoom->id);
+            }
+
+            $availableRoomsQuery = Room::whereIn("id", $arrAvailableRoomIds);
+
+            if ($search_term) {
+                $results = $availableRoomsQuery
+                    ->where("room_number", "LIKE", "%" . $search_term . "%")
+                    ->paginate(10);
+            } else {
+                $results = $availableRoomsQuery->paginate(10);
+            }
+
+            return $results;
         }
-
-        if ($search_term) {
-            $results = $availableRooms
-                ->where("room_number", "LIKE", "%" . $search_term . "%")
-                ->paginate(10);
-        } else {
-            $results = $availableRooms->paginate(10);
-        }
-
-        return $results;
     }
-
     public function show($id)
     {
         return Room::find($id);
