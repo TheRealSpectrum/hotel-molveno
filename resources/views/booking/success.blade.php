@@ -2,7 +2,7 @@
 @section('title', 'Reservation success - Molveno Resort')
 @section('content')
 <main>
-    <div class="flex-grow my-24 mx-4">
+    <div class="flex-grow my-12 mx-4">
         <div class="grid grid-rows-7">
             <div class="text-center mt-10">
                 <h1 class="text-5xl font-bold">
