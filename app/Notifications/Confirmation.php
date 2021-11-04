@@ -45,7 +45,9 @@ class Confirmation extends Notification
 
         return (new MailMessage())
             ->subject("Reservation Confirmation")
-            ->greeting("Dear " . $this->reservation->guest->first_name)
+            ->greeting(
+                "Dear Mr/Mrs " . $this->reservation->guest->last_name . ","
+            )
             ->line(
                 "Thank you for your reservation at Molveno Resort. These are the details of your reservation."
             )
