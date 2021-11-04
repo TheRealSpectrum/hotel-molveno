@@ -56,9 +56,11 @@ trait PageTemplates
         ]);
         $this->crud->addField([
             "name" => "hotel_phonenumber",
-            "label" => "Hotel phonenumber",
+            "label" => "Hotel phone number",
             "fake" => true,
             "type" => "text",
+            "prefix" => '<i class="fas fa-phone-alt"></i>',
+            "wrapper" => ["class" => "form-group col-md-3"],
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
             "store_in" => "extras",
         ]);
@@ -66,7 +68,7 @@ trait PageTemplates
             "name" => "hotel_email",
             "label" => "Hotel email",
             "fake" => true,
-            "type" => "text",
+            "type" => "email",
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
             "store_in" => "extras",
         ]);
@@ -91,6 +93,7 @@ trait PageTemplates
             "label" => "Banner image",
             "fake" => true,
             "type" => "image",
+            "aspect_ratio" => 4,
             "crop" => true,
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
             "store_in" => "extras",
@@ -210,6 +213,7 @@ trait PageTemplates
             "label" => "Background image",
             "fake" => true,
             "type" => "image",
+            "aspect_ratio" => 4,
             "crop" => true,
             "store_in" => "extras",
         ]);
@@ -340,6 +344,16 @@ trait PageTemplates
             "label" => "Content",
             "fake" => true,
             "type" => "wysiwyg",
+            "store_in" => "extras",
+        ]);
+        $this->crud->addField([
+            "name" => "restaurant_phonenumber",
+            "label" => "Restaurant phone number",
+            "fake" => true,
+            "type" => "text",
+            "prefix" => '<i class="fas fa-phone-alt"></i>',
+            "wrapper" => ["class" => "form-group col-md-3"],
+            "placeholder" => trans("backpack::pagemanager.content_placeholder"),
             "store_in" => "extras",
         ]);
         $this->crud->addField([
