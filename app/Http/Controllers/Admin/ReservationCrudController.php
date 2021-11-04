@@ -166,7 +166,9 @@ class ReservationCrudController extends CrudController
             ->pivot(true)
             ->wrapper(["id" => "room_select2"]);
 
-        CRUD::field("packages")->type("select2_multiple");
+        CRUD::field("packages")
+            ->type("select2_multiple")
+            ->attribute("name_price");
 
         CRUD::field("total_price")
             ->type("TotalPrice")
