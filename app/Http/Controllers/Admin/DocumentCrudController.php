@@ -52,6 +52,8 @@ class DocumentCrudController extends CrudController
             ->type("relationship")
             ->attribute("id");
 
+        $this->crud->enableExportButtons();
+
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
