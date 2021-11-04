@@ -93,7 +93,7 @@ trait PageTemplates
             "label" => "Banner image",
             "fake" => true,
             "type" => "image",
-            "aspect_ratio" => 4,
+            "aspect_ratio" => 3.5,
             "crop" => true,
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
             "store_in" => "extras",
