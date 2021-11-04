@@ -78,7 +78,7 @@
                   <input type="hidden" name="check_out" value="{{ old("check_out") }}">
                   <div class="relative my-4">
                     <label for="daterange" class="pl-2 font-medium">Check in/out date <span class="text-red-500">*</span></label>
-                    <input class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" autocomplete="off" type="text" name="daterange">
+                    <input class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md cursor-pointer" autocomplete="off" type="text" name="daterange">
                     <div class="absolute top-0 right-0 px-3 py-9 pointer-events-none">
                         <svg
                           class="h-6 w-6 text-gray-400"

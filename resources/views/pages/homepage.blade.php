@@ -5,7 +5,7 @@
     <div class="main1">
         <div>
             <div class="md:h-80">
-                <img class="object-cover md:h-80 w-full" src="{{ $page->frontpage_image ?? asset("images/placeholder_header.jpg") }}" alt="Molveno resort banner">
+                <img class="object-fill md:h-80 w-full" src="{{ $page->frontpage_image ?? asset("images/placeholder_header.jpg") }}" alt="Molveno resort banner">
             </div>
             <div class="flex flex-col lg:grid lg:grid-cols-3 bg-gray-100">
                 <div class="py-8 px-4 md:px-12">
@@ -103,7 +103,7 @@
             <div class="my-6 md:m-6">
                 <h1 class="text-4xl pb-4 font-medium text-black">{{ $page->restaurant_title ?? "Our restaurant" }}</h1>
                 <div>{!! $page->restaurant_text_box !!}</div>
-                <h1 class="text-4xl my-4"><i class="fas fa-phone-alt pr-1"></i>{!! $page->hotel_phonenumber !!}</h1>
+                <h1 class="text-4xl my-4"><i class="fas fa-phone-alt pr-1"></i>{!! $page->restaurant_phonenumber !!}</h1>
             </div>
             <div class="grid place-items-center relative">
                 <a href="{{ $page->restaurant_image ?? asset("images/placeholder_menu.jpg") }}">
