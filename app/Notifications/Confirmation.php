@@ -58,7 +58,12 @@ class Confirmation extends Notification
             ->line("Total price: €" . $this->reservation->total_price)
 
             // ->action("Notification Action", url("/"))
-            ->line("We look forward to seeing you at Molveno Resort!");
+            ->line("We look forward to seeing you at Molveno Resort!")
+            ->salutation("Kind Regards - Molveno Resort")
+            ->line("Molveno Resort")
+            ->line("Via Bettega 18, 38018 Molveno TN, Italy")
+            ->line("Phone: +390461586934")
+            ->line("info@molvenoresort.com");
     }
 
     /**
