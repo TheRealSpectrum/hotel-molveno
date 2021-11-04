@@ -107,6 +107,8 @@ class ReservationCrudController extends CrudController
             ->format("ddd D MMM YYYY HH:mm");
 
         CRUD::column("total_price")->prefix("€");
+
+        $this->crud->enableExportButtons();
     }
 
     /**

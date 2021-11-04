@@ -45,6 +45,8 @@ class GuestCrudController extends CrudController
         CRUD::column("address");
         CRUD::column("phone");
 
+        $this->crud->enableExportButtons();
+
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
