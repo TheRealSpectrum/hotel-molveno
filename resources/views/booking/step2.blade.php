@@ -3,7 +3,7 @@
 @section('content')
 <main>
     <div class="w-full flex justify-center">
-		<div class="m-4 pb-32 md:pb-40 md:pt-12">
+		<div class="w-full m-4 pb-32 md:pb-40 md:pt-12">
 
 			<div class="grid grid-cols-4 w-full md:max-w-4xl m-auto mt-4 mb-4">
 				<div class="border-t-4 border-blue-500 pt-4">
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col m-auto">
+			<div class="flex justify-center">
 
 				@if (\Session::has("error"))
 				<div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4" role="alert">
@@ -50,8 +50,8 @@
 								@foreach ( $roomTypes as $roomType )
 								<div class="group relative">
 									<div class=" bg-gray-200 rounded-md overflow-hidden group-hover:opacity-75">
-										<img src="{{ url($roomType->image ?? 'https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg') }}" 
-										alt="Room type" class="object-center object-fill">
+										<img class="object-fill md:h-64 w-full" src="{{ url($roomType->image ?? 'https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg') }}" 
+										alt="Room type">
 									</div>
 									<div class="mt-4 flex justify-between">
 										<div>
