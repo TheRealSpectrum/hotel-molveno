@@ -36,7 +36,7 @@
 				</div>
 				@endif
 
-				<div class="shadow overflow-hidden md:max-w-4xl md:mt-8 sm:rounded-md">
+				<div class="shadow overflow-hidden md:max-w-6xl md:mt-8 sm:rounded-md">
 					<div class="p-4 md:px-16 md:py-5 md:p-16 bg-white">
 						<h2 class="text-2xl font-extrabold tracking-tight text-gray-900 text-center">Available rooms</h2>
 						<form action="{{ route("booking.step3") }}" method="get">
@@ -45,13 +45,12 @@
 							<input type="hidden" name="adults" value="{{ $data["adults"] }}">
 							<input type="hidden" name="children" value="{{ $data["children"] }}">
 							<input type="hidden" name="room_amount" value="{{ $data["room_amount"] }}">
-							<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2">
+							<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 md:grid-cols-2 lg:grid-cols-3">
 								@csrf	
 								@foreach ( $roomTypes as $roomType )
 								<div class="group relative">
-									<div class=" bg-gray-200 rounded-md overflow-hidden group-hover:opacity-75">
-										<img class="object-fill md:h-64 w-full" src="{{ url($roomType->image ?? 'https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg') }}" 
-										alt="Room type">
+									<div class="bg-gray-200 rounded-md overflow-hidden group-hover:opacity-75">
+										<img src="{{ url($roomType->image ?? asset("images/placeholder_room.jpg")) }}" alt="Room type">
 									</div>
 									<div class="mt-4 flex justify-between">
 										<div>
