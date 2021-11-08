@@ -93,7 +93,7 @@ trait PageTemplates
             "label" => "Banner image",
             "fake" => true,
             "type" => "image",
-            "aspect_ratio" => 3.5,
+            "aspect_ratio" => 5,
             "crop" => true,
             "placeholder" => trans("backpack::pagemanager.content_placeholder"),
             "store_in" => "extras",
@@ -167,6 +167,7 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "aspect_ratio" => 2,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
@@ -175,6 +176,7 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "aspect_ratio" => 2,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
@@ -183,6 +185,7 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "aspect_ratio" => 2,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
@@ -191,6 +194,7 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "aspect_ratio" => 2,
             "store_in" => "extras",
         ]);
         // FACILITIES
@@ -213,7 +217,7 @@ trait PageTemplates
             "label" => "Background image",
             "fake" => true,
             "type" => "image",
-            "aspect_ratio" => 4,
+            "aspect_ratio" => 5,
             "crop" => true,
             "store_in" => "extras",
         ]);
@@ -261,6 +265,7 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "aspect_ratio" => 2,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
@@ -284,6 +289,7 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "aspect_ratio" => 2,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
@@ -307,6 +313,7 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "aspect_ratio" => 2,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
@@ -377,6 +384,7 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "aspect_ratio" => 2,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
@@ -385,6 +393,7 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "aspect_ratio" => 2,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
@@ -393,6 +402,7 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "aspect_ratio" => 2,
             "store_in" => "extras",
         ]);
         $this->crud->addField([
@@ -401,6 +411,7 @@ trait PageTemplates
             "fake" => true,
             "type" => "image",
             "crop" => true,
+            "aspect_ratio" => 2,
             "store_in" => "extras",
         ]);
     }
