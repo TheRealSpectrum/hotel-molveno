@@ -210,35 +210,35 @@
             <table class="table text-gray-400 border-separate text-xs">
               <thead class="bg-gray-300 text-black">
                 <tr>
-                  <th class="md:p-3">Check in</th>
-                  <th class="md:p-3">Check out</th>
-                  <th class="md:p-3">Adults</th>
-                  <th class="md:p-3">Children</th>
-                  <th class="md:p-3">Roomtype</th>
-                  <th class="md:p-3">Price</th>
+                  <th class="p-1 md:p-3">Check in</th>
+                  <th class="p-1 md:p-3">Check out</th>
+                  <th class="p-1 md:p-3">Adults</th>
+                  <th class="p-1 md:p-3">Children</th>
+                  <!-- <th class="md:p-3">Roomtype</th> -->
+                  <th class="p-1 md:p-3">Price</th>
                 </tr>
               </thead>
               <tbody>
                 @if (!empty($reservations[0]))
                 @foreach ($reservations as $reservation)
                 <tr class="bg-gray-100 text-black">
-                  <td class="md:p-3">
-                    {{ $reservation->check_in->format("d-m-Y H:i")}}
+                  <td class="p-1 md:p-3">
+                    {{ $reservation->check_in->format("d-m-Y H:i") }}
                   </td>
-                  <td class="md:p-3">
-                    {{ $reservation->check_out->format("d-m-Y H:i")}}
+                  <td class="p-1 md:p-3">
+                    {{ $reservation->check_out->format("d-m-Y H:i") }}
                   </td>
-                  <td class="md:p-3">
-                    {{ $reservation->adults}}
+                  <td class="p-1 md:p-3">
+                    {{ $reservation->adults }}
                   </td>
-                  <td class="md:p-3">
-                    {{ $reservation->children}}
+                  <td class="p-1 md:p-3">
+                    {{ $reservation->children }}
                   </td>
-                  <td class="md:p-3">
-                    {{ $reservation->roomType->name}}
-                  </td>
-                  <td class="md:p-3">
-                    €{{ $reservation->total_price}}
+                  <!-- <td class="md:p-3">
+                    {{ $reservation->roomtype->name }}
+                  </td> -->
+                  <td class="p-1 md:p-3">
+                    €{{ $reservation->total_price }}
                   </td>
                 </tr>
                 @endforeach

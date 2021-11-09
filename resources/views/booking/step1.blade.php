@@ -5,7 +5,7 @@
   <div class="w-full flex justify-center">
     <div class="w-full m-4 pb-32 md:pb-40 md:pt-12">
 
-      <div class="grid grid-cols-4 w-full md:max-w-4xl m-auto mt-4 mb-4">
+      <div class="grid grid-cols-4 w-full md:max-w-2xl m-auto mt-4 mb-4">
         <div class="border-t-4 border-blue-500 pt-4 flex flex-col">
           <p class="uppercase text-blue-500 font-bold">Step 1</p>
           <p class="font-semibold">Booking information</p>

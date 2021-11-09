@@ -53,7 +53,9 @@ class BookingRequest extends FormRequest
     public function messages()
     {
         return [
-                //
-            ];
+            "room_amount.gte" =>
+                "The room amount must be greater than or equal to 1.",
+            "adults.min" => "The amount of adults must be at least 1.",
+        ];
     }
 }
