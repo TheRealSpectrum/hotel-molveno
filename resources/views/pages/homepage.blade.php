@@ -58,7 +58,7 @@
                     <?php
                     $facilities = json_decode($page->facilities, true) ?? [];
                     foreach ($facilities as $facility => $value) {
-                        echo "<li class='w-1/2 text-white font-small text-small'>" .
+                        echo "<li class='w-1/2 text-white font-small text-small font-bold'>" .
                             array_values($value)[0] .
                             "</li>";
                     }
