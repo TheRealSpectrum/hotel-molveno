@@ -3,7 +3,7 @@
 @section('content')
 <main>
   <div class="w-full flex justify-center">
-    <div class="w-full m-4 pb-32 md:w-3/5 md:pb-40 md:pt-12">
+    <div class="w-full m-4 pb-32 md:pb-40 md:pt-12">
       @if (\Session::has("success"))
       <div class="bg-green-200 border-green-600 text-green-600 border-l-4 p-4" role="alert">
         <p>
@@ -12,7 +12,7 @@
       </div>
       @else 
       <div class="sm:mt-0">
-        <div class="grid grid-cols-4 w-full md:max-w-4xl m-auto mt-4 mb-4">
+        <div class="grid grid-cols-4 w-full md:max-w-2xl m-auto mt-4 mb-4">
           <div class="border-t-4 border-blue-500 pt-4">
             {{-- <a href="{{ route("booking.index") }}"> --}}
               <p class="uppercase text-blue-500 font-bold">Step 1</p>

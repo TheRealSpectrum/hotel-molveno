@@ -5,7 +5,7 @@
     <div class="w-full flex justify-center">
 		<div class="w-full m-4 pb-32 md:pb-40 md:pt-12">
 
-			<div class="grid grid-cols-4 w-full md:max-w-4xl m-auto mt-4 mb-4">
+			<div class="grid grid-cols-4 w-full md:max-w-2xl m-auto mt-4 mb-4">
 				<div class="border-t-4 border-blue-500 pt-4">
 					{{-- <a href="{{ url()->previous() }}"> --}}
 					<p class="uppercase text-blue-500 font-bold">Step 1</p>
@@ -26,17 +26,17 @@
 				</div>
 			</div>
 
-			<div class="flex justify-center">
+			<div class="flex flex-col m-auto md:max-w-4xl">
 
 				@if (\Session::has("error"))
-				<div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4" role="alert">
+				<div class="bg-red-200 border-red-600 text-red-600 border-l-4 p-4 md:max-w-4xl" role="alert">
 					<p>
 						{{ Session::get("error") }}
 					</p>
 				</div>
 				@endif
 
-				<div class="shadow overflow-hidden md:max-w-6xl md:mt-8 sm:rounded-md">
+				<div class="shadow overflow-hidden m-auto md:max-w-4xl md:mt-8 sm:rounded-md">
 					<div class="p-4 md:px-16 md:py-5 md:p-16 bg-white">
 						<h2 class="text-2xl font-extrabold tracking-tight text-gray-900 text-center">Available rooms</h2>
 						<form action="{{ route("booking.step3") }}" method="get">
@@ -45,7 +45,7 @@
 							<input type="hidden" name="adults" value="{{ $data["adults"] }}">
 							<input type="hidden" name="children" value="{{ $data["children"] }}">
 							<input type="hidden" name="room_amount" value="{{ $data["room_amount"] }}">
-							<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 md:grid-cols-2 lg:grid-cols-3">
+							<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 md:grid-cols-2">
 								@csrf	
 								@foreach ( $roomTypes as $roomType )
 								<div class="group relative">
