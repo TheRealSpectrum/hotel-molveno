@@ -38,10 +38,10 @@
                         <img src="{{ $page->room_image_4 ?? asset("images/placeholder_room.jpg") }}">
                     </div>
                     <div class="slider slider-nav" id="slider-rooms-nav">
-                        <img class="my-3" src="{{ $page->room_image_1 ?? asset("images/placeholder_room.jpg") }}">
-                        <img class="m-3" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.jpg") }}">
-                        <img class="m-3" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.jpg") }}">
-                        <img class="my-3" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.jpg") }}">
+                        <img class="my-3 mr-3" src="{{ $page->room_image_1 ?? asset("images/placeholder_room.jpg") }}">
+                        <img class="my-3 mr-3" src="{{ $page->room_image_2 ?? asset("images/placeholder_room.jpg") }}">
+                        <img class="my-3 mr-3" src="{{ $page->room_image_3 ?? asset("images/placeholder_room.jpg") }}">
+                        <img class="my-3 mr-3" src="{{ $page->room_image_4 ?? asset("images/placeholder_room.jpg") }}">
                     </div>
                 </div>
             </div>
@@ -125,10 +125,10 @@
                     <img src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
                 </div>
                 <div class="slider slider-gallery-nav" id="slider-gallery-nav">
-                    <img class="my-3" src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
-                    <img class="m-3" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
-                    <img class="m-3" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
-                    <img class="my-3" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
+                    <img class="my-3 mr-3" src="{{ $page->gallery_image_1 ?? asset("images/placeholder_header.jpg") }}">
+                    <img class="my-3 mr-3" src="{{ $page->gallery_image_2 ?? asset("images/placeholder_header.jpg") }}">
+                    <img class="my-3 mr-3" src="{{ $page->gallery_image_3 ?? asset("images/placeholder_header.jpg") }}">
+                    <img class="my-3 mr-3" src="{{ $page->gallery_image_4 ?? asset("images/placeholder_header.jpg") }}">
                 </div>
             </div>
         </div>
