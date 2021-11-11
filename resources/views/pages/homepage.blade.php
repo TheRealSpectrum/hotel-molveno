@@ -4,8 +4,8 @@
 <main>
     <div class="main1">
         <div>
-            <div class="md:h-80 w-full">
-                <img class="md:h-80 w-full" src="{{ $page->frontpage_image ?? asset("images/placeholder_header.jpg") }}" alt="Molveno resort banner">
+            <div class="h-40 md:h-80 w-full">
+                <img class="h-40 md:h-80 w-full" src="{{ $page->frontpage_image ?? asset("images/placeholder_header.jpg") }}" alt="Molveno resort banner">
             </div>
             <div class="flex flex-col lg:grid lg:grid-cols-3 bg-gray-100">
                 <div class="py-8 px-4 md:px-12">
@@ -49,16 +49,16 @@
     </div>
     <div class="main3" id="facilities">
         <div class="w-full">
-            <div class="md:h-96 md:relative overflow-hidden flex justify-center">
+            <div class="h-52 md:h-96 md:relative overflow-hidden flex justify-center">
                 <img class="object-fill md:h-96 w-full" src="{{ $page->facilities_image ?? asset("images/placeholder_facilities.jpg") }}" alt="facilities">
                 <div class="absolute w-full flex justify-center p-4 md:p-12">
                     <h1 class="text-white font-bold text-xl lg:text-4xl">{{ $page->facilities_title ?? "Facilities" }}</h1>
                 </div>
-                <ul class="absolute flex flex-col flex-wrap w-full text-center h-56 md:h-96 md:w-3/5 py-12 mt-4 px-4 md:py-32 md:mt-6">
+                <ul class="absolute flex flex-col flex-wrap w-full text-center h-44 md:h-96 md:w-4/5 py-12 mt-4 px-4 md:py-32 md:mt-6">
                     <?php
                     $facilities = json_decode($page->facilities, true) ?? [];
                     foreach ($facilities as $facility => $value) {
-                        echo "<li class='w-1/2 text-white font-small text-small font-bold'>" .
+                        echo "<li class='w-1/2 text-white font-small text-xs md:text-base font-bold'>" .
                             array_values($value)[0] .
                             "</li>";
                     }
